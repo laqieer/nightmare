@@ -11,8 +11,12 @@ import reportWebVitals from './reportWebVitals';
 import 'antd/dist/antd.min.css';
 import HomePage from './components/HomePage';
 import ErrorPage from './components/ErrorPage';
+import FE6 from './components/Module/FE6';
+import FE7 from './components/Module/FE7';
 import FE6CharacterEditor from './components/Module/FE6/CharacterEditor';
 import FE7AnimationPointerTableEditor from './components/Module/FE7/AnimationPointerTableEditor';
+import FE6HomePage from './components/Module/FE6/HomePage';
+import FE7HomePage from './components/Module/FE7/HomePage';
 
 const router = createBrowserRouter([
   {
@@ -21,16 +25,36 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
     children: [
       {
-        path: '/',
+        path: '',
         element: <HomePage />,
       },
       {
-        path: 'FE6/Character',
-        element: <FE6CharacterEditor />,
+        path: 'FE6',
+        element: <FE6 />,
+        children: [
+          {
+            path: '',
+            element: <FE6HomePage />,
+          },
+          {
+            path: 'Character',
+            element: <FE6CharacterEditor />,
+          },
+        ],
       },
       {
-        path: 'FE7/AnimationPointerTable',
-        element: <FE7AnimationPointerTableEditor />,
+        path: 'FE7',
+        element: <FE7 />,
+        children: [
+          {
+            path: '',
+            element: <FE7HomePage />,
+          },
+          {
+            path: 'AnimationPointerTable',
+            element: <FE7AnimationPointerTableEditor />,
+          },
+        ],
       },
     ],
   },
