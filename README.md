@@ -1,6 +1,6 @@
 # Nightmare 3
 
-![Logo](./public/logo192.png)
+![Logo](./src/logo.png)
 
 Online modularized ROM editor, successor to [Nightmare](https://www.romhacking.net/utilities/1307/) and [Nightmare 2](https://www.romhacking.net/utilities/610/).
 
