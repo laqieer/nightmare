@@ -26,6 +26,8 @@ export default function FE6CharacterEditor() {
   return (
     <Space
       direction="vertical"
+      align="center"
+      style={{ width: '100%' }}
     >
       <Alert
         message="FE6 Character Editor"

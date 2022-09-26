@@ -8,6 +8,8 @@ export default function FE6HomePage() {
   return (
     <Space
       direction="vertical"
+      align="center"
+      style={{ width: '100%' }}
     >
       <Alert
         message="FE6: Binding Blade"

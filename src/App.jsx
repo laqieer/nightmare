@@ -34,7 +34,7 @@ const items = [
 export default function App() {
   const [buffer, setBuffer] = useState(null);
   const [filename, setFilename] = useState('');
-  const [collapsed, setCollapsed] = useState(false);
+  const [collapsed, setCollapsed] = useState(true);
   const [theme, setTheme] = useState('dark');
   const [current, setCurrent] = useState('0');
   const navigate = useNavigate();

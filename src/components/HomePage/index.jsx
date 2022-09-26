@@ -9,6 +9,8 @@ export default function HomePage() {
   return (
     <Space
       direction="vertical"
+      align="center"
+      style={{ width: '100%' }}
     >
       <Empty
         description={false}

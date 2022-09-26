@@ -25,6 +25,8 @@ export default function FE7AnimationPointerTableEditor() {
   return (
     <Space
       direction="vertical"
+      align="center"
+      style={{ width: '100%' }}
     >
       <Alert
         message="FE7 Animation Pointer Table Editor"
