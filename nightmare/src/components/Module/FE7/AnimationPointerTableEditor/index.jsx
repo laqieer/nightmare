@@ -1,11 +1,13 @@
 import { Space, Alert } from 'antd';
 import React, { useState } from 'react';
 import { useOutletContext } from 'react-router-dom';
+import {
+  AnimationPointerTableEditor,
+} from './options';
+import { DataType } from '../../../util';
+import InputSelect from '../../../Input/InputSelect';
 import InputText from '../../../Input/InputText';
 import InputHex from '../../../Input/InputHex';
-import InputSelect from '../../../Input/InputSelect';
-import { DataType } from '../../../util';
-import { AnimationPointerTable } from '../options';
 
 export default function FE7AnimationPointerTableEditor() {
   const [buffer] = useOutletContext();
@@ -29,51 +31,52 @@ export default function FE7AnimationPointerTableEditor() {
       style={{ width: '100%' }}
     >
       <Alert
-        message="FE7 Animation Pointer Table Editor"
+        message="FE 7 Animation Pointer Table Editor by Keriku, updated by Nintenlord"
         type="info"
       />
       <InputSelect
         disabled={view == null}
         defaultValue={index}
         onSelect={(value) => setIndex(value)}
-        options={AnimationPointerTable}
+        options={AnimationPointerTableEditor}
       />
       <InputText
+        length={12}
         view={view}
         name="Header"
         offset={0}
-        length={12}
       />
       <InputHex
+        type={DataType.U32}
         view={view}
         name="Mode divider"
         offset={12}
-        type={DataType.U32}
       />
       <InputHex
+        type={DataType.U32}
         view={view}
-        name="Frame data"
+        name="Frame data."
         offset={16}
-        type={DataType.U32}
       />
       <InputHex
+        type={DataType.U32}
         view={view}
         name="Right X Y Position"
         offset={20}
-        type={DataType.U32}
       />
       <InputHex
+        type={DataType.U32}
         view={view}
         name="Left X Y Position"
         offset={24}
-        type={DataType.U32}
       />
       <InputHex
+        type={DataType.U32}
         view={view}
         name="Palette"
         offset={28}
-        type={DataType.U32}
       />
+
     </Space>
   );
 }

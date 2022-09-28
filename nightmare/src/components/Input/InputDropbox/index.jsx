@@ -11,7 +11,7 @@ export default function InputDropbox(props) {
   } = props;
   const { isHex: _, ...propsToPass } = props;
 
-  const oldValue = read(view, offset, type);
+  const oldValue = view == null ? 0 : read(view, offset, type);
   const oldOption = options.find((opt) => opt.value === oldValue);
   const oldValueLabel = isHex ? `0x${oldValue.toString(16)}` : oldValue;
   const oldLabel = oldOption === undefined ? oldValueLabel : oldOption.label;

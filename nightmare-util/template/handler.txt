@@ -1,0 +1,5 @@
+      <%{inputType}%
+        view={view}
+        name="%{description}%"
+        offset={%{offset}%}
+      />

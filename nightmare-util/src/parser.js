@@ -2,16 +2,14 @@ const fs = require('fs');
 const path = require('path');
 const assert = require('assert');
 
-exports.parse = (filename, callback) => {
+exports.parse = (file, callback) => {
     try {
-        assert(filename.toLowerCase().endsWith('.nmm'));
-        fs.readFile(filename, 'UTF-8', (err, data) => {
-            if (err != null) {
-                throw err;
-            }
+        assert(file.toLowerCase().endsWith('.nmm'));
+        fs.readFile(file, 'UTF-8', (err, data) => {
+            if (err) throw err;
             data = data.split(/\r?\n/).map(line => line.trim()).filter(line => line.length > 0 && !line.startsWith('#'));
             let module = {};
-            module.filename = path.basename(filename);
+            module.filename = path.basename(file);
             module.version = data[0] * 1;
             module.description = data[1];
             module.address = data[2];
@@ -19,9 +17,9 @@ exports.parse = (filename, callback) => {
             module.entrySize = data[4] * 1;
             module.entryList = data[5];
             module.tbl = data[6];
-            module.inputs = [];
+            module.handlers = [];
             for (let i = 0; 7 + 5 * i < data.length; i++) {
-                module.inputs[i] = {
+                module.handlers[i] = {
                     description: data[7 + 5 * i],
                     offset: data[8 + 5 * i] * 1,
                     size: data[9 + 5 * i] * 1,

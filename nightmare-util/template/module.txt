@@ -1,0 +1,44 @@
+import { Space, Alert } from 'antd';
+import React, { useState } from 'react';
+import { useOutletContext } from 'react-router-dom';
+import {
+  %{optionLists}%
+} from './options';
+import { DataType } from '../../../util';
+%{importInputs}%
+
+export default function %{name}%() {
+  const [buffer] = useOutletContext();
+
+  const [index, setIndex] = useState(0);
+
+  const address = %{address}%;
+  const size = %{entrySize}%;
+  let view = null;
+
+  try {
+    view = new DataView(buffer, address + size * index, size);
+  } catch (error) {
+    view = null;
+  }
+
+  return (
+    <Space
+      direction="vertical"
+      align="center"
+      style={{ width: '100%' }}
+    >
+      <Alert
+        message="%{description}%"
+        type="info"
+      />
+      <InputSelect
+        disabled={view == null}
+        defaultValue={index}
+        onSelect={(value) => setIndex(value)}
+        options={%{options}%}
+      />
+%{inputs}%
+    </Space>
+  );
+}

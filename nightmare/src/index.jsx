@@ -13,8 +13,15 @@ import HomePage from './components/HomePage';
 import ErrorPage from './components/ErrorPage';
 import FE6 from './components/Module/FE6';
 import FE7 from './components/Module/FE7';
-import FE6CharacterEditor from './components/Module/FE6/CharacterEditor';
+import FE6CharacterEditor from './components/Module/FE6/FE6CharacterEditor';
+import FE6ClassEditor from './components/Module/FE6/FE6ClassEditor';
 import FE7AnimationPointerTableEditor from './components/Module/FE7/AnimationPointerTableEditor';
+import FE7AnimationReference from './components/Module/FE7/AnimationReference';
+import FE7BattleAnimationEditor from './components/Module/FE7/BattleAnimationEditor';
+import FE7CopyofCustomBattleAnimationEditor from './components/Module/FE7/CopyofCustomBattleAnimationEditor';
+import FE7CustomBattleAnimationEditor from './components/Module/FE7/CustomBattleAnimationEditor';
+import FE7CustomItemAnimationList from './components/Module/FE7/CustomItemAnimationList';
+import FE7BattlePaletteReference from './components/Module/FE7/FE7BattlePaletteReference';
 import FE6HomePage from './components/Module/FE6/HomePage';
 import FE7HomePage from './components/Module/FE7/HomePage';
 
@@ -37,8 +44,12 @@ const router = createBrowserRouter([
             element: <FE6HomePage />,
           },
           {
-            path: 'Character',
+            path: 'CharacterEditor',
             element: <FE6CharacterEditor />,
+          },
+          {
+            path: 'ClassEditor',
+            element: <FE6ClassEditor />,
           },
         ],
       },
@@ -51,8 +62,32 @@ const router = createBrowserRouter([
             element: <FE7HomePage />,
           },
           {
-            path: 'AnimationPointerTable',
+            path: 'AnimationPointerTableEditor',
             element: <FE7AnimationPointerTableEditor />,
+          },
+          {
+            path: 'AnimationReference',
+            element: <FE7AnimationReference />,
+          },
+          {
+            path: 'BattleAnimationEditor',
+            element: <FE7BattleAnimationEditor />,
+          },
+          {
+            path: 'CopyofCustomBattleAnimationEditor',
+            element: <FE7CopyofCustomBattleAnimationEditor />,
+          },
+          {
+            path: 'CustomBattleAnimationEditor',
+            element: <FE7CustomBattleAnimationEditor />,
+          },
+          {
+            path: 'CustomItemAnimationList',
+            element: <FE7CustomItemAnimationList />,
+          },
+          {
+            path: 'BattlePaletteReference',
+            element: <FE7BattlePaletteReference />,
           },
         ],
       },

@@ -1,20 +1,21 @@
 import { Space, Alert } from 'antd';
 import React, { useState } from 'react';
 import { useOutletContext } from 'react-router-dom';
-import InputDec from '../../../Input/InputDec';
-import InputHex from '../../../Input/InputHex';
-import InputSelect from '../../../Input/InputSelect';
+import {
+  FE7BattleAnimationEditorEntries, AnimationTypes, WeaponAnimationType, AnimationList,
+  AlwaysZero,
+} from './options';
 import { DataType } from '../../../util';
-import { FE6CharacterList, CharacterList } from '../options';
+import InputSelect from '../../../Input/InputSelect';
 import InputDropbox from '../../../Input/InputDropbox';
 
-export default function FE6CharacterEditor() {
+export default function FE7BattleAnimationEditor() {
   const [buffer] = useOutletContext();
 
   const [index, setIndex] = useState(0);
 
-  const address = 0x6076A0;
-  const size = 48;
+  const address = 0xC99058;
+  const size = 4;
   let view = null;
 
   try {
@@ -30,46 +31,46 @@ export default function FE6CharacterEditor() {
       style={{ width: '100%' }}
     >
       <Alert
-        message="FE6 Character Editor"
+        message="FE7 Battle Animation Editor by Fire Blazer"
         type="info"
       />
       <InputSelect
         disabled={view == null}
         defaultValue={index}
         onSelect={(value) => setIndex(value)}
-        options={FE6CharacterList}
-      />
-      <InputHex
-        view={view}
-        name="Name Pointer"
-        offset={0}
-        type={DataType.U16}
-      />
-      <InputHex
-        view={view}
-        name="Description Pointer"
-        offset={2}
-        type={DataType.U16}
+        options={FE7BattleAnimationEditorEntries}
       />
       <InputDropbox
-        view={view}
-        name="Character Number"
-        offset={4}
+        isHex
         type={DataType.U8}
-        options={CharacterList}
-      />
-      <InputDec
+        options={AnimationTypes}
         view={view}
-        name="Level"
-        offset={11}
+        name="+00 Weapon Type"
+        offset={0}
+      />
+      <InputDropbox
         type={DataType.U8}
-      />
-      <InputDec
+        options={WeaponAnimationType}
         view={view}
-        name="Base HP"
-        offset={12}
-        type={DataType.S8}
+        name="+01 All weapons or a certain one?"
+        offset={1}
       />
+      <InputDropbox
+        isHex
+        type={DataType.U8}
+        options={AnimationList}
+        view={view}
+        name="+02 Animation Played"
+        offset={2}
+      />
+      <InputDropbox
+        type={DataType.U8}
+        options={AlwaysZero}
+        view={view}
+        name="+03 Separator (always zero)"
+        offset={3}
+      />
+
     </Space>
   );
 }

@@ -15,7 +15,8 @@ export default function FE6HomePage() {
         message="FE6: Binding Blade"
         type="info"
       />
-      <Link to={{ pathname: 'Character', state: { buffer } }}>Character</Link>
+      <Link to={{ pathname: 'CharacterEditor', state: { buffer } }}>Character Editor</Link>
+      <Link to={{ pathname: 'ClassEditor', state: { buffer } }}>Class Editor</Link>
     </Space>
   );
 }
