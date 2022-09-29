@@ -4,10 +4,9 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from 'react-router-dom';
-import { Spin } from 'antd';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
-import { routes } from './routes';
+import { loading, routes } from './routes';
 
 const router = createBrowserRouter(routes);
 
@@ -15,11 +14,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <RouterProvider
       router={router}
-      fallbackElement={(
-        <Spin
-          tip="Loading..."
-        />
-      )}
+      fallbackElement={loading}
     />
   </React.StrictMode>,
 );
