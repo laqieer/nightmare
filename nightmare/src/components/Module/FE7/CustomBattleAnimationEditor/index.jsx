@@ -15,7 +15,7 @@ export default function FE7CustomBattleAnimationEditor() {
 
   const [index, setIndex] = useState(0);
 
-  const address = 0xFFF800;
+  const address = 0xC99064;
   const size = 16;
   let view = null;
 

@@ -7,8 +7,9 @@ exports.parse = (file, callback) => {
         assert(file.toLowerCase().endsWith('.nmm'));
         fs.readFile(file, 'UTF-8', (err, data) => {
             if (err) throw err;
-            data = data.split(/\r?\n/).map(line => line.trim()).filter(line => line.length > 0 && !line.startsWith('#'));
             let module = {};
+            if (data.startsWith('#0x')) module.isNightmare2 = true;
+            data = data.split(/\r?\n/).map(line => line.trim()).filter(line => line.length > 0 && !line.startsWith('#'));
             module.filename = path.basename(file);
             module.version = data[0] * 1;
             module.description = data[1];
