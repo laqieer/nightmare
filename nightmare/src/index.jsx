@@ -7,7 +7,6 @@ import {
 import { Spin } from 'antd';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
-import 'antd/dist/antd.min.css';
 import { routes } from './routes';
 
 const router = createBrowserRouter(routes);
