@@ -1,4 +1,5 @@
-import { Space, Alert } from 'antd';
+import { Space, Alert, BackTop } from 'antd';
+import { ToTopOutlined } from '@ant-design/icons';
 import React, { useState } from 'react';
 import { useOutletContext } from 'react-router-dom';
 import {
@@ -46,6 +47,9 @@ export default function FE7BattlePaletteReference() {
         offset={0}
       />
 
+      <BackTop>
+        <ToTopOutlined />
+      </BackTop>
     </Space>
   );
 }
