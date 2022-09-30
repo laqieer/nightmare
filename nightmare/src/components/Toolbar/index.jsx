@@ -1,16 +1,19 @@
+import React from 'react';
+import { useNavigate } from 'react-router';
 import {
   FolderOpenOutlined, SaveOutlined, CloseOutlined, GithubOutlined,
+  HomeOutlined, ArrowLeftOutlined, ArrowRightOutlined,
 } from '@ant-design/icons';
 import {
   Button, Space, Upload, Row, Col, Switch,
 } from 'antd';
-import React from 'react';
 import PropTypes from 'prop-types';
 
 export default function Toolbar(props) {
   const {
     filename, onFilenameChange, buffer, onBufferChange, theme, changeTheme,
   } = props;
+  const navigate = useNavigate();
 
   return (
     <Row wrap={false}>
@@ -66,6 +69,30 @@ export default function Toolbar(props) {
             onClick={() => {
               onFilenameChange('');
               onBufferChange(null);
+            }}
+          />
+          <Button
+            shape="circle"
+            title="home"
+            icon={<HomeOutlined />}
+            onClick={() => {
+              navigate('..', { state: { buffer } });
+            }}
+          />
+          <Button
+            shape="circle"
+            title="back"
+            icon={<ArrowLeftOutlined />}
+            onClick={() => {
+              navigate(-1, { state: { buffer } });
+            }}
+          />
+          <Button
+            shape="circle"
+            title="forward"
+            icon={<ArrowRightOutlined />}
+            onClick={() => {
+              navigate(1, { state: { buffer } });
             }}
           />
         </Space>
