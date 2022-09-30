@@ -1,7 +1,7 @@
+import React from 'react';
+import { useOutletContext, useSearchParams } from 'react-router-dom';
 import { Space, Alert, BackTop } from 'antd';
 import { ToTopOutlined } from '@ant-design/icons';
-import React, { useState } from 'react';
-import { useOutletContext } from 'react-router-dom';
 import {
   FE6Chapter10BArmoryEditorEntries, ItemList,
 } from './options';
@@ -11,15 +11,15 @@ import InputDropbox from '../../../Input/InputDropbox';
 
 export default function FE6Chapter10BArmoryEditor() {
   const [buffer] = useOutletContext();
+  const [searchParams, setSearchParams] = useSearchParams();
 
-  const [index, setIndex] = useState(0);
-
+  const id = searchParams.get('id');
   const address = 0x66AA4E;
   const size = 20;
   let view = null;
 
   try {
-    view = new DataView(buffer, address + size * index, size);
+    view = new DataView(buffer, address + size * id, size);
   } catch (error) {
     view = null;
   }
@@ -36,8 +36,8 @@ export default function FE6Chapter10BArmoryEditor() {
       />
       <InputSelect
         disabled={view == null}
-        defaultValue={index}
-        onSelect={(value) => setIndex(value)}
+        defaultValue={id}
+        onSelect={(value) => setSearchParams({ id: value })}
         options={FE6Chapter10BArmoryEditorEntries}
       />
       <InputDropbox

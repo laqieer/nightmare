@@ -63,21 +63,19 @@ export default function FE6HomePage() {
       <Link to={{ pathname: 'ChapterTrialMap3ArmyEditor', state: { buffer } }}>Chapter Trial Map 3 Army Editor</Link>
       <Link to={{ pathname: 'ChapterTrialMap4ArmyEditor', state: { buffer } }}>Chapter Trial Map 4 Army Editor</Link>
       <Link to={{ pathname: 'ChapterTrialMap5ArmyEditor', state: { buffer } }}>Chapter Trial Map 5 Army Editor</Link>
-      <Link to={{ pathname: 'Critbonuseditor', state: { buffer } }}>FE 6 Crit bonus editor</Link>
       <Link to={{ pathname: 'EventTableReferences', state: { buffer } }}>FE 6 Event Table References</Link>
       <Link to={{ pathname: 'BattlePaletteReference', state: { buffer } }}>FE6 Battle Palette Reference</Link>
       <Link to={{ pathname: 'CharacterEditor', state: { buffer } }}>FE6 Character Editor</Link>
       <Link to={{ pathname: 'ClassEditor', state: { buffer } }}>FE6 Class Editor</Link>
       <Link to={{ pathname: 'CustomBattleAnimationEditor', state: { buffer } }}>FE6 Custom Battle Animation Editor</Link>
       <Link to={{ pathname: 'CustomPromotionPointerEditor', state: { buffer } }}>FE6 Custom Promotion Pointer Editor</Link>
+      <Link to={{ pathname: 'Deathquoteeditor', state: { buffer } }}>FE6 Death quote editor</Link>
       <Link to={{ pathname: 'Enemybossbattlequoteeditor', state: { buffer } }}>FE6 Enemy boss battle quote editor</Link>
       <Link to={{ pathname: 'ItemEditor', state: { buffer } }}>FE6 Item Editor</Link>
       <Link to={{ pathname: 'PortraitEditor', state: { buffer } }}>FE6 Portrait Editor</Link>
       <Link to={{ pathname: 'PromotionItemEditor', state: { buffer } }}>FE6 Promotion Item Editor</Link>
-      <Link to={{ pathname: 'Promotionleveleditor', state: { buffer } }}>FE6 Promotion level editor</Link>
       <Link to={{ pathname: 'Triangleattackquoteeditor', state: { buffer } }}>FE6 Triangle attack quote editor</Link>
       <Link to={{ pathname: 'FinalChapterArmyEditor', state: { buffer } }}>Final Chapter Army Editor</Link>
-      <Link to={{ pathname: 'LevelCapEditor', state: { buffer } }}>Level Cap Editor</Link>
       <Link to={{ pathname: 'TrialMapCharactersArmyEditor', state: { buffer } }}>Trial Map Characters Army Editor</Link>
       <Link to={{ pathname: 'TutorialArmyEditor', state: { buffer } }}>Tutorial Army Editor</Link>
     </Space>

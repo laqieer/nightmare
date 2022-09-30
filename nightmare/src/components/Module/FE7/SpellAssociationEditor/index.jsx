@@ -1,7 +1,7 @@
+import React from 'react';
+import { useOutletContext, useSearchParams } from 'react-router-dom';
 import { Space, Alert, BackTop } from 'antd';
 import { ToTopOutlined } from '@ant-design/icons';
-import React, { useState } from 'react';
-import { useOutletContext } from 'react-router-dom';
 import {
   FE7SpellAssociationEditorEntries, ItemListTU, SpellAnimations, Returning,
   Facing, Enemyflash,
@@ -14,15 +14,15 @@ import InputHex from '../../../Input/InputHex';
 
 export default function FE7SpellAssociationEditor() {
   const [buffer] = useOutletContext();
+  const [searchParams, setSearchParams] = useSearchParams();
 
-  const [index, setIndex] = useState(0);
-
+  const id = searchParams.get('id');
   const address = 0xC999C0;
   const size = 16;
   let view = null;
 
   try {
-    view = new DataView(buffer, address + size * index, size);
+    view = new DataView(buffer, address + size * id, size);
   } catch (error) {
     view = null;
   }
@@ -39,8 +39,8 @@ export default function FE7SpellAssociationEditor() {
       />
       <InputSelect
         disabled={view == null}
-        defaultValue={index}
-        onSelect={(value) => setIndex(value)}
+        defaultValue={id}
+        onSelect={(value) => setSearchParams({ id: value })}
         options={FE7SpellAssociationEditorEntries}
       />
       <InputDropbox

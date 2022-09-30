@@ -1,7 +1,7 @@
+import React from 'react';
+import { useOutletContext, useSearchParams } from 'react-router-dom';
 import { Space, Alert, BackTop } from 'antd';
 import { ToTopOutlined } from '@ant-design/icons';
-import React, { useState } from 'react';
-import { useOutletContext } from 'react-router-dom';
 import {
   FE6ItemEditorEntries, ItemList, WeaponType, WeaponAbility1,
   WeaponAbility2, WeaponRanges, WeaponRank, IconList,
@@ -15,15 +15,15 @@ import InputDec from '../../../Input/InputDec';
 
 export default function FE6ItemEditor() {
   const [buffer] = useOutletContext();
+  const [searchParams, setSearchParams] = useSearchParams();
 
-  const [index, setIndex] = useState(0);
-
+  const id = searchParams.get('id');
   const address = 0x60B648;
   const size = 32;
   let view = null;
 
   try {
-    view = new DataView(buffer, address + size * index, size);
+    view = new DataView(buffer, address + size * id, size);
   } catch (error) {
     view = null;
   }
@@ -40,8 +40,8 @@ export default function FE6ItemEditor() {
       />
       <InputSelect
         disabled={view == null}
-        defaultValue={index}
-        onSelect={(value) => setIndex(value)}
+        defaultValue={id}
+        onSelect={(value) => setSearchParams({ id: value })}
         options={FE6ItemEditorEntries}
       />
       <InputHex

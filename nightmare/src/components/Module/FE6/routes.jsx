@@ -51,21 +51,19 @@ const FE6ChapterTrialMap2ArmyEditor = lazy(() => import('./ChapterTrialMap2ArmyE
 const FE6ChapterTrialMap3ArmyEditor = lazy(() => import('./ChapterTrialMap3ArmyEditor'));
 const FE6ChapterTrialMap4ArmyEditor = lazy(() => import('./ChapterTrialMap4ArmyEditor'));
 const FE6ChapterTrialMap5ArmyEditor = lazy(() => import('./ChapterTrialMap5ArmyEditor'));
-const FE6Critbonuseditor = lazy(() => import('./Critbonuseditor'));
 const FE6EventTableReferences = lazy(() => import('./EventTableReferences'));
 const FE6BattlePaletteReference = lazy(() => import('./BattlePaletteReference'));
 const FE6CharacterEditor = lazy(() => import('./CharacterEditor'));
 const FE6ClassEditor = lazy(() => import('./ClassEditor'));
 const FE6CustomBattleAnimationEditor = lazy(() => import('./CustomBattleAnimationEditor'));
 const FE6CustomPromotionPointerEditor = lazy(() => import('./CustomPromotionPointerEditor'));
+const FE6Deathquoteeditor = lazy(() => import('./Deathquoteeditor'));
 const FE6Enemybossbattlequoteeditor = lazy(() => import('./Enemybossbattlequoteeditor'));
 const FE6ItemEditor = lazy(() => import('./ItemEditor'));
 const FE6PortraitEditor = lazy(() => import('./PortraitEditor'));
 const FE6PromotionItemEditor = lazy(() => import('./PromotionItemEditor'));
-const FE6Promotionleveleditor = lazy(() => import('./Promotionleveleditor'));
 const FE6Triangleattackquoteeditor = lazy(() => import('./Triangleattackquoteeditor'));
 const FE6FinalChapterArmyEditor = lazy(() => import('./FinalChapterArmyEditor'));
-const FE6LevelCapEditor = lazy(() => import('./LevelCapEditor'));
 const FE6TrialMapCharactersArmyEditor = lazy(() => import('./TrialMapCharactersArmyEditor'));
 const FE6TutorialArmyEditor = lazy(() => import('./TutorialArmyEditor'));
 
@@ -122,21 +120,19 @@ export const FE6Routes = {
     { path: 'ChapterTrialMap3ArmyEditor', element: <Suspense fallback={loading}><FE6ChapterTrialMap3ArmyEditor /></Suspense> },
     { path: 'ChapterTrialMap4ArmyEditor', element: <Suspense fallback={loading}><FE6ChapterTrialMap4ArmyEditor /></Suspense> },
     { path: 'ChapterTrialMap5ArmyEditor', element: <Suspense fallback={loading}><FE6ChapterTrialMap5ArmyEditor /></Suspense> },
-    { path: 'Critbonuseditor', element: <Suspense fallback={loading}><FE6Critbonuseditor /></Suspense> },
     { path: 'EventTableReferences', element: <Suspense fallback={loading}><FE6EventTableReferences /></Suspense> },
     { path: 'BattlePaletteReference', element: <Suspense fallback={loading}><FE6BattlePaletteReference /></Suspense> },
     { path: 'CharacterEditor', element: <Suspense fallback={loading}><FE6CharacterEditor /></Suspense> },
     { path: 'ClassEditor', element: <Suspense fallback={loading}><FE6ClassEditor /></Suspense> },
     { path: 'CustomBattleAnimationEditor', element: <Suspense fallback={loading}><FE6CustomBattleAnimationEditor /></Suspense> },
     { path: 'CustomPromotionPointerEditor', element: <Suspense fallback={loading}><FE6CustomPromotionPointerEditor /></Suspense> },
+    { path: 'Deathquoteeditor', element: <Suspense fallback={loading}><FE6Deathquoteeditor /></Suspense> },
     { path: 'Enemybossbattlequoteeditor', element: <Suspense fallback={loading}><FE6Enemybossbattlequoteeditor /></Suspense> },
     { path: 'ItemEditor', element: <Suspense fallback={loading}><FE6ItemEditor /></Suspense> },
     { path: 'PortraitEditor', element: <Suspense fallback={loading}><FE6PortraitEditor /></Suspense> },
     { path: 'PromotionItemEditor', element: <Suspense fallback={loading}><FE6PromotionItemEditor /></Suspense> },
-    { path: 'Promotionleveleditor', element: <Suspense fallback={loading}><FE6Promotionleveleditor /></Suspense> },
     { path: 'Triangleattackquoteeditor', element: <Suspense fallback={loading}><FE6Triangleattackquoteeditor /></Suspense> },
     { path: 'FinalChapterArmyEditor', element: <Suspense fallback={loading}><FE6FinalChapterArmyEditor /></Suspense> },
-    { path: 'LevelCapEditor', element: <Suspense fallback={loading}><FE6LevelCapEditor /></Suspense> },
     { path: 'TrialMapCharactersArmyEditor', element: <Suspense fallback={loading}><FE6TrialMapCharactersArmyEditor /></Suspense> },
     { path: 'TutorialArmyEditor', element: <Suspense fallback={loading}><FE6TutorialArmyEditor /></Suspense> },
   ],

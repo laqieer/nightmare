@@ -1,7 +1,7 @@
+import React from 'react';
+import { useOutletContext, useSearchParams } from 'react-router-dom';
 import { Space, Alert, BackTop } from 'antd';
 import { ToTopOutlined } from '@ant-design/icons';
-import React, { useState } from 'react';
-import { useOutletContext } from 'react-router-dom';
 import {
   FE7CharacterList, Characters, ClassList, PortraitList,
   MiniProtrait, Affinity, WeaponRank, CharacterPalettes,
@@ -16,15 +16,15 @@ import InputDec from '../../../Input/InputDec';
 
 export default function FE7CharacterEditor() {
   const [buffer] = useOutletContext();
+  const [searchParams, setSearchParams] = useSearchParams();
 
-  const [index, setIndex] = useState(0);
-
+  const id = searchParams.get('id');
   const address = 0xBDCE18;
   const size = 52;
   let view = null;
 
   try {
-    view = new DataView(buffer, address + size * index, size);
+    view = new DataView(buffer, address + size * id, size);
   } catch (error) {
     view = null;
   }
@@ -41,8 +41,8 @@ export default function FE7CharacterEditor() {
       />
       <InputSelect
         disabled={view == null}
-        defaultValue={index}
-        onSelect={(value) => setIndex(value)}
+        defaultValue={id}
+        onSelect={(value) => setSearchParams({ id: value })}
         options={FE7CharacterList}
       />
       <InputHex
