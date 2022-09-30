@@ -187,6 +187,7 @@ export default function FE7HomePage() {
       <Link to={{ pathname: 'Mapspritepointertableeditor', state: { buffer } }}>FE 7 Map sprite pointer table editor</Link>
       <Link to={{ pathname: 'TutorialEditor', state: { buffer } }}>FE 7 Tutorial Editor</Link>
       <Link to={{ pathname: 'WorldMapDataReferences', state: { buffer } }}>FE 7 World Map Data References</Link>
+      <Link to={{ pathname: 'AfaDropsBoostEditor', state: { buffer } }}>FE7 Afa Drops Boost Editor</Link>
       <Link to={{ pathname: 'BattleAnimationEditor', state: { buffer } }}>FE7 Battle Animation Editor</Link>
       <Link to={{ pathname: 'BattleBGEditor', state: { buffer } }}>FE7 Battle BG Editor</Link>
       <Link to={{ pathname: 'BattlePaletteReference', state: { buffer } }}>FE7 Battle Palette Reference</Link>

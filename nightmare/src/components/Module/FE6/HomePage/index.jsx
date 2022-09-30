@@ -22,12 +22,17 @@ export default function FE6HomePage() {
       <Link to={{ pathname: 'Battlescreeneditorpart5', state: { buffer } }}>Battle screen editor part 5</Link>
       <Link to={{ pathname: 'Chapter1ArmyEditor', state: { buffer } }}>Chapter 1 Army Editor</Link>
       <Link to={{ pathname: 'Chapter10AArmyEditor', state: { buffer } }}>Chapter 10A Army Editor</Link>
+      <Link to={{ pathname: 'Chapter10BArmoryEditor', state: { buffer } }}>Chapter 10B Armory Editor</Link>
       <Link to={{ pathname: 'Chapter10BArmyEditor', state: { buffer } }}>Chapter 10B Army Editor</Link>
+      <Link to={{ pathname: 'Chapter10BShopEvents', state: { buffer } }}>Chapter 10B Shop Events</Link>
       <Link to={{ pathname: 'Chapter11AArmyEditor', state: { buffer } }}>Chapter 11A Army Editor</Link>
+      <Link to={{ pathname: 'Chapter11AShopEvents', state: { buffer } }}>Chapter 11A Shop Events</Link>
       <Link to={{ pathname: 'Chapter11BArmyEditor', state: { buffer } }}>Chapter 11B Army Editor</Link>
+      <Link to={{ pathname: 'Chapter11BShopEvents', state: { buffer } }}>Chapter 11B Shop Events</Link>
       <Link to={{ pathname: 'Chapter12ArmyEditor', state: { buffer } }}>Chapter 12 Army Editor</Link>
       <Link to={{ pathname: 'Chapter12xArmyEditor', state: { buffer } }}>Chapter 12x Army Editor</Link>
       <Link to={{ pathname: 'Chapter13ArmyEditor', state: { buffer } }}>Chapter 13 Army Editor</Link>
+      <Link to={{ pathname: 'Chapter13ShopEvents', state: { buffer } }}>Chapter 13 Shop Events</Link>
       <Link to={{ pathname: 'Chapter14ArmyEditor', state: { buffer } }}>Chapter 14 Army Editor</Link>
       <Link to={{ pathname: 'Chapter14xArmyEditor', state: { buffer } }}>Chapter 14x Army Editor</Link>
       <Link to={{ pathname: 'Chapter15ArmyEditor', state: { buffer } }}>Chapter 15 Army Editor</Link>
@@ -63,6 +68,7 @@ export default function FE6HomePage() {
       <Link to={{ pathname: 'ChapterTrialMap3ArmyEditor', state: { buffer } }}>Chapter Trial Map 3 Army Editor</Link>
       <Link to={{ pathname: 'ChapterTrialMap4ArmyEditor', state: { buffer } }}>Chapter Trial Map 4 Army Editor</Link>
       <Link to={{ pathname: 'ChapterTrialMap5ArmyEditor', state: { buffer } }}>Chapter Trial Map 5 Army Editor</Link>
+      <Link to={{ pathname: 'Critbonuseditor', state: { buffer } }}>FE 6 Crit bonus editor</Link>
       <Link to={{ pathname: 'EventTableReferences', state: { buffer } }}>FE 6 Event Table References</Link>
       <Link to={{ pathname: 'BattlePaletteReference', state: { buffer } }}>FE6 Battle Palette Reference</Link>
       <Link to={{ pathname: 'CharacterEditor', state: { buffer } }}>FE6 Character Editor</Link>
@@ -74,8 +80,10 @@ export default function FE6HomePage() {
       <Link to={{ pathname: 'ItemEditor', state: { buffer } }}>FE6 Item Editor</Link>
       <Link to={{ pathname: 'PortraitEditor', state: { buffer } }}>FE6 Portrait Editor</Link>
       <Link to={{ pathname: 'PromotionItemEditor', state: { buffer } }}>FE6 Promotion Item Editor</Link>
+      <Link to={{ pathname: 'Promotionleveleditor', state: { buffer } }}>FE6 Promotion level editor</Link>
       <Link to={{ pathname: 'Triangleattackquoteeditor', state: { buffer } }}>FE6 Triangle attack quote editor</Link>
       <Link to={{ pathname: 'FinalChapterArmyEditor', state: { buffer } }}>Final Chapter Army Editor</Link>
+      <Link to={{ pathname: 'LevelCapEditor', state: { buffer } }}>Level Cap Editor</Link>
       <Link to={{ pathname: 'TrialMapCharactersArmyEditor', state: { buffer } }}>Trial Map Characters Army Editor</Link>
       <Link to={{ pathname: 'TutorialArmyEditor', state: { buffer } }}>Tutorial Army Editor</Link>
     </Space>

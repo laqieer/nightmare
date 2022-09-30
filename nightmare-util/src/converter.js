@@ -129,8 +129,8 @@ try {
                     module.optionLists.forEach(file => options = [...options, makeDropbox(path.dirname(nmm), file)]);
                     module.optionLists = [module.options, ...module.optionLists].map((file, index) => nameFrom(file) + ((index < module.optionLists.size && (index + 1) % 4 == 0) ? ',\n ' : ',')).join(' ');
                     module.importInputs = ['InputSelect', ...new Set(module.inputs.match(/Input\w+/g))].map(input => `import ${input} from '../../../Input/${input}';`).join('\n');
-                    fs.writeFile(path.join(module.dir, 'index.jsx'), fillTemplate('module', module), err => { if (err) throw err });
-                    fs.writeFile(path.join(module.dir, 'options.js'), options.join('\n'), err => { if (err) throw err });
+                    fs.writeFileSync(path.join(module.dir, 'index.jsx'), fillTemplate('module', module));
+                    fs.writeFileSync(path.join(module.dir, 'options.js'), options.join('\n'));
                 });
             })(pathname);
         }

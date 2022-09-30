@@ -10,12 +10,17 @@ const FE6Battlescreeneditorpart4 = lazy(() => import('./Battlescreeneditorpart4'
 const FE6Battlescreeneditorpart5 = lazy(() => import('./Battlescreeneditorpart5'));
 const FE6Chapter1ArmyEditor = lazy(() => import('./Chapter1ArmyEditor'));
 const FE6Chapter10AArmyEditor = lazy(() => import('./Chapter10AArmyEditor'));
+const FE6Chapter10BArmoryEditor = lazy(() => import('./Chapter10BArmoryEditor'));
 const FE6Chapter10BArmyEditor = lazy(() => import('./Chapter10BArmyEditor'));
+const FE6Chapter10BShopEvents = lazy(() => import('./Chapter10BShopEvents'));
 const FE6Chapter11AArmyEditor = lazy(() => import('./Chapter11AArmyEditor'));
+const FE6Chapter11AShopEvents = lazy(() => import('./Chapter11AShopEvents'));
 const FE6Chapter11BArmyEditor = lazy(() => import('./Chapter11BArmyEditor'));
+const FE6Chapter11BShopEvents = lazy(() => import('./Chapter11BShopEvents'));
 const FE6Chapter12ArmyEditor = lazy(() => import('./Chapter12ArmyEditor'));
 const FE6Chapter12xArmyEditor = lazy(() => import('./Chapter12xArmyEditor'));
 const FE6Chapter13ArmyEditor = lazy(() => import('./Chapter13ArmyEditor'));
+const FE6Chapter13ShopEvents = lazy(() => import('./Chapter13ShopEvents'));
 const FE6Chapter14ArmyEditor = lazy(() => import('./Chapter14ArmyEditor'));
 const FE6Chapter14xArmyEditor = lazy(() => import('./Chapter14xArmyEditor'));
 const FE6Chapter15ArmyEditor = lazy(() => import('./Chapter15ArmyEditor'));
@@ -51,6 +56,7 @@ const FE6ChapterTrialMap2ArmyEditor = lazy(() => import('./ChapterTrialMap2ArmyE
 const FE6ChapterTrialMap3ArmyEditor = lazy(() => import('./ChapterTrialMap3ArmyEditor'));
 const FE6ChapterTrialMap4ArmyEditor = lazy(() => import('./ChapterTrialMap4ArmyEditor'));
 const FE6ChapterTrialMap5ArmyEditor = lazy(() => import('./ChapterTrialMap5ArmyEditor'));
+const FE6Critbonuseditor = lazy(() => import('./Critbonuseditor'));
 const FE6EventTableReferences = lazy(() => import('./EventTableReferences'));
 const FE6BattlePaletteReference = lazy(() => import('./BattlePaletteReference'));
 const FE6CharacterEditor = lazy(() => import('./CharacterEditor'));
@@ -62,8 +68,10 @@ const FE6Enemybossbattlequoteeditor = lazy(() => import('./Enemybossbattlequotee
 const FE6ItemEditor = lazy(() => import('./ItemEditor'));
 const FE6PortraitEditor = lazy(() => import('./PortraitEditor'));
 const FE6PromotionItemEditor = lazy(() => import('./PromotionItemEditor'));
+const FE6Promotionleveleditor = lazy(() => import('./Promotionleveleditor'));
 const FE6Triangleattackquoteeditor = lazy(() => import('./Triangleattackquoteeditor'));
 const FE6FinalChapterArmyEditor = lazy(() => import('./FinalChapterArmyEditor'));
+const FE6LevelCapEditor = lazy(() => import('./LevelCapEditor'));
 const FE6TrialMapCharactersArmyEditor = lazy(() => import('./TrialMapCharactersArmyEditor'));
 const FE6TutorialArmyEditor = lazy(() => import('./TutorialArmyEditor'));
 
@@ -79,12 +87,17 @@ export const FE6Routes = {
     { path: 'Battlescreeneditorpart5', element: <Suspense fallback={loading}><FE6Battlescreeneditorpart5 /></Suspense> },
     { path: 'Chapter1ArmyEditor', element: <Suspense fallback={loading}><FE6Chapter1ArmyEditor /></Suspense> },
     { path: 'Chapter10AArmyEditor', element: <Suspense fallback={loading}><FE6Chapter10AArmyEditor /></Suspense> },
+    { path: 'Chapter10BArmoryEditor', element: <Suspense fallback={loading}><FE6Chapter10BArmoryEditor /></Suspense> },
     { path: 'Chapter10BArmyEditor', element: <Suspense fallback={loading}><FE6Chapter10BArmyEditor /></Suspense> },
+    { path: 'Chapter10BShopEvents', element: <Suspense fallback={loading}><FE6Chapter10BShopEvents /></Suspense> },
     { path: 'Chapter11AArmyEditor', element: <Suspense fallback={loading}><FE6Chapter11AArmyEditor /></Suspense> },
+    { path: 'Chapter11AShopEvents', element: <Suspense fallback={loading}><FE6Chapter11AShopEvents /></Suspense> },
     { path: 'Chapter11BArmyEditor', element: <Suspense fallback={loading}><FE6Chapter11BArmyEditor /></Suspense> },
+    { path: 'Chapter11BShopEvents', element: <Suspense fallback={loading}><FE6Chapter11BShopEvents /></Suspense> },
     { path: 'Chapter12ArmyEditor', element: <Suspense fallback={loading}><FE6Chapter12ArmyEditor /></Suspense> },
     { path: 'Chapter12xArmyEditor', element: <Suspense fallback={loading}><FE6Chapter12xArmyEditor /></Suspense> },
     { path: 'Chapter13ArmyEditor', element: <Suspense fallback={loading}><FE6Chapter13ArmyEditor /></Suspense> },
+    { path: 'Chapter13ShopEvents', element: <Suspense fallback={loading}><FE6Chapter13ShopEvents /></Suspense> },
     { path: 'Chapter14ArmyEditor', element: <Suspense fallback={loading}><FE6Chapter14ArmyEditor /></Suspense> },
     { path: 'Chapter14xArmyEditor', element: <Suspense fallback={loading}><FE6Chapter14xArmyEditor /></Suspense> },
     { path: 'Chapter15ArmyEditor', element: <Suspense fallback={loading}><FE6Chapter15ArmyEditor /></Suspense> },
@@ -120,6 +133,7 @@ export const FE6Routes = {
     { path: 'ChapterTrialMap3ArmyEditor', element: <Suspense fallback={loading}><FE6ChapterTrialMap3ArmyEditor /></Suspense> },
     { path: 'ChapterTrialMap4ArmyEditor', element: <Suspense fallback={loading}><FE6ChapterTrialMap4ArmyEditor /></Suspense> },
     { path: 'ChapterTrialMap5ArmyEditor', element: <Suspense fallback={loading}><FE6ChapterTrialMap5ArmyEditor /></Suspense> },
+    { path: 'Critbonuseditor', element: <Suspense fallback={loading}><FE6Critbonuseditor /></Suspense> },
     { path: 'EventTableReferences', element: <Suspense fallback={loading}><FE6EventTableReferences /></Suspense> },
     { path: 'BattlePaletteReference', element: <Suspense fallback={loading}><FE6BattlePaletteReference /></Suspense> },
     { path: 'CharacterEditor', element: <Suspense fallback={loading}><FE6CharacterEditor /></Suspense> },
@@ -131,8 +145,10 @@ export const FE6Routes = {
     { path: 'ItemEditor', element: <Suspense fallback={loading}><FE6ItemEditor /></Suspense> },
     { path: 'PortraitEditor', element: <Suspense fallback={loading}><FE6PortraitEditor /></Suspense> },
     { path: 'PromotionItemEditor', element: <Suspense fallback={loading}><FE6PromotionItemEditor /></Suspense> },
+    { path: 'Promotionleveleditor', element: <Suspense fallback={loading}><FE6Promotionleveleditor /></Suspense> },
     { path: 'Triangleattackquoteeditor', element: <Suspense fallback={loading}><FE6Triangleattackquoteeditor /></Suspense> },
     { path: 'FinalChapterArmyEditor', element: <Suspense fallback={loading}><FE6FinalChapterArmyEditor /></Suspense> },
+    { path: 'LevelCapEditor', element: <Suspense fallback={loading}><FE6LevelCapEditor /></Suspense> },
     { path: 'TrialMapCharactersArmyEditor', element: <Suspense fallback={loading}><FE6TrialMapCharactersArmyEditor /></Suspense> },
     { path: 'TutorialArmyEditor', element: <Suspense fallback={loading}><FE6TutorialArmyEditor /></Suspense> },
   ],

@@ -175,6 +175,7 @@ const FE7Eventtablereferences = lazy(() => import('./Eventtablereferences'));
 const FE7Mapspritepointertableeditor = lazy(() => import('./Mapspritepointertableeditor'));
 const FE7TutorialEditor = lazy(() => import('./TutorialEditor'));
 const FE7WorldMapDataReferences = lazy(() => import('./WorldMapDataReferences'));
+const FE7AfaDropsBoostEditor = lazy(() => import('./AfaDropsBoostEditor'));
 const FE7BattleAnimationEditor = lazy(() => import('./BattleAnimationEditor'));
 const FE7BattleBGEditor = lazy(() => import('./BattleBGEditor'));
 const FE7BattlePaletteReference = lazy(() => import('./BattlePaletteReference'));
@@ -433,6 +434,7 @@ export const FE7Routes = {
     { path: 'Mapspritepointertableeditor', element: <Suspense fallback={loading}><FE7Mapspritepointertableeditor /></Suspense> },
     { path: 'TutorialEditor', element: <Suspense fallback={loading}><FE7TutorialEditor /></Suspense> },
     { path: 'WorldMapDataReferences', element: <Suspense fallback={loading}><FE7WorldMapDataReferences /></Suspense> },
+    { path: 'AfaDropsBoostEditor', element: <Suspense fallback={loading}><FE7AfaDropsBoostEditor /></Suspense> },
     { path: 'BattleAnimationEditor', element: <Suspense fallback={loading}><FE7BattleAnimationEditor /></Suspense> },
     { path: 'BattleBGEditor', element: <Suspense fallback={loading}><FE7BattleBGEditor /></Suspense> },
     { path: 'BattlePaletteReference', element: <Suspense fallback={loading}><FE7BattlePaletteReference /></Suspense> },

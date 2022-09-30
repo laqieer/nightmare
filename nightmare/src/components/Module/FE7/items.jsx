@@ -175,6 +175,7 @@ export const FE7Items = getItem('FE7', 'FE7', <FolderOutlined />, [
   getItem('FE 7 Map sprite pointer table editor', 'FE7/Mapspritepointertableeditor'),
   getItem('FE 7 Tutorial Editor', 'FE7/TutorialEditor'),
   getItem('FE 7 World Map Data References', 'FE7/WorldMapDataReferences'),
+  getItem('FE7 Afa Drops Boost Editor', 'FE7/AfaDropsBoostEditor'),
   getItem('FE7 Battle Animation Editor', 'FE7/BattleAnimationEditor'),
   getItem('FE7 Battle BG Editor', 'FE7/BattleBGEditor'),
   getItem('FE7 Battle Palette Reference', 'FE7/BattlePaletteReference'),
