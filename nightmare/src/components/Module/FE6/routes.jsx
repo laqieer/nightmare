@@ -22,12 +22,17 @@ const FE6Chapter12xArmyEditor = lazy(() => import('./Chapter12xArmyEditor'));
 const FE6Chapter13ArmyEditor = lazy(() => import('./Chapter13ArmyEditor'));
 const FE6Chapter13ShopEvents = lazy(() => import('./Chapter13ShopEvents'));
 const FE6Chapter14ArmyEditor = lazy(() => import('./Chapter14ArmyEditor'));
+const FE6Chapter14ShopEvents = lazy(() => import('./Chapter14ShopEvents'));
 const FE6Chapter14xArmyEditor = lazy(() => import('./Chapter14xArmyEditor'));
 const FE6Chapter15ArmyEditor = lazy(() => import('./Chapter15ArmyEditor'));
+const FE6Chapter15ShopEvents = lazy(() => import('./Chapter15ShopEvents'));
 const FE6Chapter16ArmyEditor = lazy(() => import('./Chapter16ArmyEditor'));
+const FE6Chapter16ShopEvents = lazy(() => import('./Chapter16ShopEvents'));
 const FE6Chapter16xArmyEditor = lazy(() => import('./Chapter16xArmyEditor'));
 const FE6Chapter17AArmyEditor = lazy(() => import('./Chapter17AArmyEditor'));
+const FE6Chapter17AShopEvents = lazy(() => import('./Chapter17AShopEvents'));
 const FE6Chapter17BArmyEditor = lazy(() => import('./Chapter17BArmyEditor'));
+const FE6Chapter17BShopEvents = lazy(() => import('./Chapter17BShopEvents'));
 const FE6Chapter18AArmyEditor = lazy(() => import('./Chapter18AArmyEditor'));
 const FE6Chapter18BArmyEditor = lazy(() => import('./Chapter18BArmyEditor'));
 const FE6Chapter19AArmyEditor = lazy(() => import('./Chapter19AArmyEditor'));
@@ -99,12 +104,17 @@ export const FE6Routes = {
     { path: 'Chapter13ArmyEditor', element: <Suspense fallback={loading}><FE6Chapter13ArmyEditor /></Suspense> },
     { path: 'Chapter13ShopEvents', element: <Suspense fallback={loading}><FE6Chapter13ShopEvents /></Suspense> },
     { path: 'Chapter14ArmyEditor', element: <Suspense fallback={loading}><FE6Chapter14ArmyEditor /></Suspense> },
+    { path: 'Chapter14ShopEvents', element: <Suspense fallback={loading}><FE6Chapter14ShopEvents /></Suspense> },
     { path: 'Chapter14xArmyEditor', element: <Suspense fallback={loading}><FE6Chapter14xArmyEditor /></Suspense> },
     { path: 'Chapter15ArmyEditor', element: <Suspense fallback={loading}><FE6Chapter15ArmyEditor /></Suspense> },
+    { path: 'Chapter15ShopEvents', element: <Suspense fallback={loading}><FE6Chapter15ShopEvents /></Suspense> },
     { path: 'Chapter16ArmyEditor', element: <Suspense fallback={loading}><FE6Chapter16ArmyEditor /></Suspense> },
+    { path: 'Chapter16ShopEvents', element: <Suspense fallback={loading}><FE6Chapter16ShopEvents /></Suspense> },
     { path: 'Chapter16xArmyEditor', element: <Suspense fallback={loading}><FE6Chapter16xArmyEditor /></Suspense> },
     { path: 'Chapter17AArmyEditor', element: <Suspense fallback={loading}><FE6Chapter17AArmyEditor /></Suspense> },
+    { path: 'Chapter17AShopEvents', element: <Suspense fallback={loading}><FE6Chapter17AShopEvents /></Suspense> },
     { path: 'Chapter17BArmyEditor', element: <Suspense fallback={loading}><FE6Chapter17BArmyEditor /></Suspense> },
+    { path: 'Chapter17BShopEvents', element: <Suspense fallback={loading}><FE6Chapter17BShopEvents /></Suspense> },
     { path: 'Chapter18AArmyEditor', element: <Suspense fallback={loading}><FE6Chapter18AArmyEditor /></Suspense> },
     { path: 'Chapter18BArmyEditor', element: <Suspense fallback={loading}><FE6Chapter18BArmyEditor /></Suspense> },
     { path: 'Chapter19AArmyEditor', element: <Suspense fallback={loading}><FE6Chapter19AArmyEditor /></Suspense> },

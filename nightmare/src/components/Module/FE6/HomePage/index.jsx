@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useOutletContext } from 'react-router-dom';
-import { Alert, Space } from 'antd';
+import { Space } from 'antd';
 
 export default function FE6HomePage() {
   const [buffer] = useOutletContext();
@@ -11,10 +11,6 @@ export default function FE6HomePage() {
       align="center"
       style={{ width: '100%' }}
     >
-      <Alert
-        message="FE6: Binding Blade"
-        type="info"
-      />
       <Link to={{ pathname: 'Battlescreeneditorpart1', state: { buffer } }}>Battle screen editor part 1</Link>
       <Link to={{ pathname: 'Battlescreeneditorpart2', state: { buffer } }}>Battle screen editor part 2</Link>
       <Link to={{ pathname: 'Battlescreeneditorpart3', state: { buffer } }}>Battle screen editor part 3</Link>
@@ -34,12 +30,17 @@ export default function FE6HomePage() {
       <Link to={{ pathname: 'Chapter13ArmyEditor', state: { buffer } }}>Chapter 13 Army Editor</Link>
       <Link to={{ pathname: 'Chapter13ShopEvents', state: { buffer } }}>Chapter 13 Shop Events</Link>
       <Link to={{ pathname: 'Chapter14ArmyEditor', state: { buffer } }}>Chapter 14 Army Editor</Link>
+      <Link to={{ pathname: 'Chapter14ShopEvents', state: { buffer } }}>Chapter 14 Shop Events</Link>
       <Link to={{ pathname: 'Chapter14xArmyEditor', state: { buffer } }}>Chapter 14x Army Editor</Link>
       <Link to={{ pathname: 'Chapter15ArmyEditor', state: { buffer } }}>Chapter 15 Army Editor</Link>
+      <Link to={{ pathname: 'Chapter15ShopEvents', state: { buffer } }}>Chapter 15 Shop Events</Link>
       <Link to={{ pathname: 'Chapter16ArmyEditor', state: { buffer } }}>Chapter 16 Army Editor</Link>
+      <Link to={{ pathname: 'Chapter16ShopEvents', state: { buffer } }}>Chapter 16 Shop Events</Link>
       <Link to={{ pathname: 'Chapter16xArmyEditor', state: { buffer } }}>Chapter 16x Army Editor</Link>
       <Link to={{ pathname: 'Chapter17AArmyEditor', state: { buffer } }}>Chapter 17A Army Editor</Link>
+      <Link to={{ pathname: 'Chapter17AShopEvents', state: { buffer } }}>Chapter 17A Shop Events</Link>
       <Link to={{ pathname: 'Chapter17BArmyEditor', state: { buffer } }}>Chapter 17B Army Editor</Link>
+      <Link to={{ pathname: 'Chapter17BShopEvents', state: { buffer } }}>Chapter 17B Shop Events</Link>
       <Link to={{ pathname: 'Chapter18AArmyEditor', state: { buffer } }}>Chapter 18A Army Editor</Link>
       <Link to={{ pathname: 'Chapter18BArmyEditor', state: { buffer } }}>Chapter 18B Army Editor</Link>
       <Link to={{ pathname: 'Chapter19AArmyEditor', state: { buffer } }}>Chapter 19A Army Editor</Link>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useOutletContext } from 'react-router-dom';
-import { Alert, Space } from 'antd';
+import { Space } from 'antd';
 
 export default function %{game}%HomePage() {
   const [buffer] = useOutletContext();
@@ -11,10 +11,6 @@ export default function %{game}%HomePage() {
       align="center"
       style={{ width: '100%' }}
     >
-      <Alert
-        message="%{game}%: %{title}%"
-        type="info"
-      />
       %{links}%
     </Space>
   );

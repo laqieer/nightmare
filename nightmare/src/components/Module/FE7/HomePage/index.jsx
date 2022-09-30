@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useOutletContext } from 'react-router-dom';
-import { Alert, Space } from 'antd';
+import { Space } from 'antd';
 
 export default function FE7HomePage() {
   const [buffer] = useOutletContext();
@@ -11,10 +11,6 @@ export default function FE7HomePage() {
       align="center"
       style={{ width: '100%' }}
     >
-      <Alert
-        message="FE7: Blazing Sword"
-        type="info"
-      />
       <Link to={{ pathname: 'AIRecruitmentEditor', state: { buffer } }}>AI Recruitment Editor</Link>
       <Link to={{ pathname: 'AIRecruitmentEditorP2', state: { buffer } }}>AI Recruitment Editor P2</Link>
       <Link to={{ pathname: 'AssassinLegaultCustomAnimationEditor', state: { buffer } }}>Assassin Legault Custom Animation Editor</Link>

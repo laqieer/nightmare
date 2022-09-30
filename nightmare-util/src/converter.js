@@ -62,11 +62,10 @@ const byNameWithoutDotFiles = (entities) => {
 };
 
 try {
-    assert(process.argv.length == 5);
+    assert(process.argv.length == 4);
     const srcDir = process.argv[2];
     const dstDir = process.argv[3];
     model.game = path.parse(dstDir).name;
-    model.title = process.argv[4];
     loadTemplate('../template');
     Walk.create({ sort: byNameWithoutDotFiles })(srcDir, (err, pathname, dirent) => {
         if (err) throw err;
