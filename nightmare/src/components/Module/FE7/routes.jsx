@@ -171,8 +171,10 @@ const FE7Deathquoteeditorpart2 = lazy(() => import('./Deathquoteeditorpart2'));
 const FE7EscapeTilePointerEditor = lazy(() => import('./EscapeTilePointerEditor'));
 const FE7AnimationPointerTableEditor = lazy(() => import('./AnimationPointerTableEditor'));
 const FE7Arenaclasseditor = lazy(() => import('./Arenaclasseditor'));
+const FE7Critbonuseditor = lazy(() => import('./Critbonuseditor'));
 const FE7Eventtablereferences = lazy(() => import('./Eventtablereferences'));
 const FE7Mapspritepointertableeditor = lazy(() => import('./Mapspritepointertableeditor'));
+const FE7PromotionLevelEditor = lazy(() => import('./PromotionLevelEditor'));
 const FE7TutorialEditor = lazy(() => import('./TutorialEditor'));
 const FE7WorldMapDataReferences = lazy(() => import('./WorldMapDataReferences'));
 const FE7AfaDropsBoostEditor = lazy(() => import('./AfaDropsBoostEditor'));
@@ -215,6 +217,8 @@ const FE7FallenContractPromotionEditor = lazy(() => import('./FallenContractProm
 const FE7HeavenSealPromotionEditor = lazy(() => import('./HeavenSealPromotionEditor'));
 const FE7ItemAnimationReferencePointerExpandedROMrequired = lazy(() => import('./ItemAnimationReferencePointerExpandedROMrequired'));
 const FE7ItemEditor = lazy(() => import('./ItemEditor'));
+const FE7LuckCapEditorP1 = lazy(() => import('./LuckCapEditorP1'));
+const FE7LuckCapEditorP2 = lazy(() => import('./LuckCapEditorP2'));
 const FE7MusicArrayEditor = lazy(() => import('./MusicArrayEditor'));
 const FE7OceanSealPromotionEditor = lazy(() => import('./OceanSealPromotionEditor'));
 const FE7PortraitEditor = lazy(() => import('./PortraitEditor'));
@@ -225,6 +229,7 @@ const FE7Standingmapspriteeditor = lazy(() => import('./Standingmapspriteeditor'
 const FE7StatBonusesEditor = lazy(() => import('./StatBonusesEditor'));
 const FE7SupportPointerEditor = lazy(() => import('./SupportPointerEditor'));
 const FE7TerrainStatEditor = lazy(() => import('./TerrainStatEditor'));
+const FE7VulneraryEditor = lazy(() => import('./VulneraryEditor'));
 const FE7FinalChapter2TableEditor = lazy(() => import('./FinalChapter2TableEditor'));
 const FE7FinalChapterTableEditor = lazy(() => import('./FinalChapterTableEditor'));
 const FE7FireEmblem7PairedEndingsEditorbyIcyToast = lazy(() => import('./FireEmblem7PairedEndingsEditorbyIcyToast'));
@@ -233,6 +238,7 @@ const FE7FireEmblem7SupportConvoAvailabilityEditorbyIcyToast = lazy(() => import
 const FE7HawkeyeCustomAnimationEditor = lazy(() => import('./HawkeyeCustomAnimationEditor'));
 const FE7HeroRavenCustomAnimationEditor = lazy(() => import('./HeroRavenCustomAnimationEditor'));
 const FE7IsadoraCustomAnimationEditor = lazy(() => import('./IsadoraCustomAnimationEditor'));
+const FE7LevelCapEditor = lazy(() => import('./LevelCapEditor'));
 const FE7Linus1CustomAnimationEditor = lazy(() => import('./Linus1CustomAnimationEditor'));
 const FE7Linus2CustomAnimationEditor = lazy(() => import('./Linus2CustomAnimationEditor'));
 const FE7Linus3CustomAnimationEditor = lazy(() => import('./Linus3CustomAnimationEditor'));
@@ -248,6 +254,7 @@ const FE7NinoSageCustomAnimationEditor = lazy(() => import('./NinoSageCustomAnim
 const FE7PrologueSeizeEditor = lazy(() => import('./PrologueSeizeEditor'));
 const FE7PrologueUnitEditor = lazy(() => import('./PrologueUnitEditor'));
 const FE7SpecifiedBattleConvoEditorFE7 = lazy(() => import('./SpecifiedBattleConvoEditorFE7'));
+const FE7Stuff = lazy(() => import('./Stuff'));
 const FE7SupportBonusEditor = lazy(() => import('./SupportBonusEditor'));
 const FE7SwordmasterGuyCustomAnimationEditor = lazy(() => import('./SwordmasterGuyCustomAnimationEditor'));
 const FE7ThiefLegaultCustomAnimationEditor = lazy(() => import('./ThiefLegaultCustomAnimationEditor'));
@@ -430,8 +437,10 @@ export const FE7Routes = {
     { path: 'EscapeTilePointerEditor', element: <Suspense fallback={loading}><FE7EscapeTilePointerEditor /></Suspense> },
     { path: 'AnimationPointerTableEditor', element: <Suspense fallback={loading}><FE7AnimationPointerTableEditor /></Suspense> },
     { path: 'Arenaclasseditor', element: <Suspense fallback={loading}><FE7Arenaclasseditor /></Suspense> },
+    { path: 'Critbonuseditor', element: <Suspense fallback={loading}><FE7Critbonuseditor /></Suspense> },
     { path: 'Eventtablereferences', element: <Suspense fallback={loading}><FE7Eventtablereferences /></Suspense> },
     { path: 'Mapspritepointertableeditor', element: <Suspense fallback={loading}><FE7Mapspritepointertableeditor /></Suspense> },
+    { path: 'PromotionLevelEditor', element: <Suspense fallback={loading}><FE7PromotionLevelEditor /></Suspense> },
     { path: 'TutorialEditor', element: <Suspense fallback={loading}><FE7TutorialEditor /></Suspense> },
     { path: 'WorldMapDataReferences', element: <Suspense fallback={loading}><FE7WorldMapDataReferences /></Suspense> },
     { path: 'AfaDropsBoostEditor', element: <Suspense fallback={loading}><FE7AfaDropsBoostEditor /></Suspense> },
@@ -474,6 +483,8 @@ export const FE7Routes = {
     { path: 'HeavenSealPromotionEditor', element: <Suspense fallback={loading}><FE7HeavenSealPromotionEditor /></Suspense> },
     { path: 'ItemAnimationReferencePointerExpandedROMrequired', element: <Suspense fallback={loading}><FE7ItemAnimationReferencePointerExpandedROMrequired /></Suspense> },
     { path: 'ItemEditor', element: <Suspense fallback={loading}><FE7ItemEditor /></Suspense> },
+    { path: 'LuckCapEditorP1', element: <Suspense fallback={loading}><FE7LuckCapEditorP1 /></Suspense> },
+    { path: 'LuckCapEditorP2', element: <Suspense fallback={loading}><FE7LuckCapEditorP2 /></Suspense> },
     { path: 'MusicArrayEditor', element: <Suspense fallback={loading}><FE7MusicArrayEditor /></Suspense> },
     { path: 'OceanSealPromotionEditor', element: <Suspense fallback={loading}><FE7OceanSealPromotionEditor /></Suspense> },
     { path: 'PortraitEditor', element: <Suspense fallback={loading}><FE7PortraitEditor /></Suspense> },
@@ -484,6 +495,7 @@ export const FE7Routes = {
     { path: 'StatBonusesEditor', element: <Suspense fallback={loading}><FE7StatBonusesEditor /></Suspense> },
     { path: 'SupportPointerEditor', element: <Suspense fallback={loading}><FE7SupportPointerEditor /></Suspense> },
     { path: 'TerrainStatEditor', element: <Suspense fallback={loading}><FE7TerrainStatEditor /></Suspense> },
+    { path: 'VulneraryEditor', element: <Suspense fallback={loading}><FE7VulneraryEditor /></Suspense> },
     { path: 'FinalChapter2TableEditor', element: <Suspense fallback={loading}><FE7FinalChapter2TableEditor /></Suspense> },
     { path: 'FinalChapterTableEditor', element: <Suspense fallback={loading}><FE7FinalChapterTableEditor /></Suspense> },
     { path: 'FireEmblem7PairedEndingsEditorbyIcyToast', element: <Suspense fallback={loading}><FE7FireEmblem7PairedEndingsEditorbyIcyToast /></Suspense> },
@@ -492,6 +504,7 @@ export const FE7Routes = {
     { path: 'HawkeyeCustomAnimationEditor', element: <Suspense fallback={loading}><FE7HawkeyeCustomAnimationEditor /></Suspense> },
     { path: 'HeroRavenCustomAnimationEditor', element: <Suspense fallback={loading}><FE7HeroRavenCustomAnimationEditor /></Suspense> },
     { path: 'IsadoraCustomAnimationEditor', element: <Suspense fallback={loading}><FE7IsadoraCustomAnimationEditor /></Suspense> },
+    { path: 'LevelCapEditor', element: <Suspense fallback={loading}><FE7LevelCapEditor /></Suspense> },
     { path: 'Linus1CustomAnimationEditor', element: <Suspense fallback={loading}><FE7Linus1CustomAnimationEditor /></Suspense> },
     { path: 'Linus2CustomAnimationEditor', element: <Suspense fallback={loading}><FE7Linus2CustomAnimationEditor /></Suspense> },
     { path: 'Linus3CustomAnimationEditor', element: <Suspense fallback={loading}><FE7Linus3CustomAnimationEditor /></Suspense> },
@@ -507,6 +520,7 @@ export const FE7Routes = {
     { path: 'PrologueSeizeEditor', element: <Suspense fallback={loading}><FE7PrologueSeizeEditor /></Suspense> },
     { path: 'PrologueUnitEditor', element: <Suspense fallback={loading}><FE7PrologueUnitEditor /></Suspense> },
     { path: 'SpecifiedBattleConvoEditorFE7', element: <Suspense fallback={loading}><FE7SpecifiedBattleConvoEditorFE7 /></Suspense> },
+    { path: 'Stuff', element: <Suspense fallback={loading}><FE7Stuff /></Suspense> },
     { path: 'SupportBonusEditor', element: <Suspense fallback={loading}><FE7SupportBonusEditor /></Suspense> },
     { path: 'SwordmasterGuyCustomAnimationEditor', element: <Suspense fallback={loading}><FE7SwordmasterGuyCustomAnimationEditor /></Suspense> },
     { path: 'ThiefLegaultCustomAnimationEditor', element: <Suspense fallback={loading}><FE7ThiefLegaultCustomAnimationEditor /></Suspense> },

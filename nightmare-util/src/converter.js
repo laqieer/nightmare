@@ -74,63 +74,61 @@ try {
         }
         if (dirent.isFile() && dirent.name.toLowerCase().endsWith('.nmm')) {
             (nmm => {
-                parser.parse(nmm, (err, module) => {
-                    if (err) throw err;
-                    if (module.isNightmare2) {
-                        console.warn(`skipped Nightmare2 module: ${module.name} ${nmm}`);
-                        return;
+                let module = parser.parse(nmm);
+                if (module.isNightmare2) {
+                    console.warn(`skipped Nightmare2 module: ${module.name} ${nmm}`);
+                    return;
+                }
+                module.name = nameFrom(module.description);
+                if(module.name.startsWith(model.game)) module.name = module.name.substring(model.game.length);
+                if(module.name in modules) {
+                    console.warn(`skipped duplicated module: ${module.name} ${nmm}`);
+                    return;
+                }
+                modules[module.name] = module.description.split(' by ')[0].split(' By ')[0];
+                module.dir = path.join(dstDir, module.name);
+                fs.mkdirSync(module.dir, { recursive: true });
+                module.name = model.game + module.name;
+                module.options = module.entryList == 'NULL' ? module.name + 'Entries' : nameFrom(module.entryList);
+                if (module.options == module.name) module.options += 'Entries';
+                let options = [makeEntries(path.dirname(nmm), module)];
+                module.optionLists = new Set();
+                module.inputs = module.handlers.map(handler => {
+                    handler.description = handler.description.replaceAll('"', '\\"');
+                    switch (handler.type) {
+                        case 'TEXT':
+                            handler.inputType = `InputText\n        length={${handler.size}}`;
+                            break;
+                        case 'HEXA':
+                            handler.inputType = `InputHexArray\n        length={${handler.size}}`;
+                            break;
+                        case 'NEHU':
+                            handler.inputType = `InputHex\n        type={DataType.U${handler.size * 8}}`;
+                            break;
+                        case 'NEDS':
+                            handler.inputType = `InputDec\n        type={DataType.S${handler.size * 8}}`;
+                            break;
+                        case 'NEDU':
+                            handler.inputType = `InputDec\n        type={DataType.U${handler.size * 8}}`;
+                            break;
+                        case 'NDHU':
+                        case 'NDDU':
+                            handler.inputType = `InputDropbox\n        ${handler.type == 'NDHU' ? 'isHex\n        ' : ''}type={DataType.U${handler.size * 8}}\n        options={${nameFrom(handler.entryList)}}`;
+                            module.optionLists.add(handler.entryList);
+                            break;
+                        default:
+                            break;
                     }
-                    module.name = nameFrom(module.description);
-                    if(module.name.startsWith(model.game)) module.name = module.name.substring(model.game.length);
-                    if(module.name in modules) {
-                        console.warn(`skipped duplicated module: ${module.name} ${nmm}`);
-                        return;
-                    }
-                    modules[module.name] = module.description.split(' by ')[0].split(' By ')[0];
-                    module.dir = path.join(dstDir, module.name);
-                    fs.mkdirSync(module.dir, { recursive: true });
-                    module.name = model.game + module.name;
-                    module.options = module.entryList == 'NULL' ? module.name + 'Entries' : nameFrom(module.entryList);
-                    if (module.options == module.name) module.options += 'Entries';
-                    let options = [makeEntries(path.dirname(nmm), module)];
-                    module.optionLists = new Set();
-                    module.inputs = module.handlers.map(handler => {
-                        handler.description = handler.description.replaceAll('"', '\\"');
-                        switch (handler.type) {
-                            case 'TEXT':
-                                handler.inputType = `InputText\n        length={${handler.size}}`;
-                                break;
-                            case 'HEXA':
-                                handler.inputType = `InputHexArray\n        length={${handler.size}}`;
-                                break;
-                            case 'NEHU':
-                                handler.inputType = `InputHex\n        type={DataType.U${handler.size * 8}}`;
-                                break;
-                            case 'NEDS':
-                                handler.inputType = `InputDec\n        type={DataType.S${handler.size * 8}}`;
-                                break;
-                            case 'NEDU':
-                                handler.inputType = `InputDec\n        type={DataType.U${handler.size * 8}}`;
-                                break;
-                            case 'NDHU':
-                            case 'NDDU':
-                                handler.inputType = `InputDropbox\n        ${handler.type == 'NDHU' ? 'isHex\n        ' : ''}type={DataType.U${handler.size * 8}}\n        options={${nameFrom(handler.entryList)}}`;
-                                module.optionLists.add(handler.entryList);
-                                break;
-                            default:
-                                break;
-                        }
-                        return fillTemplate('handler', handler);
-                    }).join('');
-                    if (module.optionLists.size == 0) {
-                        options = [...options, `export default ${module.options};\n`];
-                    }
-                    module.optionLists.forEach(file => options = [...options, makeDropbox(path.dirname(nmm), file)]);
-                    module.optionLists = [module.options, ...module.optionLists].map((file, index) => nameFrom(file) + ((index < module.optionLists.size && (index + 1) % 4 == 0) ? ',\n ' : ',')).join(' ');
-                    module.importInputs = ['InputSelect', ...new Set(module.inputs.match(/Input\w+/g))].map(input => `import ${input} from '../../../Input/${input}';`).join('\n');
-                    fs.writeFileSync(path.join(module.dir, 'index.jsx'), fillTemplate('module', module));
-                    fs.writeFileSync(path.join(module.dir, 'options.js'), options.join('\n'));
-                });
+                    return fillTemplate('handler', handler);
+                }).join('');
+                if (module.optionLists.size == 0) {
+                    options = [...options, `export default ${module.options};\n`];
+                }
+                module.optionLists.forEach(file => options = [...options, makeDropbox(path.dirname(nmm), file)]);
+                module.optionLists = [module.options, ...module.optionLists].map((file, index) => nameFrom(file) + ((index < module.optionLists.size && (index + 1) % 4 == 0) ? ',\n ' : ',')).join(' ');
+                module.importInputs = ['InputSelect', ...new Set(module.inputs.match(/Input\w+/g))].map(input => `import ${input} from '../../../Input/${input}';`).join('\n');
+                fs.writeFile(path.join(module.dir, 'index.jsx'), fillTemplate('module', module), err => { if (err) throw err });
+                fs.writeFile(path.join(module.dir, 'options.js'), options.join('\n'), err => { if (err) throw err });
             })(pathname);
         }
         return Promise.resolve();

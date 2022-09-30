@@ -179,8 +179,10 @@ export default function FE7HomePage() {
       <Link to={{ pathname: 'EscapeTilePointerEditor', state: { buffer } }}>Escape Tile Pointer Editor</Link>
       <Link to={{ pathname: 'AnimationPointerTableEditor', state: { buffer } }}>FE 7 Animation Pointer Table Editor</Link>
       <Link to={{ pathname: 'Arenaclasseditor', state: { buffer } }}>FE 7 Arena class editor</Link>
+      <Link to={{ pathname: 'Critbonuseditor', state: { buffer } }}>FE 7 Crit bonus editor</Link>
       <Link to={{ pathname: 'Eventtablereferences', state: { buffer } }}>FE 7 Event table references</Link>
       <Link to={{ pathname: 'Mapspritepointertableeditor', state: { buffer } }}>FE 7 Map sprite pointer table editor</Link>
+      <Link to={{ pathname: 'PromotionLevelEditor', state: { buffer } }}>FE 7 Promotion Level Editor</Link>
       <Link to={{ pathname: 'TutorialEditor', state: { buffer } }}>FE 7 Tutorial Editor</Link>
       <Link to={{ pathname: 'WorldMapDataReferences', state: { buffer } }}>FE 7 World Map Data References</Link>
       <Link to={{ pathname: 'AfaDropsBoostEditor', state: { buffer } }}>FE7 Afa Drops Boost Editor</Link>
@@ -223,6 +225,8 @@ export default function FE7HomePage() {
       <Link to={{ pathname: 'HeavenSealPromotionEditor', state: { buffer } }}>FE7 Heaven Seal Promotion Editor</Link>
       <Link to={{ pathname: 'ItemAnimationReferencePointerExpandedROMrequired', state: { buffer } }}>FE7 Item Animation Reference Pointer - Expanded ROM required</Link>
       <Link to={{ pathname: 'ItemEditor', state: { buffer } }}>FE7 Item Editor</Link>
+      <Link to={{ pathname: 'LuckCapEditorP1', state: { buffer } }}>FE7 Luck Cap Editor [P1]</Link>
+      <Link to={{ pathname: 'LuckCapEditorP2', state: { buffer } }}>FE7 Luck Cap Editor [P2]</Link>
       <Link to={{ pathname: 'MusicArrayEditor', state: { buffer } }}>FE7 Music Array Editor</Link>
       <Link to={{ pathname: 'OceanSealPromotionEditor', state: { buffer } }}>FE7 Ocean Seal Promotion Editor</Link>
       <Link to={{ pathname: 'PortraitEditor', state: { buffer } }}>FE7 Portrait Editor</Link>
@@ -233,6 +237,7 @@ export default function FE7HomePage() {
       <Link to={{ pathname: 'StatBonusesEditor', state: { buffer } }}>FE7 Stat Bonuses Editor</Link>
       <Link to={{ pathname: 'SupportPointerEditor', state: { buffer } }}>FE7 Support Pointer Editor</Link>
       <Link to={{ pathname: 'TerrainStatEditor', state: { buffer } }}>FE7 Terrain Stat Editor</Link>
+      <Link to={{ pathname: 'VulneraryEditor', state: { buffer } }}>FE7 Vulnerary Editor</Link>
       <Link to={{ pathname: 'FinalChapter2TableEditor', state: { buffer } }}>Final Chapter (2) Table Editor</Link>
       <Link to={{ pathname: 'FinalChapterTableEditor', state: { buffer } }}>Final Chapter Table Editor</Link>
       <Link to={{ pathname: 'FireEmblem7PairedEndingsEditorbyIcyToast', state: { buffer } }}>Fire Emblem 7 (Paired) Endings Editor (by Icy Toast)</Link>
@@ -241,6 +246,7 @@ export default function FE7HomePage() {
       <Link to={{ pathname: 'HawkeyeCustomAnimationEditor', state: { buffer } }}>Hawkeye Custom Animation Editor</Link>
       <Link to={{ pathname: 'HeroRavenCustomAnimationEditor', state: { buffer } }}>Hero Raven Custom Animation Editor</Link>
       <Link to={{ pathname: 'IsadoraCustomAnimationEditor', state: { buffer } }}>Isadora Custom Animation Editor</Link>
+      <Link to={{ pathname: 'LevelCapEditor', state: { buffer } }}>Level Cap Editor</Link>
       <Link to={{ pathname: 'Linus1CustomAnimationEditor', state: { buffer } }}>Linus (1) Custom Animation Editor</Link>
       <Link to={{ pathname: 'Linus2CustomAnimationEditor', state: { buffer } }}>Linus (2) Custom Animation Editor</Link>
       <Link to={{ pathname: 'Linus3CustomAnimationEditor', state: { buffer } }}>Linus (3) Custom Animation Editor</Link>
@@ -256,6 +262,7 @@ export default function FE7HomePage() {
       <Link to={{ pathname: 'PrologueSeizeEditor', state: { buffer } }}>Prologue Seize Editor</Link>
       <Link to={{ pathname: 'PrologueUnitEditor', state: { buffer } }}>Prologue Unit Editor</Link>
       <Link to={{ pathname: 'SpecifiedBattleConvoEditorFE7', state: { buffer } }}>Specified Battle Convo Editor (FE7) -</Link>
+      <Link to={{ pathname: 'Stuff', state: { buffer } }}>Stuff</Link>
       <Link to={{ pathname: 'SupportBonusEditor', state: { buffer } }}>Support Bonus Editor</Link>
       <Link to={{ pathname: 'SwordmasterGuyCustomAnimationEditor', state: { buffer } }}>Swordmaster Guy Custom Animation Editor</Link>
       <Link to={{ pathname: 'ThiefLegaultCustomAnimationEditor', state: { buffer } }}>Thief Legault Custom Animation Editor</Link>
