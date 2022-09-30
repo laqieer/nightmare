@@ -6,6 +6,7 @@ import {
 } from 'react-router-dom';
 import { Layout, Menu } from 'antd';
 import { items } from './items';
+import ErrorBoundary from './components/ErrorBoundary';
 import Toolbar from './components/Toolbar';
 
 const {
@@ -72,7 +73,9 @@ export default function App() {
               minHeight: 360,
             }}
           >
-            <Outlet context={[buffer]} />
+            <ErrorBoundary>
+              <Outlet context={[buffer]} />
+            </ErrorBoundary>
           </div>
         </Content>
         <Footer
