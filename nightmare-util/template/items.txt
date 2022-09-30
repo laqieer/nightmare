@@ -1,0 +1,9 @@
+import React from 'react';
+import { FolderOutlined } from '@ant-design/icons';
+import { getItem } from '../../util';
+
+export const %{game}%Items = getItem('%{game}%', '%{game}%', <FolderOutlined />, [
+  %{items}%
+]);
+
+export default %{game}%Items;

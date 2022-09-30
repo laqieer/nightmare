@@ -6,8 +6,9 @@ const parser = require('./parser');
 
 const nameFrom = file => path.parse(file.split(' by ')[0].split(' By ')[0]).name.replace(/[\W_]/g, '');
 
-let template = {}
+let model = {}
 let modules = {}
+let template = {}
 
 const loadTemplate = dir => fs.readdirSync(dir).forEach(file => template[path.parse(file).name] = fs.readFileSync(path.join(dir, file), 'UTF-8').replace(/\r\n/g, '\n'));
 
@@ -44,13 +45,30 @@ const makeDropbox = (dir, file) => {
     return result;
 }
 
+const byNameWithoutDotFiles = (entities) => {
+  // sort by name
+  // filter dot files
+  return entities
+    .sort((a, b) => {
+      if (a.name > b.name) {
+        return 1;
+      }
+      if (a.name < b.name) {
+        return -1;
+      }
+      return 0;
+    })
+    .filter((ent) => !ent.name.startsWith("."));
+};
+
 try {
-    assert(process.argv.length == 4);
+    assert(process.argv.length == 5);
     const srcDir = process.argv[2];
     const dstDir = process.argv[3];
-    const game = path.parse(dstDir).name;
+    model.game = path.parse(dstDir).name;
+    model.title = process.argv[4];
     loadTemplate('../template');
-    Walk.walk(srcDir, (err, pathname, dirent) => {
+    Walk.create({ sort: byNameWithoutDotFiles })(srcDir, (err, pathname, dirent) => {
         if (err) throw err;
         if (dirent.isDirectory() && dirent.name.startsWith('.')) {
             return Promise.resolve(false);
@@ -64,7 +82,7 @@ try {
                         return;
                     }
                     module.name = nameFrom(module.description);
-                    if(module.name.startsWith(game)) module.name = module.name.substring(game.length);
+                    if(module.name.startsWith(model.game)) module.name = module.name.substring(model.game.length);
                     if(module.name in modules) {
                         console.warn(`skipped duplicated module: ${module.name} ${nmm}`);
                         return;
@@ -72,7 +90,7 @@ try {
                     modules[module.name] = module.description.split(' by ')[0].split(' By ')[0];
                     module.dir = path.join(dstDir, module.name);
                     fs.mkdirSync(module.dir, { recursive: true });
-                    module.name = game + module.name;
+                    module.name = model.game + module.name;
                     module.options = module.entryList == 'NULL' ? module.name + 'Entries' : nameFrom(module.entryList);
                     if (module.options == module.name) module.options += 'Entries';
                     let options = [makeEntries(path.dirname(nmm), module)];
@@ -118,13 +136,16 @@ try {
         }
         return Promise.resolve();
     }).then(() => {
-        console.log('\nroutes.jsx:\n');
-        console.log(Object.entries(modules).map((module) => `const ${game}${module[0]} = lazy(() => import('./components/Module/${game}/${module[0]}'));`).join('\n'));
-        console.log(Object.entries(modules).map((module) => `{ path: '${module[0]}', element: <Suspense fallback={loading}><${game}${module[0]} /></Suspense> },`).join('\n'));
-        console.log('\nitems.jsx:\n');
-        console.log(Object.entries(modules).map((module) => `getItem('${module[1].replaceAll('\'', '\\\'')}', '${game}/${module[0]}'),`).join('\n'));
-        console.log(`\n${game}/HomePage/index.jsx:\n`);
-        console.log(Object.entries(modules).map((module) => `<Link to={{ pathname: '${module[0]}', state: { buffer } }}>${module[1].replaceAll('\'', '&apos;')}</Link>`).join('\n'));
+        let m = Object.entries(modules).sort((a, b) => a[1].localeCompare(b[1]));
+        model.items = m.map((module) => `getItem('${module[1].replaceAll('\'', '\\\'')}', '${model.game}/${module[0]}'),`).join('\n  ');
+        fs.writeFile(path.join(dstDir, 'items.jsx'), fillTemplate('items', model), err => { if (err) throw err });
+        model.links = m.map((module) => `<Link to={{ pathname: '${module[0]}', state: { buffer } }}>${module[1].replaceAll('\'', '&apos;')}</Link>`).join('\n      ');
+        fs.mkdirSync(path.join(dstDir, 'HomePage'), { recursive: true });
+        fs.writeFile(path.join(dstDir, 'HomePage/index.jsx'), fillTemplate('homepage', model), err => { if (err) throw err });
+        m = [['HomePage', ''], ...m];
+        model.imports = m.map((module) => `const ${model.game}${module[0]} = lazy(() => import('./${module[0]}'));`).join('\n');
+        model.routes = m.map((module) => `{ path: '${module[1] == '' ? '' : module[0]}', element: <Suspense fallback={loading}><${model.game}${module[0]} /></Suspense> },`).join('\n    ');
+        fs.writeFile(path.join(dstDir, 'routes.jsx'), fillTemplate('routes', model), err => { if (err) throw err });
     });
 } catch (err) {
     console.error(err);
