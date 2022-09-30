@@ -6,7 +6,8 @@ import {
 } from 'react-router-dom';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
-import { loading, routes } from './routes';
+import loading from './components/Loading';
+import { routes } from './routes';
 
 const router = createBrowserRouter(routes);
 

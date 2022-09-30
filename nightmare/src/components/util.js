@@ -113,3 +113,12 @@ export function write(view, offset, type, value) {
 
   message.success('data written successfully');
 }
+
+export function getItem(label, key, icon, children) {
+  return {
+    key,
+    icon,
+    children,
+    label,
+  };
+}
