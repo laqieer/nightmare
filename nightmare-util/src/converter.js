@@ -4,7 +4,7 @@ const assert = require('assert');
 const Walk = require('@root/walk');
 const parser = require('./parser');
 
-const nameFrom = file => path.parse(file.split(' by ')[0].split(' By ')[0]).name.replace(/[\W_]/g, '');
+const nameFrom = file => path.parse(file.split(' by ')[0].split(' By ')[0].split('(by ')[0].split('(By ')[0]).name.replace(/[\W_]/g, '');
 
 let model = {}
 let modules = {}
@@ -91,7 +91,7 @@ try {
                     console.warn(`skipped duplicated module: ${module.name} ${nmm}`);
                     return;
                 }
-                modules[module.name] = module.description.split(' by ')[0].split(' By ')[0];
+                modules[module.name] = module.description.split(' by ')[0].split(' By ')[0].split('(by ')[0].split('(By ')[0];
                 module.dir = path.join(dstDir, module.name);
                 fs.mkdirSync(module.dir, { recursive: true });
                 module.name = model.game + module.name;

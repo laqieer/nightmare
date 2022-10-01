@@ -18,6 +18,7 @@ export default function HomePage() {
       />
       <Link to={{ pathname: 'FE6', state: { buffer } }}>FE6: Binding Blade</Link>
       <Link to={{ pathname: 'FE7', state: { buffer } }}>FE7: Blazing Sword</Link>
+      <Link to={{ pathname: 'FE8', state: { buffer } }}>FE8: The Sacred Stones</Link>
     </Space>
   );
 }
