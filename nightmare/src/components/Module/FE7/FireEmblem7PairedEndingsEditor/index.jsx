@@ -3,20 +3,20 @@ import { useOutletContext, useSearchParams } from 'react-router-dom';
 import { Space, Alert, BackTop } from 'antd';
 import { ToTopOutlined } from '@ant-design/icons';
 import {
-  SupportSlotList, Characters,
+  EndingsList, EndingTypeList, Characters,
 } from './options';
 import { DataType } from '../../../util';
 import InputSelect from '../../../Input/InputSelect';
 import InputDropbox from '../../../Input/InputDropbox';
 import InputHex from '../../../Input/InputHex';
 
-export default function FE7FireEmblem7SupportConvoAvailabilityEditorbyIcyToast() {
+export default function FE7FireEmblem7PairedEndingsEditor() {
   const [buffer] = useOutletContext();
   const [searchParams, setSearchParams] = useSearchParams();
 
   const id = searchParams.get('id');
-  const address = 0xC9F9F4;
-  const size = 20;
+  const address = 0xCEE160;
+  const size = 8;
   let view = null;
 
   try {
@@ -32,26 +32,25 @@ export default function FE7FireEmblem7SupportConvoAvailabilityEditorbyIcyToast()
       style={{ width: '100%' }}
     >
       <Alert
-        message="Fire Emblem 7 Support Convo Availability Editor (by Icy Toast)"
+        message="Fire Emblem 7 (Paired) Endings Editor (by Icy Toast)"
         type="info"
       />
       <div key={id}>
         <InputSelect
           disabled={view == null}
-          defaultValue={SupportSlotList.find(
+          defaultValue={EndingsList.find(
             (entry) => entry.value.toString() === id,
           ) ?? id}
           onSelect={(value) => setSearchParams({ id: value })}
-          options={SupportSlotList}
+          options={EndingsList}
         />
       </div>
       <InputDropbox
         isHex
         type={DataType.U8}
-        reference="CharacterEditor"
-        options={Characters}
+        options={EndingTypeList}
         view={view}
-        name="Character 1"
+        name="Ending Type"
         offset={0}
       />
       <InputDropbox
@@ -60,62 +59,23 @@ export default function FE7FireEmblem7SupportConvoAvailabilityEditorbyIcyToast()
         reference="CharacterEditor"
         options={Characters}
         view={view}
-        name="Character 2"
+        name="Character 1"
         offset={1}
       />
+      <InputDropbox
+        isHex
+        type={DataType.U8}
+        reference="CharacterEditor"
+        options={Characters}
+        view={view}
+        name="Character 2"
+        offset={2}
+      />
       <InputHex
         type={DataType.U16}
         view={view}
-        name="C Support Convo"
+        name="Ending Text Value"
         offset={4}
-      />
-      <InputHex
-        type={DataType.U16}
-        view={view}
-        name="B Support Convo"
-        offset={8}
-      />
-      <InputHex
-        type={DataType.U16}
-        view={view}
-        name="A Support Convo"
-        offset={12}
-      />
-      <InputHex
-        type={DataType.U8}
-        view={view}
-        name="???"
-        offset={14}
-      />
-      <InputHex
-        type={DataType.U8}
-        view={view}
-        name="???"
-        offset={15}
-      />
-      <InputHex
-        type={DataType.U8}
-        view={view}
-        name="???"
-        offset={16}
-      />
-      <InputHex
-        type={DataType.U8}
-        view={view}
-        name="???"
-        offset={17}
-      />
-      <InputHex
-        type={DataType.U8}
-        view={view}
-        name="???"
-        offset={18}
-      />
-      <InputHex
-        type={DataType.U8}
-        view={view}
-        name="???"
-        offset={19}
       />
 
       <BackTop>

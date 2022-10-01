@@ -10,7 +10,7 @@ import InputSelect from '../../../Input/InputSelect';
 import InputDec from '../../../Input/InputDec';
 import InputDropbox from '../../../Input/InputDropbox';
 
-export default function FE7FireEmblem7SupportcompatibilityEditorbyIcyToast() {
+export default function FE7FireEmblem7SupportcompatibilityEditor() {
   const [buffer] = useOutletContext();
   const [searchParams, setSearchParams] = useSearchParams();
 

@@ -240,9 +240,9 @@ export default function FE7HomePage() {
       <Link to={{ pathname: 'VulneraryEditor', state: { buffer } }}>FE7 Vulnerary Editor</Link>
       <Link to={{ pathname: 'FinalChapter2TableEditor', state: { buffer } }}>Final Chapter (2) Table Editor</Link>
       <Link to={{ pathname: 'FinalChapterTableEditor', state: { buffer } }}>Final Chapter Table Editor</Link>
-      <Link to={{ pathname: 'FireEmblem7PairedEndingsEditorbyIcyToast', state: { buffer } }}>Fire Emblem 7 (Paired) Endings Editor (by Icy Toast)</Link>
-      <Link to={{ pathname: 'FireEmblem7SupportcompatibilityEditorbyIcyToast', state: { buffer } }}>Fire Emblem 7 Support compatibility Editor (by Icy Toast)</Link>
-      <Link to={{ pathname: 'FireEmblem7SupportConvoAvailabilityEditorbyIcyToast', state: { buffer } }}>Fire Emblem 7 Support Convo Availability Editor (by Icy Toast)</Link>
+      <Link to={{ pathname: 'FireEmblem7PairedEndingsEditor', state: { buffer } }}>Fire Emblem 7 (Paired) Endings Editor </Link>
+      <Link to={{ pathname: 'FireEmblem7SupportcompatibilityEditor', state: { buffer } }}>Fire Emblem 7 Support compatibility Editor </Link>
+      <Link to={{ pathname: 'FireEmblem7SupportConvoAvailabilityEditor', state: { buffer } }}>Fire Emblem 7 Support Convo Availability Editor </Link>
       <Link to={{ pathname: 'HawkeyeCustomAnimationEditor', state: { buffer } }}>Hawkeye Custom Animation Editor</Link>
       <Link to={{ pathname: 'HeroRavenCustomAnimationEditor', state: { buffer } }}>Hero Raven Custom Animation Editor</Link>
       <Link to={{ pathname: 'IsadoraCustomAnimationEditor', state: { buffer } }}>Isadora Custom Animation Editor</Link>

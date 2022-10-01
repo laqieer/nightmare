@@ -82,7 +82,7 @@ try {
             (nmm => {
                 let module = parser.parse(nmm);
                 if (module.isNightmare2) {
-                    console.warn(`skipped Nightmare2 module: ${module.name} ${nmm}`);
+                    console.warn(`skipped Nightmare2 module: ${nmm}`);
                     return;
                 }
                 module.name = nameFrom(module.description);

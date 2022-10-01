@@ -232,9 +232,9 @@ const FE7TerrainStatEditor = lazy(() => import('./TerrainStatEditor'));
 const FE7VulneraryEditor = lazy(() => import('./VulneraryEditor'));
 const FE7FinalChapter2TableEditor = lazy(() => import('./FinalChapter2TableEditor'));
 const FE7FinalChapterTableEditor = lazy(() => import('./FinalChapterTableEditor'));
-const FE7FireEmblem7PairedEndingsEditorbyIcyToast = lazy(() => import('./FireEmblem7PairedEndingsEditorbyIcyToast'));
-const FE7FireEmblem7SupportcompatibilityEditorbyIcyToast = lazy(() => import('./FireEmblem7SupportcompatibilityEditorbyIcyToast'));
-const FE7FireEmblem7SupportConvoAvailabilityEditorbyIcyToast = lazy(() => import('./FireEmblem7SupportConvoAvailabilityEditorbyIcyToast'));
+const FE7FireEmblem7PairedEndingsEditor = lazy(() => import('./FireEmblem7PairedEndingsEditor'));
+const FE7FireEmblem7SupportcompatibilityEditor = lazy(() => import('./FireEmblem7SupportcompatibilityEditor'));
+const FE7FireEmblem7SupportConvoAvailabilityEditor = lazy(() => import('./FireEmblem7SupportConvoAvailabilityEditor'));
 const FE7HawkeyeCustomAnimationEditor = lazy(() => import('./HawkeyeCustomAnimationEditor'));
 const FE7HeroRavenCustomAnimationEditor = lazy(() => import('./HeroRavenCustomAnimationEditor'));
 const FE7IsadoraCustomAnimationEditor = lazy(() => import('./IsadoraCustomAnimationEditor'));
@@ -498,9 +498,9 @@ export const FE7Routes = {
     { path: 'VulneraryEditor', element: <Suspense fallback={loading}><FE7VulneraryEditor /></Suspense> },
     { path: 'FinalChapter2TableEditor', element: <Suspense fallback={loading}><FE7FinalChapter2TableEditor /></Suspense> },
     { path: 'FinalChapterTableEditor', element: <Suspense fallback={loading}><FE7FinalChapterTableEditor /></Suspense> },
-    { path: 'FireEmblem7PairedEndingsEditorbyIcyToast', element: <Suspense fallback={loading}><FE7FireEmblem7PairedEndingsEditorbyIcyToast /></Suspense> },
-    { path: 'FireEmblem7SupportcompatibilityEditorbyIcyToast', element: <Suspense fallback={loading}><FE7FireEmblem7SupportcompatibilityEditorbyIcyToast /></Suspense> },
-    { path: 'FireEmblem7SupportConvoAvailabilityEditorbyIcyToast', element: <Suspense fallback={loading}><FE7FireEmblem7SupportConvoAvailabilityEditorbyIcyToast /></Suspense> },
+    { path: 'FireEmblem7PairedEndingsEditor', element: <Suspense fallback={loading}><FE7FireEmblem7PairedEndingsEditor /></Suspense> },
+    { path: 'FireEmblem7SupportcompatibilityEditor', element: <Suspense fallback={loading}><FE7FireEmblem7SupportcompatibilityEditor /></Suspense> },
+    { path: 'FireEmblem7SupportConvoAvailabilityEditor', element: <Suspense fallback={loading}><FE7FireEmblem7SupportConvoAvailabilityEditor /></Suspense> },
     { path: 'HawkeyeCustomAnimationEditor', element: <Suspense fallback={loading}><FE7HawkeyeCustomAnimationEditor /></Suspense> },
     { path: 'HeroRavenCustomAnimationEditor', element: <Suspense fallback={loading}><FE7HeroRavenCustomAnimationEditor /></Suspense> },
     { path: 'IsadoraCustomAnimationEditor', element: <Suspense fallback={loading}><FE7IsadoraCustomAnimationEditor /></Suspense> },
