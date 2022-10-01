@@ -35,15 +35,20 @@ export default function FE7CustomBattleAnimationEditor() {
         message="FE7 Custom Battle Animation Editor by SpyroDi (please consult Custom Animations.txt)"
         type="info"
       />
-      <InputSelect
-        disabled={view == null}
-        defaultValue={id}
-        onSelect={(value) => setSearchParams({ id: value })}
-        options={BattleAnimationPointers}
-      />
+      <div key={id}>
+        <InputSelect
+          disabled={view == null}
+          defaultValue={BattleAnimationPointers.find(
+            (entry) => entry.value.toString() === id,
+          ) ?? id}
+          onSelect={(value) => setSearchParams({ id: value })}
+          options={BattleAnimationPointers}
+        />
+      </div>
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="ItemEditor"
         options={AnimationTypes}
         view={view}
         name="+00 Weapon Type"
@@ -59,6 +64,7 @@ export default function FE7CustomBattleAnimationEditor() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="AnimationPointerTableEditor"
         options={AnimationList}
         view={view}
         name="+02 Animation Played"
@@ -74,6 +80,7 @@ export default function FE7CustomBattleAnimationEditor() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="ItemEditor"
         options={AnimationTypes}
         view={view}
         name="+04 Weapon Type"
@@ -89,6 +96,7 @@ export default function FE7CustomBattleAnimationEditor() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="AnimationPointerTableEditor"
         options={AnimationList}
         view={view}
         name="+06 Animation Played"
@@ -104,6 +112,7 @@ export default function FE7CustomBattleAnimationEditor() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="ItemEditor"
         options={AnimationTypes}
         view={view}
         name="+08 Weapon Type"
@@ -119,6 +128,7 @@ export default function FE7CustomBattleAnimationEditor() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="AnimationPointerTableEditor"
         options={AnimationList}
         view={view}
         name="+0A Animation Played"
@@ -134,6 +144,7 @@ export default function FE7CustomBattleAnimationEditor() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="ItemEditor"
         options={AnimationTypes}
         view={view}
         name="+0C Weapon Type"
@@ -149,6 +160,7 @@ export default function FE7CustomBattleAnimationEditor() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="AnimationPointerTableEditor"
         options={AnimationList}
         view={view}
         name="+0E Animation Played"

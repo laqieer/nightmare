@@ -34,12 +34,16 @@ export default function FE7Chapter9TableEditor() {
         message="Chapter 9 Table Editor by Fire Blazer/Keriku- Credit to Icy Toast"
         type="info"
       />
-      <InputSelect
-        disabled={view == null}
-        defaultValue={id}
-        onSelect={(value) => setSearchParams({ id: value })}
-        options={FE7Chapter9TableEditorEntries}
-      />
+      <div key={id}>
+        <InputSelect
+          disabled={view == null}
+          defaultValue={FE7Chapter9TableEditorEntries.find(
+            (entry) => entry.value.toString() === id,
+          ) ?? id}
+          onSelect={(value) => setSearchParams({ id: value })}
+          options={FE7Chapter9TableEditorEntries}
+        />
+      </div>
       <InputHex
         type={DataType.U32}
         view={view}

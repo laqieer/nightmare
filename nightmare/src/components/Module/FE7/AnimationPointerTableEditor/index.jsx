@@ -35,12 +35,16 @@ export default function FE7AnimationPointerTableEditor() {
         message="FE 7 Animation Pointer Table Editor by Keriku, updated by Nintenlord"
         type="info"
       />
-      <InputSelect
-        disabled={view == null}
-        defaultValue={id}
-        onSelect={(value) => setSearchParams({ id: value })}
-        options={AnimationPointerTableEditor}
-      />
+      <div key={id}>
+        <InputSelect
+          disabled={view == null}
+          defaultValue={AnimationPointerTableEditor.find(
+            (entry) => entry.value.toString() === id,
+          ) ?? id}
+          onSelect={(value) => setSearchParams({ id: value })}
+          options={AnimationPointerTableEditor}
+        />
+      </div>
       <InputText
         length={12}
         view={view}

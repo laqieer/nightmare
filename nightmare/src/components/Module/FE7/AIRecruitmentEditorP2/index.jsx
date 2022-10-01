@@ -34,15 +34,20 @@ export default function FE7AIRecruitmentEditorP2() {
         message="AI Recruitment Editor P2 by Fire Blazer, info thanks to Nintenlord"
         type="info"
       />
-      <InputSelect
-        disabled={view == null}
-        defaultValue={id}
-        onSelect={(value) => setSearchParams({ id: value })}
-        options={FE7AIRecruitmentEditorP2Entries}
-      />
+      <div key={id}>
+        <InputSelect
+          disabled={view == null}
+          defaultValue={FE7AIRecruitmentEditorP2Entries.find(
+            (entry) => entry.value.toString() === id,
+          ) ?? id}
+          onSelect={(value) => setSearchParams({ id: value })}
+          options={FE7AIRecruitmentEditorP2Entries}
+        />
+      </div>
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="CharacterEditor"
         options={Characters}
         view={view}
         name="Talker"
@@ -51,6 +56,7 @@ export default function FE7AIRecruitmentEditorP2() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="CharacterEditor"
         options={Characters}
         view={view}
         name="Talks To"

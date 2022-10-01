@@ -40,12 +40,16 @@ export default function FE7ChapterDataEditorFE7() {
         message="Chapter Data Editor (FE7) - By Icy Toast - V 0.9.3"
         type="info"
       />
-      <InputSelect
-        disabled={view == null}
-        defaultValue={id}
-        onSelect={(value) => setSearchParams({ id: value })}
-        options={Chapters}
-      />
+      <div key={id}>
+        <InputSelect
+          disabled={view == null}
+          defaultValue={Chapters.find(
+            (entry) => entry.value.toString() === id,
+          ) ?? id}
+          onSelect={(value) => setSearchParams({ id: value })}
+          options={Chapters}
+        />
+      </div>
       <InputDropbox
         isHex
         type={DataType.U32}
@@ -57,6 +61,7 @@ export default function FE7ChapterDataEditorFE7() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="Eventtablereferences"
         options={ObjectSets}
         view={view}
         name="Object Set 1"
@@ -65,6 +70,7 @@ export default function FE7ChapterDataEditorFE7() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="Eventtablereferences"
         options={ObjectSets}
         view={view}
         name="Object Set 2"
@@ -73,6 +79,7 @@ export default function FE7ChapterDataEditorFE7() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="Eventtablereferences"
         options={Palette1}
         view={view}
         name="Palette"
@@ -89,6 +96,7 @@ export default function FE7ChapterDataEditorFE7() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="Eventtablereferences"
         options={Maps}
         view={view}
         name="Map"
@@ -97,6 +105,7 @@ export default function FE7ChapterDataEditorFE7() {
       <InputDropbox
         isHex
         type={DataType.U16}
+        reference="Eventtablereferences"
         options={TileAnim}
         view={view}
         name="Tile Animations"
@@ -105,6 +114,7 @@ export default function FE7ChapterDataEditorFE7() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="Eventtablereferences"
         options={TileChange}
         view={view}
         name="Triggerable Map Changes"
@@ -157,6 +167,7 @@ export default function FE7ChapterDataEditorFE7() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="BattleBGEditor"
         options={Battletileset}
         view={view}
         name="Battle tileset"
@@ -177,6 +188,7 @@ export default function FE7ChapterDataEditorFE7() {
       <InputDropbox
         isHex
         type={DataType.U16}
+        reference="MusicArrayEditor"
         options={Music}
         view={view}
         name="EM Player Phase BGM"
@@ -185,6 +197,7 @@ export default function FE7ChapterDataEditorFE7() {
       <InputDropbox
         isHex
         type={DataType.U16}
+        reference="MusicArrayEditor"
         options={Music}
         view={view}
         name="EM Enemy Phase BGM"
@@ -193,6 +206,7 @@ export default function FE7ChapterDataEditorFE7() {
       <InputDropbox
         isHex
         type={DataType.U16}
+        reference="MusicArrayEditor"
         options={Music}
         view={view}
         name="EM NPC Phase BGM"
@@ -201,6 +215,7 @@ export default function FE7ChapterDataEditorFE7() {
       <InputDropbox
         isHex
         type={DataType.U16}
+        reference="MusicArrayEditor"
         options={Music}
         view={view}
         name="HM Player Phase BGM"
@@ -209,6 +224,7 @@ export default function FE7ChapterDataEditorFE7() {
       <InputDropbox
         isHex
         type={DataType.U16}
+        reference="MusicArrayEditor"
         options={Music}
         view={view}
         name="HM Enemy Phase BGM"
@@ -217,6 +233,7 @@ export default function FE7ChapterDataEditorFE7() {
       <InputDropbox
         isHex
         type={DataType.U16}
+        reference="MusicArrayEditor"
         options={Music}
         view={view}
         name="HM NPC Phase BGM"
@@ -225,6 +242,7 @@ export default function FE7ChapterDataEditorFE7() {
       <InputDropbox
         isHex
         type={DataType.U16}
+        reference="MusicArrayEditor"
         options={Music}
         view={view}
         name="Secondary Player Phase BGM"
@@ -233,6 +251,7 @@ export default function FE7ChapterDataEditorFE7() {
       <InputDropbox
         isHex
         type={DataType.U16}
+        reference="MusicArrayEditor"
         options={Music}
         view={view}
         name="Secondary Enemy Phase BGM"
@@ -241,6 +260,7 @@ export default function FE7ChapterDataEditorFE7() {
       <InputDropbox
         isHex
         type={DataType.U16}
+        reference="MusicArrayEditor"
         options={Music}
         view={view}
         name="Worldmap Chapter Prologue BGM"
@@ -249,6 +269,7 @@ export default function FE7ChapterDataEditorFE7() {
       <InputDropbox
         isHex
         type={DataType.U16}
+        reference="MusicArrayEditor"
         options={Music}
         view={view}
         name="EM Chapter Opening BGM/SFX"
@@ -257,6 +278,7 @@ export default function FE7ChapterDataEditorFE7() {
       <InputDropbox
         isHex
         type={DataType.U16}
+        reference="MusicArrayEditor"
         options={Music}
         view={view}
         name="HM Chapter Opening BGM/SFX"
@@ -461,25 +483,25 @@ export default function FE7ChapterDataEditorFE7() {
         offset={92}
       />
       <InputDec
-        type={DataType.U24}
+        type={DataType.U32}
         view={view}
         name="ENM Maximum Acquirable Funds"
         offset={96}
       />
       <InputDec
-        type={DataType.U24}
+        type={DataType.U32}
         view={view}
         name="EHM Maximum Acquirable Funds"
         offset={100}
       />
       <InputDec
-        type={DataType.U24}
+        type={DataType.U32}
         view={view}
         name="HNM Maximum Acquirable Funds"
         offset={104}
       />
       <InputDec
-        type={DataType.U24}
+        type={DataType.U32}
         view={view}
         name="HHM Maximum Acquirable Funds"
         offset={108}
@@ -535,6 +557,7 @@ export default function FE7ChapterDataEditorFE7() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="Eventtablereferences"
         options={MEdata}
         view={view}
         name="Event Data Reference"
@@ -599,6 +622,7 @@ export default function FE7ChapterDataEditorFE7() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="PortraitEditor"
         options={Portraits}
         view={view}
         name="Augury Portrait"
@@ -691,6 +715,7 @@ export default function FE7ChapterDataEditorFE7() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="CharacterEditor"
         options={Characters}
         view={view}
         name="Protect Character Marker"

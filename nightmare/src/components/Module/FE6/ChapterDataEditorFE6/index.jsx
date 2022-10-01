@@ -37,12 +37,16 @@ export default function FE6ChapterDataEditorFE6() {
         message="Chapter Data Editor (FE6) - By Kate & Arch - V 0.8.0"
         type="info"
       />
-      <InputSelect
-        disabled={view == null}
-        defaultValue={id}
-        onSelect={(value) => setSearchParams({ id: value })}
-        options={ChapterList}
-      />
+      <div key={id}>
+        <InputSelect
+          disabled={view == null}
+          defaultValue={ChapterList.find(
+            (entry) => entry.value.toString() === id,
+          ) ?? id}
+          onSelect={(value) => setSearchParams({ id: value })}
+          options={ChapterList}
+        />
+      </div>
       <InputHex
         type={DataType.U32}
         view={view}
@@ -52,6 +56,7 @@ export default function FE6ChapterDataEditorFE6() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="EventTableReferences"
         options={Pointerlist}
         view={view}
         name="Object Set part 1"
@@ -60,6 +65,7 @@ export default function FE6ChapterDataEditorFE6() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="EventTableReferences"
         options={Pointerlist}
         view={view}
         name="Object Set part 2"
@@ -68,6 +74,7 @@ export default function FE6ChapterDataEditorFE6() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="EventTableReferences"
         options={Pointerlist}
         view={view}
         name="Palette"
@@ -76,6 +83,7 @@ export default function FE6ChapterDataEditorFE6() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="EventTableReferences"
         options={Pointerlist}
         view={view}
         name="Tile Configuration"
@@ -84,6 +92,7 @@ export default function FE6ChapterDataEditorFE6() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="EventTableReferences"
         options={Pointerlist}
         view={view}
         name="Map"
@@ -92,6 +101,7 @@ export default function FE6ChapterDataEditorFE6() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="EventTableReferences"
         options={Pointerlist}
         view={view}
         name="Tile Animations Part 1"
@@ -100,6 +110,7 @@ export default function FE6ChapterDataEditorFE6() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="EventTableReferences"
         options={Pointerlist}
         view={view}
         name="Tile Animations Part 2"
@@ -108,6 +119,7 @@ export default function FE6ChapterDataEditorFE6() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="EventTableReferences"
         options={Pointerlist}
         view={view}
         name="Triggerable Map Changes"
@@ -338,6 +350,7 @@ export default function FE6ChapterDataEditorFE6() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="EventTableReferences"
         options={Pointerlist}
         view={view}
         name="Event Data Reference"
@@ -346,6 +359,7 @@ export default function FE6ChapterDataEditorFE6() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="EventTableReferences"
         options={Pointerlist}
         view={view}
         name="Worldmap Pre-Chapter Scene"

@@ -34,15 +34,20 @@ export default function FE7Arenaclasseditor() {
         message="FE 7 Arena class editor"
         type="info"
       />
-      <InputSelect
-        disabled={view == null}
-        defaultValue={id}
-        onSelect={(value) => setSearchParams({ id: value })}
-        options={FE7ArenaclasseditorEntries}
-      />
+      <div key={id}>
+        <InputSelect
+          disabled={view == null}
+          defaultValue={FE7ArenaclasseditorEntries.find(
+            (entry) => entry.value.toString() === id,
+          ) ?? id}
+          onSelect={(value) => setSearchParams({ id: value })}
+          options={FE7ArenaclasseditorEntries}
+        />
+      </div>
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="ClassEditor"
         options={ClassList}
         view={view}
         name="Class to appear"

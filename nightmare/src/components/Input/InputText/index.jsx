@@ -11,12 +11,18 @@ export default function InputText(props) {
     view, name, offset, length,
   } = props;
 
+  const currentValue = view == null ? '' : read(view, offset, DataType.TEXT, length);
+  const [oldValue, setOldValue] = useState(currentValue);
+  if (oldValue !== currentValue) {
+    setOldValue(currentValue);
+  }
+
   return (
     <Space>
       <Text
         disabled={view == null}
       >
-        {`${name}:${view == null ? '' : ` ${read(view, offset, DataType.TEXT, length)} →`}`}
+        {`${name}:${view == null ? '' : ` ${oldValue} →`}`}
       </Text>
       <Input
         disabled={view == null}
@@ -29,7 +35,11 @@ export default function InputText(props) {
             setValue(input);
           }
         }}
-        onPressEnter={(e) => write(view, offset, DataType.TEXT, e.target.value)}
+        onPressEnter={(e) => {
+          const v = e.target.value;
+          write(view, offset, DataType.TEXT, v);
+          setOldValue(v);
+        }}
         {...props}
       />
     </Space>

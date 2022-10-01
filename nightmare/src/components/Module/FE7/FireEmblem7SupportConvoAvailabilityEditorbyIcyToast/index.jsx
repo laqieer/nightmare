@@ -35,15 +35,20 @@ export default function FE7FireEmblem7SupportConvoAvailabilityEditorbyIcyToast()
         message="Fire Emblem 7 Support Convo Availability Editor (by Icy Toast)"
         type="info"
       />
-      <InputSelect
-        disabled={view == null}
-        defaultValue={id}
-        onSelect={(value) => setSearchParams({ id: value })}
-        options={SupportSlotList}
-      />
+      <div key={id}>
+        <InputSelect
+          disabled={view == null}
+          defaultValue={SupportSlotList.find(
+            (entry) => entry.value.toString() === id,
+          ) ?? id}
+          onSelect={(value) => setSearchParams({ id: value })}
+          options={SupportSlotList}
+        />
+      </div>
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="CharacterEditor"
         options={Characters}
         view={view}
         name="Character 1"
@@ -52,6 +57,7 @@ export default function FE7FireEmblem7SupportConvoAvailabilityEditorbyIcyToast()
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="CharacterEditor"
         options={Characters}
         view={view}
         name="Character 2"

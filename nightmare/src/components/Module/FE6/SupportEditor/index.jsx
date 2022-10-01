@@ -35,12 +35,16 @@ export default function FE6SupportEditor() {
         message="FE6 Support Editor, by Reikken"
         type="info"
       />
-      <InputSelect
-        disabled={view == null}
-        defaultValue={id}
-        onSelect={(value) => setSearchParams({ id: value })}
-        options={CharList}
-      />
+      <div key={id}>
+        <InputSelect
+          disabled={view == null}
+          defaultValue={CharList.find(
+            (entry) => entry.value.toString() === id,
+          ) ?? id}
+          onSelect={(value) => setSearchParams({ id: value })}
+          options={CharList}
+        />
+      </div>
       <InputDec
         type={DataType.U8}
         view={view}
@@ -50,6 +54,7 @@ export default function FE6SupportEditor() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="CharacterEditor"
         options={CharacterList}
         view={view}
         name="1: Supporter"
@@ -70,6 +75,7 @@ export default function FE6SupportEditor() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="CharacterEditor"
         options={CharacterList}
         view={view}
         name="2: Supporter"
@@ -90,6 +96,7 @@ export default function FE6SupportEditor() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="CharacterEditor"
         options={CharacterList}
         view={view}
         name="3: Supporter"
@@ -110,6 +117,7 @@ export default function FE6SupportEditor() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="CharacterEditor"
         options={CharacterList}
         view={view}
         name="4: Supporter"
@@ -130,6 +138,7 @@ export default function FE6SupportEditor() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="CharacterEditor"
         options={CharacterList}
         view={view}
         name="5: Supporter"
@@ -150,6 +159,7 @@ export default function FE6SupportEditor() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="CharacterEditor"
         options={CharacterList}
         view={view}
         name="6: Supporter"
@@ -170,6 +180,7 @@ export default function FE6SupportEditor() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="CharacterEditor"
         options={CharacterList}
         view={view}
         name="7: Supporter"
@@ -190,6 +201,7 @@ export default function FE6SupportEditor() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="CharacterEditor"
         options={CharacterList}
         view={view}
         name="8: Supporter"
@@ -210,6 +222,7 @@ export default function FE6SupportEditor() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="CharacterEditor"
         options={CharacterList}
         view={view}
         name="9: Supporter"
@@ -230,6 +243,7 @@ export default function FE6SupportEditor() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="CharacterEditor"
         options={CharacterList}
         view={view}
         name="10: Supporter"

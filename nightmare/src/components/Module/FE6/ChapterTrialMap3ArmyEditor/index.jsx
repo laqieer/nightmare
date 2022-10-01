@@ -37,15 +37,20 @@ export default function FE6ChapterTrialMap3ArmyEditor() {
         message="Chapter Trial Map 3 Army Editor by Camus"
         type="info"
       />
-      <InputSelect
-        disabled={view == null}
-        defaultValue={id}
-        onSelect={(value) => setSearchParams({ id: value })}
-        options={FE6ChapterTrialMap3ArmyEditorEntries}
-      />
+      <div key={id}>
+        <InputSelect
+          disabled={view == null}
+          defaultValue={FE6ChapterTrialMap3ArmyEditorEntries.find(
+            (entry) => entry.value.toString() === id,
+          ) ?? id}
+          onSelect={(value) => setSearchParams({ id: value })}
+          options={FE6ChapterTrialMap3ArmyEditorEntries}
+        />
+      </div>
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="CharacterEditor"
         options={CharacterList}
         view={view}
         name="Character"
@@ -54,6 +59,7 @@ export default function FE6ChapterTrialMap3ArmyEditor() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="ClassEditor"
         options={ClassList}
         view={view}
         name="Class"
@@ -100,6 +106,7 @@ export default function FE6ChapterTrialMap3ArmyEditor() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="ItemEditor"
         options={ItemList}
         view={view}
         name="Slot Item 1"
@@ -108,6 +115,7 @@ export default function FE6ChapterTrialMap3ArmyEditor() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="ItemEditor"
         options={ItemList}
         view={view}
         name="Slot Item 2"
@@ -116,6 +124,7 @@ export default function FE6ChapterTrialMap3ArmyEditor() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="ItemEditor"
         options={ItemList}
         view={view}
         name="Slot Item 3"
@@ -124,6 +133,7 @@ export default function FE6ChapterTrialMap3ArmyEditor() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="ItemEditor"
         options={ItemList}
         view={view}
         name="Slot Item 4"

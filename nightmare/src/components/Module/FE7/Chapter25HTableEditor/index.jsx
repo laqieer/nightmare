@@ -34,12 +34,16 @@ export default function FE7Chapter25HTableEditor() {
         message="Chapter 25H Table Editor by Fire Blazer/Keriku"
         type="info"
       />
-      <InputSelect
-        disabled={view == null}
-        defaultValue={id}
-        onSelect={(value) => setSearchParams({ id: value })}
-        options={FE7Chapter25HTableEditorEntries}
-      />
+      <div key={id}>
+        <InputSelect
+          disabled={view == null}
+          defaultValue={FE7Chapter25HTableEditorEntries.find(
+            (entry) => entry.value.toString() === id,
+          ) ?? id}
+          onSelect={(value) => setSearchParams({ id: value })}
+          options={FE7Chapter25HTableEditorEntries}
+        />
+      </div>
       <InputHex
         type={DataType.U32}
         view={view}

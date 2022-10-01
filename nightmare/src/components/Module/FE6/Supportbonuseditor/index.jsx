@@ -35,12 +35,16 @@ export default function FE6Supportbonuseditor() {
         message="Support bonus editor by Nintenlord"
         type="info"
       />
-      <InputSelect
-        disabled={view == null}
-        defaultValue={id}
-        onSelect={(value) => setSearchParams({ id: value })}
-        options={FE6SupportbonuseditorEntries}
-      />
+      <div key={id}>
+        <InputSelect
+          disabled={view == null}
+          defaultValue={FE6SupportbonuseditorEntries.find(
+            (entry) => entry.value.toString() === id,
+          ) ?? id}
+          onSelect={(value) => setSearchParams({ id: value })}
+          options={FE6SupportbonuseditorEntries}
+        />
+      </div>
       <InputDropbox
         isHex
         type={DataType.U8}

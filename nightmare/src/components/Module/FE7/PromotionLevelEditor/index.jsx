@@ -34,12 +34,16 @@ export default function FE7PromotionLevelEditor() {
         message="FE 7 Promotion Level Editor by Nintenlord"
         type="info"
       />
-      <InputSelect
-        disabled={view == null}
-        defaultValue={id}
-        onSelect={(value) => setSearchParams({ id: value })}
-        options={FE7PromotionLevelEditorEntries}
-      />
+      <div key={id}>
+        <InputSelect
+          disabled={view == null}
+          defaultValue={FE7PromotionLevelEditorEntries.find(
+            (entry) => entry.value.toString() === id,
+          ) ?? id}
+          onSelect={(value) => setSearchParams({ id: value })}
+          options={FE7PromotionLevelEditorEntries}
+        />
+      </div>
       <InputDec
         type={DataType.U8}
         view={view}

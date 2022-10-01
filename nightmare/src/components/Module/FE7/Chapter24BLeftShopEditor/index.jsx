@@ -34,15 +34,20 @@ export default function FE7Chapter24BLeftShopEditor() {
         message="Chapter 24B Left Shop Editor"
         type="info"
       />
-      <InputSelect
-        disabled={view == null}
-        defaultValue={id}
-        onSelect={(value) => setSearchParams({ id: value })}
-        options={FE7Chapter24BLeftShopEditorEntries}
-      />
+      <div key={id}>
+        <InputSelect
+          disabled={view == null}
+          defaultValue={FE7Chapter24BLeftShopEditorEntries.find(
+            (entry) => entry.value.toString() === id,
+          ) ?? id}
+          onSelect={(value) => setSearchParams({ id: value })}
+          options={FE7Chapter24BLeftShopEditorEntries}
+        />
+      </div>
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="ItemEditor"
         options={ItemList}
         view={view}
         name="Item"
@@ -51,6 +56,7 @@ export default function FE7Chapter24BLeftShopEditor() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="ItemEditor"
         options={ItemList}
         view={view}
         name="Item"
@@ -59,6 +65,7 @@ export default function FE7Chapter24BLeftShopEditor() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="ItemEditor"
         options={ItemList}
         view={view}
         name="Item"
@@ -67,6 +74,7 @@ export default function FE7Chapter24BLeftShopEditor() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="ItemEditor"
         options={ItemList}
         view={view}
         name="Item"

@@ -34,12 +34,16 @@ export default function FE7Chapter30HectorTableEditor() {
         message="Chapter 30 Hector Table Editor by Fire Blazer/Keriku- Credit to Icy Toast"
         type="info"
       />
-      <InputSelect
-        disabled={view == null}
-        defaultValue={id}
-        onSelect={(value) => setSearchParams({ id: value })}
-        options={FE7Chapter30HectorTableEditorEntries}
-      />
+      <div key={id}>
+        <InputSelect
+          disabled={view == null}
+          defaultValue={FE7Chapter30HectorTableEditorEntries.find(
+            (entry) => entry.value.toString() === id,
+          ) ?? id}
+          onSelect={(value) => setSearchParams({ id: value })}
+          options={FE7Chapter30HectorTableEditorEntries}
+        />
+      </div>
       <InputHex
         type={DataType.U32}
         view={view}

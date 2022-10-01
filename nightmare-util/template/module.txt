@@ -33,12 +33,16 @@ export default function %{name}%() {
         message="%{description}%"
         type="info"
       />
-      <InputSelect
-        disabled={view == null}
-        defaultValue={id}
-        onSelect={(value) => setSearchParams({ id: value })}
-        options={%{options}%}
-      />
+      <div key={id}>
+        <InputSelect
+          disabled={view == null}
+          defaultValue={%{options}%.find(
+            (entry) => entry.value.toString() === id,
+          ) ?? id}
+          onSelect={(value) => setSearchParams({ id: value })}
+          options={%{options}%}
+        />
+      </div>
 %{inputs}%
       <BackTop>
         <ToTopOutlined />

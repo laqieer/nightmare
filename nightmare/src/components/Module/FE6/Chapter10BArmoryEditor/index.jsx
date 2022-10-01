@@ -34,15 +34,20 @@ export default function FE6Chapter10BArmoryEditor() {
         message="Chapter 10B Armory Editor by flyingace24"
         type="info"
       />
-      <InputSelect
-        disabled={view == null}
-        defaultValue={id}
-        onSelect={(value) => setSearchParams({ id: value })}
-        options={FE6Chapter10BArmoryEditorEntries}
-      />
+      <div key={id}>
+        <InputSelect
+          disabled={view == null}
+          defaultValue={FE6Chapter10BArmoryEditorEntries.find(
+            (entry) => entry.value.toString() === id,
+          ) ?? id}
+          onSelect={(value) => setSearchParams({ id: value })}
+          options={FE6Chapter10BArmoryEditorEntries}
+        />
+      </div>
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="ItemEditor"
         options={ItemList}
         view={view}
         name="Item"
@@ -51,6 +56,7 @@ export default function FE6Chapter10BArmoryEditor() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="ItemEditor"
         options={ItemList}
         view={view}
         name="Item"
@@ -59,6 +65,7 @@ export default function FE6Chapter10BArmoryEditor() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="ItemEditor"
         options={ItemList}
         view={view}
         name="Item"
@@ -67,6 +74,7 @@ export default function FE6Chapter10BArmoryEditor() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="ItemEditor"
         options={ItemList}
         view={view}
         name="Item"
@@ -75,6 +83,7 @@ export default function FE6Chapter10BArmoryEditor() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="ItemEditor"
         options={ItemList}
         view={view}
         name="Item"
@@ -83,6 +92,7 @@ export default function FE6Chapter10BArmoryEditor() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="ItemEditor"
         options={ItemList}
         view={view}
         name="Item"
@@ -91,6 +101,7 @@ export default function FE6Chapter10BArmoryEditor() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="ItemEditor"
         options={ItemList}
         view={view}
         name="Item"
@@ -99,6 +110,7 @@ export default function FE6Chapter10BArmoryEditor() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="ItemEditor"
         options={ItemList}
         view={view}
         name="Item"
@@ -107,6 +119,7 @@ export default function FE6Chapter10BArmoryEditor() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="ItemEditor"
         options={ItemList}
         view={view}
         name="Item"
@@ -115,6 +128,7 @@ export default function FE6Chapter10BArmoryEditor() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="ItemEditor"
         options={ItemList}
         view={view}
         name="Item"

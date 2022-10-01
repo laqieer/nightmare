@@ -35,12 +35,16 @@ export default function FE7Chapter15SeizeEditor() {
         message="Chapter 15 Seize Editor by Fire Blazer/Keriku"
         type="info"
       />
-      <InputSelect
-        disabled={view == null}
-        defaultValue={id}
-        onSelect={(value) => setSearchParams({ id: value })}
-        options={FE7Chapter15SeizeEditorEntries}
-      />
+      <div key={id}>
+        <InputSelect
+          disabled={view == null}
+          defaultValue={FE7Chapter15SeizeEditorEntries.find(
+            (entry) => entry.value.toString() === id,
+          ) ?? id}
+          onSelect={(value) => setSearchParams({ id: value })}
+          options={FE7Chapter15SeizeEditorEntries}
+        />
+      </div>
       <InputHex
         type={DataType.U8}
         view={view}

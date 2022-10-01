@@ -34,15 +34,20 @@ export default function FE6Chapter7RightArmoryEditor() {
         message="Chapter 7 Right Armory Editor by flyingace24"
         type="info"
       />
-      <InputSelect
-        disabled={view == null}
-        defaultValue={id}
-        onSelect={(value) => setSearchParams({ id: value })}
-        options={FE6Chapter7RightArmoryEditorEntries}
-      />
+      <div key={id}>
+        <InputSelect
+          disabled={view == null}
+          defaultValue={FE6Chapter7RightArmoryEditorEntries.find(
+            (entry) => entry.value.toString() === id,
+          ) ?? id}
+          onSelect={(value) => setSearchParams({ id: value })}
+          options={FE6Chapter7RightArmoryEditorEntries}
+        />
+      </div>
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="ItemEditor"
         options={ItemList}
         view={view}
         name="Item"
@@ -51,6 +56,7 @@ export default function FE6Chapter7RightArmoryEditor() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="ItemEditor"
         options={ItemList}
         view={view}
         name="Item"
@@ -59,6 +65,7 @@ export default function FE6Chapter7RightArmoryEditor() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="ItemEditor"
         options={ItemList}
         view={view}
         name="Item"
@@ -67,6 +74,7 @@ export default function FE6Chapter7RightArmoryEditor() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="ItemEditor"
         options={ItemList}
         view={view}
         name="Item"
@@ -75,6 +83,7 @@ export default function FE6Chapter7RightArmoryEditor() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="ItemEditor"
         options={ItemList}
         view={view}
         name="Item"
@@ -83,6 +92,7 @@ export default function FE6Chapter7RightArmoryEditor() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="ItemEditor"
         options={ItemList}
         view={view}
         name="Item"

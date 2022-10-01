@@ -37,15 +37,20 @@ export default function FE6Chapter19BArmyEditor() {
         message="Chapter 19B Army Editor by Camus"
         type="info"
       />
-      <InputSelect
-        disabled={view == null}
-        defaultValue={id}
-        onSelect={(value) => setSearchParams({ id: value })}
-        options={FE6Chapter19BArmyEditorEntries}
-      />
+      <div key={id}>
+        <InputSelect
+          disabled={view == null}
+          defaultValue={FE6Chapter19BArmyEditorEntries.find(
+            (entry) => entry.value.toString() === id,
+          ) ?? id}
+          onSelect={(value) => setSearchParams({ id: value })}
+          options={FE6Chapter19BArmyEditorEntries}
+        />
+      </div>
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="CharacterEditor"
         options={CharacterList}
         view={view}
         name="Character"
@@ -54,6 +59,7 @@ export default function FE6Chapter19BArmyEditor() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="ClassEditor"
         options={ClassList}
         view={view}
         name="Class"
@@ -100,6 +106,7 @@ export default function FE6Chapter19BArmyEditor() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="ItemEditor"
         options={ItemList}
         view={view}
         name="Slot Item 1"
@@ -108,6 +115,7 @@ export default function FE6Chapter19BArmyEditor() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="ItemEditor"
         options={ItemList}
         view={view}
         name="Slot Item 2"
@@ -116,6 +124,7 @@ export default function FE6Chapter19BArmyEditor() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="ItemEditor"
         options={ItemList}
         view={view}
         name="Slot Item 3"
@@ -124,6 +133,7 @@ export default function FE6Chapter19BArmyEditor() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="ItemEditor"
         options={ItemList}
         view={view}
         name="Slot Item 4"

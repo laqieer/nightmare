@@ -35,12 +35,16 @@ export default function FE7UnitMenutable() {
         message="Unit Menu table by jjl2357, edited by Crazycolorz5"
         type="info"
       />
-      <InputSelect
-        disabled={view == null}
-        defaultValue={id}
-        onSelect={(value) => setSearchParams({ id: value })}
-        options={UnitMenuFE7}
-      />
+      <div key={id}>
+        <InputSelect
+          disabled={view == null}
+          defaultValue={UnitMenuFE7.find(
+            (entry) => entry.value.toString() === id,
+          ) ?? id}
+          onSelect={(value) => setSearchParams({ id: value })}
+          options={UnitMenuFE7}
+        />
+      </div>
       <InputHex
         type={DataType.U32}
         view={view}

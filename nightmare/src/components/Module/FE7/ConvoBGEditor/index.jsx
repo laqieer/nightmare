@@ -34,12 +34,16 @@ export default function FE7ConvoBGEditor() {
         message="FE7 Convo BG Editor by Arch"
         type="info"
       />
-      <InputSelect
-        disabled={view == null}
-        defaultValue={id}
-        onSelect={(value) => setSearchParams({ id: value })}
-        options={Backgrounds}
-      />
+      <div key={id}>
+        <InputSelect
+          disabled={view == null}
+          defaultValue={Backgrounds.find(
+            (entry) => entry.value.toString() === id,
+          ) ?? id}
+          onSelect={(value) => setSearchParams({ id: value })}
+          options={Backgrounds}
+        />
+      </div>
       <InputHex
         type={DataType.U32}
         view={view}

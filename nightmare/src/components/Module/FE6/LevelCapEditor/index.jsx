@@ -34,12 +34,16 @@ export default function FE6LevelCapEditor() {
         message="Level Cap Editor"
         type="info"
       />
-      <InputSelect
-        disabled={view == null}
-        defaultValue={id}
-        onSelect={(value) => setSearchParams({ id: value })}
-        options={FE6LevelCapEditorEntries}
-      />
+      <div key={id}>
+        <InputSelect
+          disabled={view == null}
+          defaultValue={FE6LevelCapEditorEntries.find(
+            (entry) => entry.value.toString() === id,
+          ) ?? id}
+          onSelect={(value) => setSearchParams({ id: value })}
+          options={FE6LevelCapEditorEntries}
+        />
+      </div>
       <InputDec
         type={DataType.U8}
         view={view}

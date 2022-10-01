@@ -38,12 +38,16 @@ export default function FE6ClassEditor() {
         message="FE6 Class Editor by SpyroDi, updated by Nintenlord"
         type="info"
       />
-      <InputSelect
-        disabled={view == null}
-        defaultValue={id}
-        onSelect={(value) => setSearchParams({ id: value })}
-        options={FE6ClassEditorEntries}
-      />
+      <div key={id}>
+        <InputSelect
+          disabled={view == null}
+          defaultValue={FE6ClassEditorEntries.find(
+            (entry) => entry.value.toString() === id,
+          ) ?? id}
+          onSelect={(value) => setSearchParams({ id: value })}
+          options={FE6ClassEditorEntries}
+        />
+      </div>
       <InputHex
         type={DataType.U16}
         view={view}
@@ -59,6 +63,7 @@ export default function FE6ClassEditor() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="ClassEditor"
         options={ClassList}
         view={view}
         name="Class Number"
@@ -67,6 +72,7 @@ export default function FE6ClassEditor() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="ClassEditor"
         options={ClassList}
         view={view}
         name="This Class Promotes To"
@@ -96,6 +102,7 @@ export default function FE6ClassEditor() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="PortraitEditor"
         options={PortraitList}
         view={view}
         name="Default portrait"

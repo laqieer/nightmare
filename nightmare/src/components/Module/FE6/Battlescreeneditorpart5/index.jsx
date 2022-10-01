@@ -34,12 +34,16 @@ export default function FE6Battlescreeneditorpart5() {
         message="Battle screen editor part 5 by Nintenlord"
         type="info"
       />
-      <InputSelect
-        disabled={view == null}
-        defaultValue={id}
-        onSelect={(value) => setSearchParams({ id: value })}
-        options={FE6Battlescreeneditorpart5Entries}
-      />
+      <div key={id}>
+        <InputSelect
+          disabled={view == null}
+          defaultValue={FE6Battlescreeneditorpart5Entries.find(
+            (entry) => entry.value.toString() === id,
+          ) ?? id}
+          onSelect={(value) => setSearchParams({ id: value })}
+          options={FE6Battlescreeneditorpart5Entries}
+        />
+      </div>
       <InputDropbox
         isHex
         type={DataType.U8}

@@ -34,12 +34,16 @@ export default function FE7TerrainStatEditor() {
         message="FE7 Terrain Stat Editor by Blazer, updated by Nintenlord, offset thanks to Xeld"
         type="info"
       />
-      <InputSelect
-        disabled={view == null}
-        defaultValue={id}
-        onSelect={(value) => setSearchParams({ id: value })}
-        options={StatEditor}
-      />
+      <div key={id}>
+        <InputSelect
+          disabled={view == null}
+          defaultValue={StatEditor.find(
+            (entry) => entry.value.toString() === id,
+          ) ?? id}
+          onSelect={(value) => setSearchParams({ id: value })}
+          options={StatEditor}
+        />
+      </div>
       <InputDec
         type={DataType.U8}
         view={view}

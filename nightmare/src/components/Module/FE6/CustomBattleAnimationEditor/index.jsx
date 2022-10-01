@@ -35,15 +35,20 @@ export default function FE6CustomBattleAnimationEditor() {
         message="FE6 Custom Battle Animation Editor by SpyroDi (please consult Custom Animations.txt)"
         type="info"
       />
-      <InputSelect
-        disabled={view == null}
-        defaultValue={id}
-        onSelect={(value) => setSearchParams({ id: value })}
-        options={BattleAnimationPointers}
-      />
+      <div key={id}>
+        <InputSelect
+          disabled={view == null}
+          defaultValue={BattleAnimationPointers.find(
+            (entry) => entry.value.toString() === id,
+          ) ?? id}
+          onSelect={(value) => setSearchParams({ id: value })}
+          options={BattleAnimationPointers}
+        />
+      </div>
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="ItemEditor"
         options={AnimationTypes}
         view={view}
         name="+00 Weapon Type"
@@ -74,6 +79,7 @@ export default function FE6CustomBattleAnimationEditor() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="ItemEditor"
         options={AnimationTypes}
         view={view}
         name="+04 Weapon Type"
@@ -104,6 +110,7 @@ export default function FE6CustomBattleAnimationEditor() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="ItemEditor"
         options={AnimationTypes}
         view={view}
         name="+08 Weapon Type"
@@ -134,6 +141,7 @@ export default function FE6CustomBattleAnimationEditor() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="ItemEditor"
         options={AnimationTypes}
         view={view}
         name="+0C Weapon Type"

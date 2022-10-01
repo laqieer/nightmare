@@ -34,12 +34,16 @@ export default function FE723xTableEditor() {
         message="Chapter 22x/23x Table Editor by Fire Blazer/Keriku"
         type="info"
       />
-      <InputSelect
-        disabled={view == null}
-        defaultValue={id}
-        onSelect={(value) => setSearchParams({ id: value })}
-        options={FE723xTableEditorEntries}
-      />
+      <div key={id}>
+        <InputSelect
+          disabled={view == null}
+          defaultValue={FE723xTableEditorEntries.find(
+            (entry) => entry.value.toString() === id,
+          ) ?? id}
+          onSelect={(value) => setSearchParams({ id: value })}
+          options={FE723xTableEditorEntries}
+        />
+      </div>
       <InputHex
         type={DataType.U32}
         view={view}

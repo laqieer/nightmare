@@ -35,12 +35,16 @@ export default function FE7PromotionItemEditor() {
         message="FE7 Promotion Item Editor"
         type="info"
       />
-      <InputSelect
-        disabled={view == null}
-        defaultValue={id}
-        onSelect={(value) => setSearchParams({ id: value })}
-        options={FE7PromotionItem}
-      />
+      <div key={id}>
+        <InputSelect
+          disabled={view == null}
+          defaultValue={FE7PromotionItem.find(
+            (entry) => entry.value.toString() === id,
+          ) ?? id}
+          onSelect={(value) => setSearchParams({ id: value })}
+          options={FE7PromotionItem}
+        />
+      </div>
       <InputHex
         type={DataType.U8}
         view={view}

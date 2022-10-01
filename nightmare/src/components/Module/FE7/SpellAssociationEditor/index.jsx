@@ -37,15 +37,20 @@ export default function FE7SpellAssociationEditor() {
         message="FE7 Spell Association Editor by Zeld, updated by Nintenlord"
         type="info"
       />
-      <InputSelect
-        disabled={view == null}
-        defaultValue={id}
-        onSelect={(value) => setSearchParams({ id: value })}
-        options={FE7SpellAssociationEditorEntries}
-      />
+      <div key={id}>
+        <InputSelect
+          disabled={view == null}
+          defaultValue={FE7SpellAssociationEditorEntries.find(
+            (entry) => entry.value.toString() === id,
+          ) ?? id}
+          onSelect={(value) => setSearchParams({ id: value })}
+          options={FE7SpellAssociationEditorEntries}
+        />
+      </div>
       <InputDropbox
         isHex
         type={DataType.U16}
+        reference="ItemEditor"
         options={ItemListTU}
         view={view}
         name="Weapon"

@@ -35,15 +35,20 @@ export default function FE7BattleAnimationEditor() {
         message="FE7 Battle Animation Editor by Fire Blazer"
         type="info"
       />
-      <InputSelect
-        disabled={view == null}
-        defaultValue={id}
-        onSelect={(value) => setSearchParams({ id: value })}
-        options={FE7BattleAnimationEditorEntries}
-      />
+      <div key={id}>
+        <InputSelect
+          disabled={view == null}
+          defaultValue={FE7BattleAnimationEditorEntries.find(
+            (entry) => entry.value.toString() === id,
+          ) ?? id}
+          onSelect={(value) => setSearchParams({ id: value })}
+          options={FE7BattleAnimationEditorEntries}
+        />
+      </div>
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="ItemEditor"
         options={AnimationTypes}
         view={view}
         name="+00 Weapon Type"
@@ -59,6 +64,7 @@ export default function FE7BattleAnimationEditor() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="AnimationPointerTableEditor"
         options={AnimationList}
         view={view}
         name="+02 Animation Played"

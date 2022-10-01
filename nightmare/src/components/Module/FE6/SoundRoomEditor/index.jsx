@@ -34,12 +34,16 @@ export default function FE6SoundRoomEditor() {
         message="FE6 Sound Room Editor by Sme"
         type="info"
       />
-      <InputSelect
-        disabled={view == null}
-        defaultValue={id}
-        onSelect={(value) => setSearchParams({ id: value })}
-        options={FE6SoundRoomDefinitions}
-      />
+      <div key={id}>
+        <InputSelect
+          disabled={view == null}
+          defaultValue={FE6SoundRoomDefinitions.find(
+            (entry) => entry.value.toString() === id,
+          ) ?? id}
+          onSelect={(value) => setSearchParams({ id: value })}
+          options={FE6SoundRoomDefinitions}
+        />
+      </div>
       <InputHex
         type={DataType.U32}
         view={view}

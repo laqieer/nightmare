@@ -1,17 +1,21 @@
 import { Select, Space, Typography } from 'antd';
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import { read, write } from '../../util';
 
 const { Text } = Typography;
 
 export default function InputDropbox(props) {
   const {
-    view, name, offset, type, options, isHex,
+    isHex, reference, view, name, offset, type, options, ...propsToPass
   } = props;
-  const { isHex: _, ...propsToPass } = props;
 
-  const oldValue = view == null ? 0 : read(view, offset, type);
+  const currentValue = view == null ? 0 : read(view, offset, type);
+  const [oldValue, setOldValue] = useState(currentValue);
+  if (oldValue !== currentValue) {
+    setOldValue(currentValue);
+  }
   const oldOption = options.find((opt) => opt.value === oldValue);
   const oldValueLabel = isHex ? `0x${oldValue.toString(16)}` : oldValue;
   const oldLabel = oldOption === undefined ? oldValueLabel : oldOption.label;
@@ -26,12 +30,27 @@ export default function InputDropbox(props) {
       <Select
         disabled={view == null}
         showSearch
+        options={options}
         placeholder="Search to Select"
         optionFilterProp="label"
         filterOption={(input, option) => option.label.includes(input)}
-        onSelect={(value) => write(view, offset, type, value)}
+        onSelect={(value) => {
+          write(view, offset, type, value);
+          setOldValue(value);
+        }}
         {...propsToPass}
       />
+      {reference === '' || view == null ? ''
+        : (
+          <Link
+            to={{
+              pathname: `../${reference}?id=${oldValue}`,
+              state: view.buffer,
+            }}
+          >
+            ➤
+          </Link>
+        )}
     </Space>
   );
 }
@@ -46,9 +65,11 @@ InputDropbox.propTypes = {
     value: PropTypes.number.isRequired,
   })).isRequired,
   isHex: PropTypes.bool,
+  reference: PropTypes.string,
 };
 
 InputDropbox.defaultProps = {
   view: null,
   isHex: false,
+  reference: '',
 };

@@ -34,15 +34,20 @@ export default function FE7BlessingoftheEightGeneralsEditor() {
         message="Blessing of the Eight Generals Editor by Zeld"
         type="info"
       />
-      <InputSelect
-        disabled={view == null}
-        defaultValue={id}
-        onSelect={(value) => setSearchParams({ id: value })}
-        options={names}
-      />
+      <div key={id}>
+        <InputSelect
+          disabled={view == null}
+          defaultValue={names.find(
+            (entry) => entry.value.toString() === id,
+          ) ?? id}
+          onSelect={(value) => setSearchParams({ id: value })}
+          options={names}
+        />
+      </div>
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="ItemEditor"
         options={ItemList}
         view={view}
         name="Weapon/Item"

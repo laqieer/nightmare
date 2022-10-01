@@ -38,12 +38,16 @@ export default function FE7BetaClassEditor() {
         message="FE7 Beta Class Editor by Arch and Nintenlord"
         type="info"
       />
-      <InputSelect
-        disabled={view == null}
-        defaultValue={id}
-        onSelect={(value) => setSearchParams({ id: value })}
-        options={FE7ClassEditor}
-      />
+      <div key={id}>
+        <InputSelect
+          disabled={view == null}
+          defaultValue={FE7ClassEditor.find(
+            (entry) => entry.value.toString() === id,
+          ) ?? id}
+          onSelect={(value) => setSearchParams({ id: value })}
+          options={FE7ClassEditor}
+        />
+      </div>
       <InputHex
         type={DataType.U16}
         view={view}
@@ -59,6 +63,7 @@ export default function FE7BetaClassEditor() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="ClassEditor"
         options={ClassList}
         view={view}
         name="Class Number"
@@ -67,6 +72,7 @@ export default function FE7BetaClassEditor() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="ClassEditor"
         options={ClassList}
         view={view}
         name="This Class Promotes To"
@@ -75,6 +81,7 @@ export default function FE7BetaClassEditor() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="Standingmapspriteeditor"
         options={MapSpritesStanding}
         view={view}
         name="Map Sprite# (standing)"
@@ -90,6 +97,7 @@ export default function FE7BetaClassEditor() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="PortraitEditor"
         options={PortraitList}
         view={view}
         name="Default portrait"

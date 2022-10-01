@@ -35,15 +35,20 @@ export default function FE7Deathquoteeditorpart1() {
         message="Death quote editor part 1 by Nintenlord"
         type="info"
       />
-      <InputSelect
-        disabled={view == null}
-        defaultValue={id}
-        onSelect={(value) => setSearchParams({ id: value })}
-        options={FE7Deathquoteeditorpart1Entries}
-      />
+      <div key={id}>
+        <InputSelect
+          disabled={view == null}
+          defaultValue={FE7Deathquoteeditorpart1Entries.find(
+            (entry) => entry.value.toString() === id,
+          ) ?? id}
+          onSelect={(value) => setSearchParams({ id: value })}
+          options={FE7Deathquoteeditorpart1Entries}
+        />
+      </div>
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="CharacterEditor"
         options={Characters}
         view={view}
         name="Character"
@@ -52,6 +57,7 @@ export default function FE7Deathquoteeditorpart1() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="ChapterDataEditorFE7"
         options={Chapters}
         view={view}
         name="Chapter"

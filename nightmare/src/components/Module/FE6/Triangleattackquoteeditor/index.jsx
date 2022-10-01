@@ -35,15 +35,20 @@ export default function FE6Triangleattackquoteeditor() {
         message="FE6 Triangle attack quote editor by Nintenlord"
         type="info"
       />
-      <InputSelect
-        disabled={view == null}
-        defaultValue={id}
-        onSelect={(value) => setSearchParams({ id: value })}
-        options={FE6TriangleattackquoteeditorEntries}
-      />
+      <div key={id}>
+        <InputSelect
+          disabled={view == null}
+          defaultValue={FE6TriangleattackquoteeditorEntries.find(
+            (entry) => entry.value.toString() === id,
+          ) ?? id}
+          onSelect={(value) => setSearchParams({ id: value })}
+          options={FE6TriangleattackquoteeditorEntries}
+        />
+      </div>
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="CharacterEditor"
         options={Characters}
         view={view}
         name="Character"
@@ -52,6 +57,7 @@ export default function FE6Triangleattackquoteeditor() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="ChapterDataEditorFE6"
         options={Chapters}
         view={view}
         name="Chapter"

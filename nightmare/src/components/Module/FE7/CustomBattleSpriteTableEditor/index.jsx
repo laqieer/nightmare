@@ -34,12 +34,16 @@ export default function FE7CustomBattleSpriteTableEditor() {
         message="Custom Battle Sprite Table Editor by Archibald"
         type="info"
       />
-      <InputSelect
-        disabled={view == null}
-        defaultValue={id}
-        onSelect={(value) => setSearchParams({ id: value })}
-        options={Pointers}
-      />
+      <div key={id}>
+        <InputSelect
+          disabled={view == null}
+          defaultValue={Pointers.find(
+            (entry) => entry.value.toString() === id,
+          ) ?? id}
+          onSelect={(value) => setSearchParams({ id: value })}
+          options={Pointers}
+        />
+      </div>
       <InputHex
         type={DataType.U32}
         view={view}

@@ -34,12 +34,16 @@ export default function FE7EscapeTilePointerEditor() {
         message="Escape Tile Pointer Editor"
         type="info"
       />
-      <InputSelect
-        disabled={view == null}
-        defaultValue={id}
-        onSelect={(value) => setSearchParams({ id: value })}
-        options={Chapters}
-      />
+      <div key={id}>
+        <InputSelect
+          disabled={view == null}
+          defaultValue={Chapters.find(
+            (entry) => entry.value.toString() === id,
+          ) ?? id}
+          onSelect={(value) => setSearchParams({ id: value })}
+          options={Chapters}
+        />
+      </div>
       <InputHex
         type={DataType.U32}
         view={view}

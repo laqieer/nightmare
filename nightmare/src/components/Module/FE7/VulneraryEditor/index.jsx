@@ -34,12 +34,16 @@ export default function FE7VulneraryEditor() {
         message="FE7 Vulnerary Editor by Zeld & Blazer"
         type="info"
       />
-      <InputSelect
-        disabled={view == null}
-        defaultValue={id}
-        onSelect={(value) => setSearchParams({ id: value })}
-        options={FE7VulneraryEditorEntries}
-      />
+      <div key={id}>
+        <InputSelect
+          disabled={view == null}
+          defaultValue={FE7VulneraryEditorEntries.find(
+            (entry) => entry.value.toString() === id,
+          ) ?? id}
+          onSelect={(value) => setSearchParams({ id: value })}
+          options={FE7VulneraryEditorEntries}
+        />
+      </div>
       <InputDec
         type={DataType.U8}
         view={view}

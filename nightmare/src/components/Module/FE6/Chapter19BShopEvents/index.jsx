@@ -36,12 +36,16 @@ export default function FE6Chapter19BShopEvents() {
         message="Chapter 19B Shop Events by flyingace24"
         type="info"
       />
-      <InputSelect
-        disabled={view == null}
-        defaultValue={id}
-        onSelect={(value) => setSearchParams({ id: value })}
-        options={FE6Chapter19BShopEventsEntries}
-      />
+      <div key={id}>
+        <InputSelect
+          disabled={view == null}
+          defaultValue={FE6Chapter19BShopEventsEntries.find(
+            (entry) => entry.value.toString() === id,
+          ) ?? id}
+          onSelect={(value) => setSearchParams({ id: value })}
+          options={FE6Chapter19BShopEventsEntries}
+        />
+      </div>
       <InputHex
         type={DataType.U32}
         view={view}

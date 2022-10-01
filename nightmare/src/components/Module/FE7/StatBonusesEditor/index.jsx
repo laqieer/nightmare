@@ -34,12 +34,16 @@ export default function FE7StatBonusesEditor() {
         message="FE7 Stat Bonuses Editor by SpyroDi (please consult Stat Bonuses.txt)"
         type="info"
       />
-      <InputSelect
-        disabled={view == null}
-        defaultValue={id}
-        onSelect={(value) => setSearchParams({ id: value })}
-        options={StatBonusPointers}
-      />
+      <div key={id}>
+        <InputSelect
+          disabled={view == null}
+          defaultValue={StatBonusPointers.find(
+            (entry) => entry.value.toString() === id,
+          ) ?? id}
+          onSelect={(value) => setSearchParams({ id: value })}
+          options={StatBonusPointers}
+        />
+      </div>
       <InputDec
         type={DataType.S8}
         view={view}

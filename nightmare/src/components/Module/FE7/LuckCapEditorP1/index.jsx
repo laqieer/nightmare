@@ -34,12 +34,16 @@ export default function FE7LuckCapEditorP1() {
         message="FE7 Luck Cap Editor [P1] by Zeld"
         type="info"
       />
-      <InputSelect
-        disabled={view == null}
-        defaultValue={id}
-        onSelect={(value) => setSearchParams({ id: value })}
-        options={FE7LuckCapEditorP1Entries}
-      />
+      <div key={id}>
+        <InputSelect
+          disabled={view == null}
+          defaultValue={FE7LuckCapEditorP1Entries.find(
+            (entry) => entry.value.toString() === id,
+          ) ?? id}
+          onSelect={(value) => setSearchParams({ id: value })}
+          options={FE7LuckCapEditorP1Entries}
+        />
+      </div>
       <InputDec
         type={DataType.U8}
         view={view}

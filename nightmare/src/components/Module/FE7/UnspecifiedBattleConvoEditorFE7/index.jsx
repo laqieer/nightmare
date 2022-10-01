@@ -35,15 +35,20 @@ export default function FE7UnspecifiedBattleConvoEditorFE7() {
         message="Unspecified Battle Convo Editor (FE7) - By Icy Toast"
         type="info"
       />
-      <InputSelect
-        disabled={view == null}
-        defaultValue={id}
-        onSelect={(value) => setSearchParams({ id: value })}
-        options={FE7UnspecifiedBattleConvoEditorFE7Entries}
-      />
+      <div key={id}>
+        <InputSelect
+          disabled={view == null}
+          defaultValue={FE7UnspecifiedBattleConvoEditorFE7Entries.find(
+            (entry) => entry.value.toString() === id,
+          ) ?? id}
+          onSelect={(value) => setSearchParams({ id: value })}
+          options={FE7UnspecifiedBattleConvoEditorFE7Entries}
+        />
+      </div>
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="CharacterEditor"
         options={Characters}
         view={view}
         name="Character"
@@ -52,6 +57,7 @@ export default function FE7UnspecifiedBattleConvoEditorFE7() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="ChapterDataEditorFE7"
         options={Chapters}
         view={view}
         name="Chapter"

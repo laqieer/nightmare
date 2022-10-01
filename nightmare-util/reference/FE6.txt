@@ -1,0 +1,7 @@
+BattlePaletteReference: Character Palettes.txt
+ChapterDataEditorFE6: Chapters.txt
+CharacterEditor: Character List.txt, Characters.txt
+ClassEditor: Class List.txt
+EventTableReferences: Pointerlist.txt
+ItemEditor: Animation Types.txt, Item List.txt
+PortraitEditor: Portrait List.txt

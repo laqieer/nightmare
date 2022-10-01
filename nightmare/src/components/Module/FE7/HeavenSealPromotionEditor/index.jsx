@@ -34,12 +34,16 @@ export default function FE7HeavenSealPromotionEditor() {
         message="FE7 Heaven Seal Promotion Editor"
         type="info"
       />
-      <InputSelect
-        disabled={view == null}
-        defaultValue={id}
-        onSelect={(value) => setSearchParams({ id: value })}
-        options={FE7HeavenSealPromotionEditorEntries}
-      />
+      <div key={id}>
+        <InputSelect
+          disabled={view == null}
+          defaultValue={FE7HeavenSealPromotionEditorEntries.find(
+            (entry) => entry.value.toString() === id,
+          ) ?? id}
+          onSelect={(value) => setSearchParams({ id: value })}
+          options={FE7HeavenSealPromotionEditorEntries}
+        />
+      </div>
       <InputDropbox
         isHex
         type={DataType.U32}

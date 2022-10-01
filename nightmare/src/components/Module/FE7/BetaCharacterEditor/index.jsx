@@ -38,12 +38,16 @@ export default function FE7BetaCharacterEditor() {
         message="FE7 Beta Character Editor by Arch and Nintenlord"
         type="info"
       />
-      <InputSelect
-        disabled={view == null}
-        defaultValue={id}
-        onSelect={(value) => setSearchParams({ id: value })}
-        options={FE7CharacterList}
-      />
+      <div key={id}>
+        <InputSelect
+          disabled={view == null}
+          defaultValue={FE7CharacterList.find(
+            (entry) => entry.value.toString() === id,
+          ) ?? id}
+          onSelect={(value) => setSearchParams({ id: value })}
+          options={FE7CharacterList}
+        />
+      </div>
       <InputHex
         type={DataType.U16}
         view={view}
@@ -65,6 +69,7 @@ export default function FE7BetaCharacterEditor() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="ClassEditor"
         options={ClassList}
         view={view}
         name="Class (support viewer only)"
@@ -73,6 +78,7 @@ export default function FE7BetaCharacterEditor() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="PortraitEditor"
         options={PortraitList}
         view={view}
         name="Portrait"
@@ -260,6 +266,7 @@ export default function FE7BetaCharacterEditor() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="BattlePaletteReference"
         options={CharacterPalettes}
         view={view}
         name="Palette Pointer - Unpromoted"
@@ -268,6 +275,7 @@ export default function FE7BetaCharacterEditor() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="BattlePaletteReference"
         options={CharacterPalettes}
         view={view}
         name="Palette Pointer - Promoted"

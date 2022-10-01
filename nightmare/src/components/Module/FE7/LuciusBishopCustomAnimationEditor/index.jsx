@@ -35,15 +35,20 @@ export default function FE7LuciusBishopCustomAnimationEditor() {
         message="Lucius Bishop Custom Animation Editor by Arch"
         type="info"
       />
-      <InputSelect
-        disabled={view == null}
-        defaultValue={id}
-        onSelect={(value) => setSearchParams({ id: value })}
-        options={CustomAnimationEditor}
-      />
+      <div key={id}>
+        <InputSelect
+          disabled={view == null}
+          defaultValue={CustomAnimationEditor.find(
+            (entry) => entry.value.toString() === id,
+          ) ?? id}
+          onSelect={(value) => setSearchParams({ id: value })}
+          options={CustomAnimationEditor}
+        />
+      </div>
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="ItemEditor"
         options={AnimationTypes}
         view={view}
         name="+00 Weapon Type"
@@ -59,6 +64,7 @@ export default function FE7LuciusBishopCustomAnimationEditor() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="AnimationPointerTableEditor"
         options={AnimationList}
         view={view}
         name="+02 Animation Played"
@@ -74,6 +80,7 @@ export default function FE7LuciusBishopCustomAnimationEditor() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="ItemEditor"
         options={AnimationTypes}
         view={view}
         name="+04 Weapon Type"
@@ -89,6 +96,7 @@ export default function FE7LuciusBishopCustomAnimationEditor() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="AnimationPointerTableEditor"
         options={AnimationList}
         view={view}
         name="+06 Animation Played"
@@ -104,6 +112,7 @@ export default function FE7LuciusBishopCustomAnimationEditor() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="ItemEditor"
         options={AnimationTypes}
         view={view}
         name="+08 Weapon Type"
@@ -119,6 +128,7 @@ export default function FE7LuciusBishopCustomAnimationEditor() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="AnimationPointerTableEditor"
         options={AnimationList}
         view={view}
         name="+0A Animation Played"
@@ -134,6 +144,7 @@ export default function FE7LuciusBishopCustomAnimationEditor() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="ItemEditor"
         options={AnimationTypes}
         view={view}
         name="+0C Weapon Type"
@@ -149,6 +160,7 @@ export default function FE7LuciusBishopCustomAnimationEditor() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="AnimationPointerTableEditor"
         options={AnimationList}
         view={view}
         name="+0E Animation Played"
@@ -164,6 +176,7 @@ export default function FE7LuciusBishopCustomAnimationEditor() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="ItemEditor"
         options={AnimationTypes}
         view={view}
         name="+10 Weapon Type"
@@ -179,6 +192,7 @@ export default function FE7LuciusBishopCustomAnimationEditor() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="AnimationPointerTableEditor"
         options={AnimationList}
         view={view}
         name="+12 Animation Played"
@@ -194,6 +208,7 @@ export default function FE7LuciusBishopCustomAnimationEditor() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="ItemEditor"
         options={AnimationTypes}
         view={view}
         name="+14 Weapon Type"
@@ -209,6 +224,7 @@ export default function FE7LuciusBishopCustomAnimationEditor() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="AnimationPointerTableEditor"
         options={AnimationList}
         view={view}
         name="+16 Animation Played"

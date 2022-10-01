@@ -38,12 +38,16 @@ export default function FE6CharacterEditor() {
         message="FE6 Character Editor by SpyroDi, updated by flyingace24 and Nintenlord"
         type="info"
       />
-      <InputSelect
-        disabled={view == null}
-        defaultValue={id}
-        onSelect={(value) => setSearchParams({ id: value })}
-        options={FE6CharacterList}
-      />
+      <div key={id}>
+        <InputSelect
+          disabled={view == null}
+          defaultValue={FE6CharacterList.find(
+            (entry) => entry.value.toString() === id,
+          ) ?? id}
+          onSelect={(value) => setSearchParams({ id: value })}
+          options={FE6CharacterList}
+        />
+      </div>
       <InputHex
         type={DataType.U16}
         view={view}
@@ -59,6 +63,7 @@ export default function FE6CharacterEditor() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="CharacterEditor"
         options={CharacterList}
         view={view}
         name="Character Number"
@@ -67,6 +72,7 @@ export default function FE6CharacterEditor() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="ClassEditor"
         options={ClassList}
         view={view}
         name="Class"
@@ -75,6 +81,7 @@ export default function FE6CharacterEditor() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="PortraitEditor"
         options={PortraitList}
         view={view}
         name="Portrait"
@@ -262,6 +269,7 @@ export default function FE6CharacterEditor() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="BattlePaletteReference"
         options={CharacterPalettes}
         view={view}
         name="Palette Pointer - Unpromoted"
@@ -270,6 +278,7 @@ export default function FE6CharacterEditor() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="BattlePaletteReference"
         options={CharacterPalettes}
         view={view}
         name="Palette Pointer - Promoted"

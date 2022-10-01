@@ -39,12 +39,16 @@ export default function FE7BetaItemEditor() {
         message="FE7 Beta Item Editor by Arch and Nintenlord"
         type="info"
       />
-      <InputSelect
-        disabled={view == null}
-        defaultValue={id}
-        onSelect={(value) => setSearchParams({ id: value })}
-        options={FE7ItemEditor}
-      />
+      <div key={id}>
+        <InputSelect
+          disabled={view == null}
+          defaultValue={FE7ItemEditor.find(
+            (entry) => entry.value.toString() === id,
+          ) ?? id}
+          onSelect={(value) => setSearchParams({ id: value })}
+          options={FE7ItemEditor}
+        />
+      </div>
       <InputHex
         type={DataType.U16}
         view={view}
@@ -66,6 +70,7 @@ export default function FE7BetaItemEditor() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="ItemEditor"
         options={ItemList}
         view={view}
         name="Item Number"

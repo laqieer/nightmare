@@ -37,15 +37,20 @@ export default function FE7CustomItemAnimationListWorksonlywithanexpandedROM() {
         message="FE7 Custom Item Animation List - Works only with an expanded ROM!"
         type="info"
       />
-      <InputSelect
-        disabled={view == null}
-        defaultValue={id}
-        onSelect={(value) => setSearchParams({ id: value })}
-        options={FE7CustomItemAnimationListWorksonlywithanexpandedROMEntries}
-      />
+      <div key={id}>
+        <InputSelect
+          disabled={view == null}
+          defaultValue={FE7CustomItemAnimationListWorksonlywithanexpandedROMEntries.find(
+            (entry) => entry.value.toString() === id,
+          ) ?? id}
+          onSelect={(value) => setSearchParams({ id: value })}
+          options={FE7CustomItemAnimationListWorksonlywithanexpandedROMEntries}
+        />
+      </div>
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="ItemEditor"
         options={FE7MagicWeapons}
         view={view}
         name="Item/Weapon Number"

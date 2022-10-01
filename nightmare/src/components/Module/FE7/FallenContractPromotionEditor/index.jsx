@@ -35,12 +35,16 @@ export default function FE7FallenContractPromotionEditor() {
         message="FE7 Fallen Contract Promotion Editor"
         type="info"
       />
-      <InputSelect
-        disabled={view == null}
-        defaultValue={id}
-        onSelect={(value) => setSearchParams({ id: value })}
-        options={FE7FallenContractPromotionEditorEntries}
-      />
+      <div key={id}>
+        <InputSelect
+          disabled={view == null}
+          defaultValue={FE7FallenContractPromotionEditorEntries.find(
+            (entry) => entry.value.toString() === id,
+          ) ?? id}
+          onSelect={(value) => setSearchParams({ id: value })}
+          options={FE7FallenContractPromotionEditorEntries}
+        />
+      </div>
       <InputHex
         type={DataType.U8}
         view={view}

@@ -34,12 +34,16 @@ export default function FE6Critbonuseditor() {
         message="FE 6 Crit bonus editor by Nintenlord"
         type="info"
       />
-      <InputSelect
-        disabled={view == null}
-        defaultValue={id}
-        onSelect={(value) => setSearchParams({ id: value })}
-        options={FE6CritbonuseditorEntries}
-      />
+      <div key={id}>
+        <InputSelect
+          disabled={view == null}
+          defaultValue={FE6CritbonuseditorEntries.find(
+            (entry) => entry.value.toString() === id,
+          ) ?? id}
+          onSelect={(value) => setSearchParams({ id: value })}
+          options={FE6CritbonuseditorEntries}
+        />
+      </div>
       <InputDec
         type={DataType.U8}
         view={view}

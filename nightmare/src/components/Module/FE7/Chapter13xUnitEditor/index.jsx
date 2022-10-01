@@ -38,15 +38,20 @@ export default function FE7Chapter13xUnitEditor() {
         message="Chapter 13x Unit Editor"
         type="info"
       />
-      <InputSelect
-        disabled={view == null}
-        defaultValue={id}
-        onSelect={(value) => setSearchParams({ id: value })}
-        options={FE7Chapter13xUnitEditorEntries}
-      />
+      <div key={id}>
+        <InputSelect
+          disabled={view == null}
+          defaultValue={FE7Chapter13xUnitEditorEntries.find(
+            (entry) => entry.value.toString() === id,
+          ) ?? id}
+          onSelect={(value) => setSearchParams({ id: value })}
+          options={FE7Chapter13xUnitEditorEntries}
+        />
+      </div>
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="CharacterEditor"
         options={CharacterList}
         view={view}
         name="Character Reference Number"
@@ -55,6 +60,7 @@ export default function FE7Chapter13xUnitEditor() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="ClassEditor"
         options={ClassList}
         view={view}
         name="Starting Class"
@@ -63,6 +69,7 @@ export default function FE7Chapter13xUnitEditor() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="CharacterEditor"
         options={CharacterList}
         view={view}
         name="Character's Leader"
@@ -103,6 +110,7 @@ export default function FE7Chapter13xUnitEditor() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="ItemEditor"
         options={ItemList}
         view={view}
         name="Slot Item 1"
@@ -111,6 +119,7 @@ export default function FE7Chapter13xUnitEditor() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="ItemEditor"
         options={ItemList}
         view={view}
         name="Slot Item 2"
@@ -119,6 +128,7 @@ export default function FE7Chapter13xUnitEditor() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="ItemEditor"
         options={ItemList}
         view={view}
         name="Slot Item 3"
@@ -127,6 +137,7 @@ export default function FE7Chapter13xUnitEditor() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="ItemEditor"
         options={ItemList}
         view={view}
         name="Slot Item 4"

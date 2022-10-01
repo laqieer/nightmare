@@ -34,12 +34,16 @@ export default function FE7ItemAnimationReferencePointerExpandedROMrequired() {
         message="FE7 Item Animation Reference Pointer - Expanded ROM required"
         type="info"
       />
-      <InputSelect
-        disabled={view == null}
-        defaultValue={id}
-        onSelect={(value) => setSearchParams({ id: value })}
-        options={FE7ItemAnimationReferencePointerExpandedROMrequiredEntries}
-      />
+      <div key={id}>
+        <InputSelect
+          disabled={view == null}
+          defaultValue={FE7ItemAnimationReferencePointerExpandedROMrequiredEntries.find(
+            (entry) => entry.value.toString() === id,
+          ) ?? id}
+          onSelect={(value) => setSearchParams({ id: value })}
+          options={FE7ItemAnimationReferencePointerExpandedROMrequiredEntries}
+        />
+      </div>
       <InputDropbox
         isHex
         type={DataType.U32}

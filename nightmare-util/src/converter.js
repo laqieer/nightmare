@@ -9,14 +9,17 @@ const nameFrom = file => path.parse(file.split(' by ')[0].split(' By ')[0]).name
 let model = {}
 let modules = {}
 let template = {}
+let reference = {}
 
 const loadTemplate = dir => fs.readdirSync(dir).forEach(file => template[path.parse(file).name] = fs.readFileSync(path.join(dir, file), 'UTF-8').replace(/\r\n/g, '\n'));
 
 const fillTemplate = (templateName, data) => {
     let result = template[templateName];
-    result.match(/%\{.+?\}%/g).forEach(variable => result = result.replace(variable, data[variable.slice(2,variable.length - 2)]));
+    result.match(/%\{.+?\}%/g).forEach(variable => result = result.replaceAll(variable, data[variable.slice(2,variable.length - 2)]));
     return result;
 };
+
+const loadReference = file => fs.readFileSync(file, 'UTF-8').split(/\r?\n/).filter(line => line.includes(':')).forEach(line => line.split(':')[1].split(',').forEach(entryList => reference[entryList.trim()] = line.split(':')[0].trim()));
 
 const makeEntries = (dir, module) => {
     let result = `export const ${module.options} = [\n`;
@@ -62,9 +65,12 @@ const byNameWithoutDotFiles = (entities) => {
 };
 
 try {
-    assert(process.argv.length == 4);
+    assert(process.argv.length >= 4 && process.argv.length <= 5);
     const srcDir = process.argv[2];
     const dstDir = process.argv[3];
+    if (process.argv.length >= 5) {
+        loadReference(process.argv[4]);
+    }
     model.game = path.parse(dstDir).name;
     loadTemplate('../template');
     Walk.create({ sort: byNameWithoutDotFiles })(srcDir, (err, pathname, dirent) => {
@@ -95,6 +101,9 @@ try {
                 module.optionLists = new Set();
                 module.inputs = module.handlers.map(handler => {
                     handler.description = handler.description.replaceAll('"', '\\"');
+                    if(handler.size == 3 && handler.type.startsWith('N')) {
+                        handler.size = 4;
+                    }
                     switch (handler.type) {
                         case 'TEXT':
                             handler.inputType = `InputText\n        length={${handler.size}}`;
@@ -113,7 +122,7 @@ try {
                             break;
                         case 'NDHU':
                         case 'NDDU':
-                            handler.inputType = `InputDropbox\n        ${handler.type == 'NDHU' ? 'isHex\n        ' : ''}type={DataType.U${handler.size * 8}}\n        options={${nameFrom(handler.entryList)}}`;
+                            handler.inputType = `InputDropbox\n        ${handler.type == 'NDHU' ? 'isHex\n        ' : ''}type={DataType.U${handler.size * 8}}\n        ${handler.entryList in reference ? 'reference="' + reference[handler.entryList] + '"\n        ' : ''}options={${nameFrom(handler.entryList)}}`;
                             module.optionLists.add(handler.entryList);
                             break;
                         default:

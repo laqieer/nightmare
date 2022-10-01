@@ -35,12 +35,16 @@ export default function FE7FireEmblem7PairedEndingsEditorbyIcyToast() {
         message="Fire Emblem 7 (Paired) Endings Editor (by Icy Toast)"
         type="info"
       />
-      <InputSelect
-        disabled={view == null}
-        defaultValue={id}
-        onSelect={(value) => setSearchParams({ id: value })}
-        options={EndingsList}
-      />
+      <div key={id}>
+        <InputSelect
+          disabled={view == null}
+          defaultValue={EndingsList.find(
+            (entry) => entry.value.toString() === id,
+          ) ?? id}
+          onSelect={(value) => setSearchParams({ id: value })}
+          options={EndingsList}
+        />
+      </div>
       <InputDropbox
         isHex
         type={DataType.U8}
@@ -52,6 +56,7 @@ export default function FE7FireEmblem7PairedEndingsEditorbyIcyToast() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="CharacterEditor"
         options={Characters}
         view={view}
         name="Character 1"
@@ -60,6 +65,7 @@ export default function FE7FireEmblem7PairedEndingsEditorbyIcyToast() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="CharacterEditor"
         options={Characters}
         view={view}
         name="Character 2"

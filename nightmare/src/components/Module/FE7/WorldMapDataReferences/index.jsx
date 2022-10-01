@@ -34,12 +34,16 @@ export default function FE7WorldMapDataReferences() {
         message="FE 7 World Map Data References by Mariobro3828"
         type="info"
       />
-      <InputSelect
-        disabled={view == null}
-        defaultValue={id}
-        onSelect={(value) => setSearchParams({ id: value })}
-        options={Prologues}
-      />
+      <div key={id}>
+        <InputSelect
+          disabled={view == null}
+          defaultValue={Prologues.find(
+            (entry) => entry.value.toString() === id,
+          ) ?? id}
+          onSelect={(value) => setSearchParams({ id: value })}
+          options={Prologues}
+        />
+      </div>
       <InputHex
         type={DataType.U32}
         view={view}

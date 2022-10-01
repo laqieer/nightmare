@@ -11,12 +11,18 @@ export default function InputHex(props) {
     view, name, offset, type,
   } = props;
 
+  const currentValue = view == null ? 0 : read(view, offset, type);
+  const [oldValue, setOldValue] = useState(currentValue);
+  if (oldValue !== currentValue) {
+    setOldValue(currentValue);
+  }
+
   return (
     <Space>
       <Text
         disabled={view == null}
       >
-        {`${name}:${view == null ? '' : ` 0x${read(view, offset, type).toString(16)} →`}`}
+        {`${name}:${view == null ? '' : ` 0x${oldValue.toString(16)} →`}`}
       </Text>
       <Input
         disabled={view == null}
@@ -30,7 +36,11 @@ export default function InputHex(props) {
             setValue(input);
           }
         }}
-        onPressEnter={(e) => write(view, offset, type, parseInt(e.target.value, 16))}
+        onPressEnter={(e) => {
+          const v = parseInt(e.target.value, 16);
+          write(view, offset, type, v);
+          setOldValue(v);
+        }}
         {...props}
       />
     </Space>

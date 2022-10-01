@@ -35,12 +35,16 @@ export default function FE7ChFinalChestEditor() {
         message="FE7 Ch Final Chest Editor"
         type="info"
       />
-      <InputSelect
-        disabled={view == null}
-        defaultValue={id}
-        onSelect={(value) => setSearchParams({ id: value })}
-        options={FE7ChFinalChestEditorEntries}
-      />
+      <div key={id}>
+        <InputSelect
+          disabled={view == null}
+          defaultValue={FE7ChFinalChestEditorEntries.find(
+            (entry) => entry.value.toString() === id,
+          ) ?? id}
+          onSelect={(value) => setSearchParams({ id: value })}
+          options={FE7ChFinalChestEditorEntries}
+        />
+      </div>
       <InputDropbox
         isHex
         type={DataType.U8}
@@ -58,6 +62,7 @@ export default function FE7ChFinalChestEditor() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="ItemEditor"
         options={ItemList}
         view={view}
         name="Chest/???"

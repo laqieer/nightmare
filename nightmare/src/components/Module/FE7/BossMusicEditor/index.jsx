@@ -34,15 +34,20 @@ export default function FE7BossMusicEditor() {
         message="FE7 Boss Music Editor by Mariobro3828, offset discovered by Nintenlord"
         type="info"
       />
-      <InputSelect
-        disabled={view == null}
-        defaultValue={id}
-        onSelect={(value) => setSearchParams({ id: value })}
-        options={FE7BossMusicEditorEntries}
-      />
+      <div key={id}>
+        <InputSelect
+          disabled={view == null}
+          defaultValue={FE7BossMusicEditorEntries.find(
+            (entry) => entry.value.toString() === id,
+          ) ?? id}
+          onSelect={(value) => setSearchParams({ id: value })}
+          options={FE7BossMusicEditorEntries}
+        />
+      </div>
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="CharacterEditor"
         options={Characters}
         view={view}
         name="Boss Character"
@@ -51,6 +56,7 @@ export default function FE7BossMusicEditor() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="MusicArrayEditor"
         options={Music}
         view={view}
         name="Music"

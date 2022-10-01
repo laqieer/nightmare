@@ -35,12 +35,16 @@ export default function FE7Ch11HChestEditor() {
         message="FE7 Ch 11H Chest Editor"
         type="info"
       />
-      <InputSelect
-        disabled={view == null}
-        defaultValue={id}
-        onSelect={(value) => setSearchParams({ id: value })}
-        options={FE7Ch11HChestEditorEntries}
-      />
+      <div key={id}>
+        <InputSelect
+          disabled={view == null}
+          defaultValue={FE7Ch11HChestEditorEntries.find(
+            (entry) => entry.value.toString() === id,
+          ) ?? id}
+          onSelect={(value) => setSearchParams({ id: value })}
+          options={FE7Ch11HChestEditorEntries}
+        />
+      </div>
       <InputDropbox
         isHex
         type={DataType.U8}
@@ -58,6 +62,7 @@ export default function FE7Ch11HChestEditor() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="ItemEditor"
         options={ItemList}
         view={view}
         name="Chest/???"

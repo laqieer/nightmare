@@ -34,12 +34,16 @@ export default function FE724LinusTableEditor() {
         message="Chapter 23/24 Linus Table Editor by Fire Blazer/Keriku"
         type="info"
       />
-      <InputSelect
-        disabled={view == null}
-        defaultValue={id}
-        onSelect={(value) => setSearchParams({ id: value })}
-        options={FE724LinusTableEditorEntries}
-      />
+      <div key={id}>
+        <InputSelect
+          disabled={view == null}
+          defaultValue={FE724LinusTableEditorEntries.find(
+            (entry) => entry.value.toString() === id,
+          ) ?? id}
+          onSelect={(value) => setSearchParams({ id: value })}
+          options={FE724LinusTableEditorEntries}
+        />
+      </div>
       <InputHex
         type={DataType.U32}
         view={view}

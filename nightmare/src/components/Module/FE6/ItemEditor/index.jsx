@@ -38,12 +38,16 @@ export default function FE6ItemEditor() {
         message="FE6 Item Editor by SpyroDi, modified by Arch"
         type="info"
       />
-      <InputSelect
-        disabled={view == null}
-        defaultValue={id}
-        onSelect={(value) => setSearchParams({ id: value })}
-        options={FE6ItemEditorEntries}
-      />
+      <div key={id}>
+        <InputSelect
+          disabled={view == null}
+          defaultValue={FE6ItemEditorEntries.find(
+            (entry) => entry.value.toString() === id,
+          ) ?? id}
+          onSelect={(value) => setSearchParams({ id: value })}
+          options={FE6ItemEditorEntries}
+        />
+      </div>
       <InputHex
         type={DataType.U16}
         view={view}
@@ -65,6 +69,7 @@ export default function FE6ItemEditor() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="ItemEditor"
         options={ItemList}
         view={view}
         name="Item Number"

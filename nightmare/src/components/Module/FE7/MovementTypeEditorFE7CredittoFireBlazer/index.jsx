@@ -34,12 +34,16 @@ export default function FE7MovementTypeEditorFE7CredittoFireBlazer() {
         message="Movement Type Editor (FE7) - Credit to Fire Blazer"
         type="info"
       />
-      <InputSelect
-        disabled={view == null}
-        defaultValue={id}
-        onSelect={(value) => setSearchParams({ id: value })}
-        options={MovementTypes}
-      />
+      <div key={id}>
+        <InputSelect
+          disabled={view == null}
+          defaultValue={MovementTypes.find(
+            (entry) => entry.value.toString() === id,
+          ) ?? id}
+          onSelect={(value) => setSearchParams({ id: value })}
+          options={MovementTypes}
+        />
+      </div>
       <InputDec
         type={DataType.U8}
         view={view}

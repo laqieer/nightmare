@@ -34,12 +34,16 @@ export default function FE6BattlePaletteReference() {
         message="FE6 Battle Palette Reference by flyingace24"
         type="info"
       />
-      <InputSelect
-        disabled={view == null}
-        defaultValue={id}
-        onSelect={(value) => setSearchParams({ id: value })}
-        options={CharacterPalettes}
-      />
+      <div key={id}>
+        <InputSelect
+          disabled={view == null}
+          defaultValue={CharacterPalettes.find(
+            (entry) => entry.value.toString() === id,
+          ) ?? id}
+          onSelect={(value) => setSearchParams({ id: value })}
+          options={CharacterPalettes}
+        />
+      </div>
       <InputHex
         type={DataType.U32}
         view={view}

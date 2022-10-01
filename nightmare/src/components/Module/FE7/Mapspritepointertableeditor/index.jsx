@@ -34,12 +34,16 @@ export default function FE7Mapspritepointertableeditor() {
         message="FE 7 Map sprite pointer table editor by Nintenlord"
         type="info"
       />
-      <InputSelect
-        disabled={view == null}
-        defaultValue={id}
-        onSelect={(value) => setSearchParams({ id: value })}
-        options={Miscmapsprites}
-      />
+      <div key={id}>
+        <InputSelect
+          disabled={view == null}
+          defaultValue={Miscmapsprites.find(
+            (entry) => entry.value.toString() === id,
+          ) ?? id}
+          onSelect={(value) => setSearchParams({ id: value })}
+          options={Miscmapsprites}
+        />
+      </div>
       <InputHex
         type={DataType.U32}
         view={view}

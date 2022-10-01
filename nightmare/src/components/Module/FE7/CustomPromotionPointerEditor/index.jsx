@@ -35,15 +35,20 @@ export default function FE7CustomPromotionPointerEditor() {
         message="FE7 Custom Promotion Pointer Editor"
         type="info"
       />
-      <InputSelect
-        disabled={view == null}
-        defaultValue={id}
-        onSelect={(value) => setSearchParams({ id: value })}
-        options={PromotionPointers}
-      />
+      <div key={id}>
+        <InputSelect
+          disabled={view == null}
+          defaultValue={PromotionPointers.find(
+            (entry) => entry.value.toString() === id,
+          ) ?? id}
+          onSelect={(value) => setSearchParams({ id: value })}
+          options={PromotionPointers}
+        />
+      </div>
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="ClassEditor"
         options={ClassList}
         view={view}
         name="Class 01"
@@ -52,6 +57,7 @@ export default function FE7CustomPromotionPointerEditor() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="ClassEditor"
         options={ClassList}
         view={view}
         name="Class 02"
@@ -60,6 +66,7 @@ export default function FE7CustomPromotionPointerEditor() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="ClassEditor"
         options={ClassList}
         view={view}
         name="Class 03"
@@ -68,6 +75,7 @@ export default function FE7CustomPromotionPointerEditor() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="ClassEditor"
         options={ClassList}
         view={view}
         name="Class 04"
@@ -76,6 +84,7 @@ export default function FE7CustomPromotionPointerEditor() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="ClassEditor"
         options={ClassList}
         view={view}
         name="Class 05"
@@ -84,6 +93,7 @@ export default function FE7CustomPromotionPointerEditor() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="ClassEditor"
         options={ClassList}
         view={view}
         name="Class 06"
@@ -92,6 +102,7 @@ export default function FE7CustomPromotionPointerEditor() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="ClassEditor"
         options={ClassList}
         view={view}
         name="Class 07"
@@ -100,6 +111,7 @@ export default function FE7CustomPromotionPointerEditor() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="ClassEditor"
         options={ClassList}
         view={view}
         name="Class 08"
@@ -108,6 +120,7 @@ export default function FE7CustomPromotionPointerEditor() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="ClassEditor"
         options={ClassList}
         view={view}
         name="Class 09"
@@ -116,6 +129,7 @@ export default function FE7CustomPromotionPointerEditor() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="ClassEditor"
         options={ClassList}
         view={view}
         name="Class 10"
@@ -124,6 +138,7 @@ export default function FE7CustomPromotionPointerEditor() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="ClassEditor"
         options={ClassList}
         view={view}
         name="Class 11"
@@ -132,6 +147,7 @@ export default function FE7CustomPromotionPointerEditor() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="ClassEditor"
         options={ClassList}
         view={view}
         name="Class 12"
@@ -140,6 +156,7 @@ export default function FE7CustomPromotionPointerEditor() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="ClassEditor"
         options={ClassList}
         view={view}
         name="Class 13"
@@ -148,6 +165,7 @@ export default function FE7CustomPromotionPointerEditor() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="ClassEditor"
         options={ClassList}
         view={view}
         name="Class 14"
@@ -156,6 +174,7 @@ export default function FE7CustomPromotionPointerEditor() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="ClassEditor"
         options={ClassList}
         view={view}
         name="Class 15"
@@ -164,6 +183,7 @@ export default function FE7CustomPromotionPointerEditor() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="ClassEditor"
         options={ClassList}
         view={view}
         name="Class 16"
@@ -172,6 +192,7 @@ export default function FE7CustomPromotionPointerEditor() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="ClassEditor"
         options={ClassList}
         view={view}
         name="Class 17"
@@ -180,6 +201,7 @@ export default function FE7CustomPromotionPointerEditor() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="ClassEditor"
         options={ClassList}
         view={view}
         name="Class 18"
@@ -188,6 +210,7 @@ export default function FE7CustomPromotionPointerEditor() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="ClassEditor"
         options={ClassList}
         view={view}
         name="Class 19"
@@ -196,6 +219,7 @@ export default function FE7CustomPromotionPointerEditor() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="ClassEditor"
         options={ClassList}
         view={view}
         name="Class 20"
@@ -204,6 +228,7 @@ export default function FE7CustomPromotionPointerEditor() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="ClassEditor"
         options={ClassList}
         view={view}
         name="Class 21"
@@ -212,6 +237,7 @@ export default function FE7CustomPromotionPointerEditor() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="ClassEditor"
         options={ClassList}
         view={view}
         name="Class 22"
@@ -220,6 +246,7 @@ export default function FE7CustomPromotionPointerEditor() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="ClassEditor"
         options={ClassList}
         view={view}
         name="Class 23"
@@ -228,6 +255,7 @@ export default function FE7CustomPromotionPointerEditor() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="ClassEditor"
         options={ClassList}
         view={view}
         name="Class 24"
@@ -236,6 +264,7 @@ export default function FE7CustomPromotionPointerEditor() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="ClassEditor"
         options={ClassList}
         view={view}
         name="Class 25"
@@ -244,6 +273,7 @@ export default function FE7CustomPromotionPointerEditor() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="ClassEditor"
         options={ClassList}
         view={view}
         name="Class 26"
@@ -252,6 +282,7 @@ export default function FE7CustomPromotionPointerEditor() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="ClassEditor"
         options={ClassList}
         view={view}
         name="Class 27"
@@ -260,6 +291,7 @@ export default function FE7CustomPromotionPointerEditor() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="ClassEditor"
         options={ClassList}
         view={view}
         name="Class 28"
@@ -268,6 +300,7 @@ export default function FE7CustomPromotionPointerEditor() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="ClassEditor"
         options={ClassList}
         view={view}
         name="Class 29"
@@ -276,6 +309,7 @@ export default function FE7CustomPromotionPointerEditor() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="ClassEditor"
         options={ClassList}
         view={view}
         name="Class 30"
@@ -284,6 +318,7 @@ export default function FE7CustomPromotionPointerEditor() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="ClassEditor"
         options={ClassList}
         view={view}
         name="Class 31"

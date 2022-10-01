@@ -35,15 +35,20 @@ export default function FE6Enemybossbattlequoteeditor() {
         message="FE6 Enemy boss battle quote editor by Nintenlord"
         type="info"
       />
-      <InputSelect
-        disabled={view == null}
-        defaultValue={id}
-        onSelect={(value) => setSearchParams({ id: value })}
-        options={FE6EnemybossbattlequoteeditorEntries}
-      />
+      <div key={id}>
+        <InputSelect
+          disabled={view == null}
+          defaultValue={FE6EnemybossbattlequoteeditorEntries.find(
+            (entry) => entry.value.toString() === id,
+          ) ?? id}
+          onSelect={(value) => setSearchParams({ id: value })}
+          options={FE6EnemybossbattlequoteeditorEntries}
+        />
+      </div>
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="CharacterEditor"
         options={Characters}
         view={view}
         name="Character"
@@ -52,6 +57,7 @@ export default function FE6Enemybossbattlequoteeditor() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="ChapterDataEditorFE6"
         options={Chapters}
         view={view}
         name="Chapter"

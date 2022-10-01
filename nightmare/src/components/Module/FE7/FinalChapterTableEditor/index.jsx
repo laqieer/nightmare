@@ -34,12 +34,16 @@ export default function FE7FinalChapterTableEditor() {
         message="Final Chapter Table Editor by Fire Blazer/Keriku"
         type="info"
       />
-      <InputSelect
-        disabled={view == null}
-        defaultValue={id}
-        onSelect={(value) => setSearchParams({ id: value })}
-        options={FE7FinalChapterTableEditorEntries}
-      />
+      <div key={id}>
+        <InputSelect
+          disabled={view == null}
+          defaultValue={FE7FinalChapterTableEditorEntries.find(
+            (entry) => entry.value.toString() === id,
+          ) ?? id}
+          onSelect={(value) => setSearchParams({ id: value })}
+          options={FE7FinalChapterTableEditorEntries}
+        />
+      </div>
       <InputHex
         type={DataType.U32}
         view={view}

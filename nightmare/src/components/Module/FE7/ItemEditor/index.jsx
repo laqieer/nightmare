@@ -38,12 +38,16 @@ export default function FE7ItemEditor() {
         message="FE7 Item Editor by SpyroDi, updated by Nintenlord"
         type="info"
       />
-      <InputSelect
-        disabled={view == null}
-        defaultValue={id}
-        onSelect={(value) => setSearchParams({ id: value })}
-        options={FE7ItemEditorEntries}
-      />
+      <div key={id}>
+        <InputSelect
+          disabled={view == null}
+          defaultValue={FE7ItemEditorEntries.find(
+            (entry) => entry.value.toString() === id,
+          ) ?? id}
+          onSelect={(value) => setSearchParams({ id: value })}
+          options={FE7ItemEditorEntries}
+        />
+      </div>
       <InputHex
         type={DataType.U16}
         view={view}
@@ -65,6 +69,7 @@ export default function FE7ItemEditor() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="ItemEditor"
         options={ItemList}
         view={view}
         name="Item Number"

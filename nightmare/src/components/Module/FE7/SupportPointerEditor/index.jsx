@@ -36,12 +36,16 @@ export default function FE7SupportPointerEditor() {
         message="FE7 Support Pointer Editor"
         type="info"
       />
-      <InputSelect
-        disabled={view == null}
-        defaultValue={id}
-        onSelect={(value) => setSearchParams({ id: value })}
-        options={SupportPointer}
-      />
+      <div key={id}>
+        <InputSelect
+          disabled={view == null}
+          defaultValue={SupportPointer.find(
+            (entry) => entry.value.toString() === id,
+          ) ?? id}
+          onSelect={(value) => setSearchParams({ id: value })}
+          options={SupportPointer}
+        />
+      </div>
       <InputDec
         type={DataType.U8}
         view={view}
@@ -51,6 +55,7 @@ export default function FE7SupportPointerEditor() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="CharacterEditor"
         options={Characters}
         view={view}
         name="Person 1"
@@ -71,6 +76,7 @@ export default function FE7SupportPointerEditor() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="CharacterEditor"
         options={Characters}
         view={view}
         name="Person 2"
@@ -91,6 +97,7 @@ export default function FE7SupportPointerEditor() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="CharacterEditor"
         options={Characters}
         view={view}
         name="Person 3"
@@ -111,6 +118,7 @@ export default function FE7SupportPointerEditor() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="CharacterEditor"
         options={Characters}
         view={view}
         name="Person 4"
@@ -131,6 +139,7 @@ export default function FE7SupportPointerEditor() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="CharacterEditor"
         options={Characters}
         view={view}
         name="Person 5"
@@ -151,6 +160,7 @@ export default function FE7SupportPointerEditor() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="CharacterEditor"
         options={Characters}
         view={view}
         name="Person 6"
@@ -171,6 +181,7 @@ export default function FE7SupportPointerEditor() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="CharacterEditor"
         options={Characters}
         view={view}
         name="Person 7"

@@ -34,12 +34,16 @@ export default function FE7BattleBGEditor() {
         message="FE7 Battle BG Editor by Blazer"
         type="info"
       />
-      <InputSelect
-        disabled={view == null}
-        defaultValue={id}
-        onSelect={(value) => setSearchParams({ id: value })}
-        options={BattleBGList}
-      />
+      <div key={id}>
+        <InputSelect
+          disabled={view == null}
+          defaultValue={BattleBGList.find(
+            (entry) => entry.value.toString() === id,
+          ) ?? id}
+          onSelect={(value) => setSearchParams({ id: value })}
+          options={BattleBGList}
+        />
+      </div>
       <InputHex
         type={DataType.U32}
         view={view}

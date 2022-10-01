@@ -1,5 +1,5 @@
 import { InputNumber, Space, Typography } from 'antd';
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { DataRange, read, write } from '../../util';
 
@@ -10,18 +10,28 @@ export default function InputDec(props) {
     view, name, offset, type,
   } = props;
 
+  const currentValue = view == null ? 0 : read(view, offset, type);
+  const [oldValue, setOldValue] = useState(currentValue);
+  if (oldValue !== currentValue) {
+    setOldValue(currentValue);
+  }
+
   return (
     <Space>
       <Text
         disabled={view == null}
       >
-        {`${name}:${view == null ? '' : ` ${read(view, offset, type)} →`}`}
+        {`${name}:${view == null ? '' : ` ${oldValue} →`}`}
       </Text>
       <InputNumber
         disabled={view == null}
         min={DataRange[type][0]}
         max={DataRange[type][1]}
-        onPressEnter={(e) => write(view, offset, type, parseInt(e.target.value, 10))}
+        onPressEnter={(e) => {
+          const v = parseInt(e.target.value, 10);
+          write(view, offset, type, v);
+          setOldValue(v);
+        }}
         {...props}
       />
     </Space>

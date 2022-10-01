@@ -36,12 +36,16 @@ export default function FE7PortraitEditor() {
         message="FE7 Portrait Editor by flyingace24"
         type="info"
       />
-      <InputSelect
-        disabled={view == null}
-        defaultValue={id}
-        onSelect={(value) => setSearchParams({ id: value })}
-        options={PortraitEditor}
-      />
+      <div key={id}>
+        <InputSelect
+          disabled={view == null}
+          defaultValue={PortraitEditor.find(
+            (entry) => entry.value.toString() === id,
+          ) ?? id}
+          onSelect={(value) => setSearchParams({ id: value })}
+          options={PortraitEditor}
+        />
+      </div>
       <InputHex
         type={DataType.U32}
         view={view}

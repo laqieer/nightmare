@@ -36,12 +36,16 @@ export default function FE7Stuff() {
         message="Stuff"
         type="info"
       />
-      <InputSelect
-        disabled={view == null}
-        defaultValue={id}
-        onSelect={(value) => setSearchParams({ id: value })}
-        options={FE7StuffEntries}
-      />
+      <div key={id}>
+        <InputSelect
+          disabled={view == null}
+          defaultValue={FE7StuffEntries.find(
+            (entry) => entry.value.toString() === id,
+          ) ?? id}
+          onSelect={(value) => setSearchParams({ id: value })}
+          options={FE7StuffEntries}
+        />
+      </div>
       <InputDropbox
         isHex
         type={DataType.U8}

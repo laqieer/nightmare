@@ -34,12 +34,16 @@ export default function FE6EventTableReferences() {
         message="FE 6 Event Table References By Kate - V 0.9.1"
         type="info"
       />
-      <InputSelect
-        disabled={view == null}
-        defaultValue={id}
-        onSelect={(value) => setSearchParams({ id: value })}
-        options={Pointers}
-      />
+      <div key={id}>
+        <InputSelect
+          disabled={view == null}
+          defaultValue={Pointers.find(
+            (entry) => entry.value.toString() === id,
+          ) ?? id}
+          onSelect={(value) => setSearchParams({ id: value })}
+          options={Pointers}
+        />
+      </div>
       <InputHex
         type={DataType.U32}
         view={view}

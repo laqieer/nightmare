@@ -34,12 +34,16 @@ export default function FE7TutorialEditor() {
         message="FE 7 Tutorial Editor by Fire Blazer/Keriku"
         type="info"
       />
-      <InputSelect
-        disabled={view == null}
-        defaultValue={id}
-        onSelect={(value) => setSearchParams({ id: value })}
-        options={FE7TutorialEditorEntries}
-      />
+      <div key={id}>
+        <InputSelect
+          disabled={view == null}
+          defaultValue={FE7TutorialEditorEntries.find(
+            (entry) => entry.value.toString() === id,
+          ) ?? id}
+          onSelect={(value) => setSearchParams({ id: value })}
+          options={FE7TutorialEditorEntries}
+        />
+      </div>
       <InputHex
         type={DataType.U32}
         view={view}

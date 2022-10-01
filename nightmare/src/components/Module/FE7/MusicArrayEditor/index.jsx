@@ -35,12 +35,16 @@ export default function FE7MusicArrayEditor() {
         message="FE7 Music Array Editor by Blazer"
         type="info"
       />
-      <InputSelect
-        disabled={view == null}
-        defaultValue={id}
-        onSelect={(value) => setSearchParams({ id: value })}
-        options={PartialMusicList}
-      />
+      <div key={id}>
+        <InputSelect
+          disabled={view == null}
+          defaultValue={PartialMusicList.find(
+            (entry) => entry.value.toString() === id,
+          ) ?? id}
+          onSelect={(value) => setSearchParams({ id: value })}
+          options={PartialMusicList}
+        />
+      </div>
       <InputHex
         type={DataType.U32}
         view={view}

@@ -35,12 +35,16 @@ export default function FE7TurnMenutable() {
         message="Turn Menu table by Crazycolorz5"
         type="info"
       />
-      <InputSelect
-        disabled={view == null}
-        defaultValue={id}
-        onSelect={(value) => setSearchParams({ id: value })}
-        options={TurnMenuFE7}
-      />
+      <div key={id}>
+        <InputSelect
+          disabled={view == null}
+          defaultValue={TurnMenuFE7.find(
+            (entry) => entry.value.toString() === id,
+          ) ?? id}
+          onSelect={(value) => setSearchParams({ id: value })}
+          options={TurnMenuFE7}
+        />
+      </div>
       <InputHex
         type={DataType.U32}
         view={view}

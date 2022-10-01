@@ -35,12 +35,16 @@ export default function FE7Standingmapspriteeditor() {
         message="FE7 Standing map sprite editor by Nintenlord"
         type="info"
       />
-      <InputSelect
-        disabled={view == null}
-        defaultValue={id}
-        onSelect={(value) => setSearchParams({ id: value })}
-        options={FE7StandingmapspriteeditorEntries}
-      />
+      <div key={id}>
+        <InputSelect
+          disabled={view == null}
+          defaultValue={FE7StandingmapspriteeditorEntries.find(
+            (entry) => entry.value.toString() === id,
+          ) ?? id}
+          onSelect={(value) => setSearchParams({ id: value })}
+          options={FE7StandingmapspriteeditorEntries}
+        />
+      </div>
       <InputHex
         type={DataType.U8}
         view={view}

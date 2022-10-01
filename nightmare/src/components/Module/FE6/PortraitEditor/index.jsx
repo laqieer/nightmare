@@ -35,12 +35,16 @@ export default function FE6PortraitEditor() {
         message="FE6 Portrait Editor by flyingace24"
         type="info"
       />
-      <InputSelect
-        disabled={view == null}
-        defaultValue={id}
-        onSelect={(value) => setSearchParams({ id: value })}
-        options={FE6PortraitEditorEntries}
-      />
+      <div key={id}>
+        <InputSelect
+          disabled={view == null}
+          defaultValue={FE6PortraitEditorEntries.find(
+            (entry) => entry.value.toString() === id,
+          ) ?? id}
+          onSelect={(value) => setSearchParams({ id: value })}
+          options={FE6PortraitEditorEntries}
+        />
+      </div>
       <InputHex
         type={DataType.U32}
         view={view}

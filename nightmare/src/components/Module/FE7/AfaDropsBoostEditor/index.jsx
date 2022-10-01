@@ -34,12 +34,16 @@ export default function FE7AfaDropsBoostEditor() {
         message="FE7 Afa Drops Boost Editor by Nintenlord"
         type="info"
       />
-      <InputSelect
-        disabled={view == null}
-        defaultValue={id}
-        onSelect={(value) => setSearchParams({ id: value })}
-        options={FE7AfaDropsBoostEditorEntries}
-      />
+      <div key={id}>
+        <InputSelect
+          disabled={view == null}
+          defaultValue={FE7AfaDropsBoostEditorEntries.find(
+            (entry) => entry.value.toString() === id,
+          ) ?? id}
+          onSelect={(value) => setSearchParams({ id: value })}
+          options={FE7AfaDropsBoostEditorEntries}
+        />
+      </div>
       <InputDec
         type={DataType.U8}
         view={view}

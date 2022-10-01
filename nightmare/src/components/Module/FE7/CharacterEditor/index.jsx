@@ -39,12 +39,16 @@ export default function FE7CharacterEditor() {
         message="FE7 Character Editor by SpyroDi, modified by Arch and Nintenlord"
         type="info"
       />
-      <InputSelect
-        disabled={view == null}
-        defaultValue={id}
-        onSelect={(value) => setSearchParams({ id: value })}
-        options={FE7CharacterList}
-      />
+      <div key={id}>
+        <InputSelect
+          disabled={view == null}
+          defaultValue={FE7CharacterList.find(
+            (entry) => entry.value.toString() === id,
+          ) ?? id}
+          onSelect={(value) => setSearchParams({ id: value })}
+          options={FE7CharacterList}
+        />
+      </div>
       <InputHex
         type={DataType.U16}
         view={view}
@@ -60,6 +64,7 @@ export default function FE7CharacterEditor() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="CharacterEditor"
         options={Characters}
         view={view}
         name="Character Number"
@@ -68,6 +73,7 @@ export default function FE7CharacterEditor() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="ClassEditor"
         options={ClassList}
         view={view}
         name="Class (support viewer only)"
@@ -76,6 +82,7 @@ export default function FE7CharacterEditor() {
       <InputDropbox
         isHex
         type={DataType.U16}
+        reference="PortraitEditor"
         options={PortraitList}
         view={view}
         name="Portrait"
@@ -99,6 +106,7 @@ export default function FE7CharacterEditor() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="CharacterEditor"
         options={Characters}
         view={view}
         name="Character Number 2?"
@@ -259,6 +267,7 @@ export default function FE7CharacterEditor() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="BattlePaletteReference"
         options={CharacterPalettes}
         view={view}
         name="Palette - Unpromoted"
@@ -267,6 +276,7 @@ export default function FE7CharacterEditor() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="BattlePaletteReference"
         options={CharacterPalettes}
         view={view}
         name="Palette - Promoted"

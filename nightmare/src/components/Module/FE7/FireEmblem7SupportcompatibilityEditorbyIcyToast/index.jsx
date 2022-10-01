@@ -35,12 +35,16 @@ export default function FE7FireEmblem7SupportcompatibilityEditorbyIcyToast() {
         message="Fire Emblem 7 Support compatibility Editor (by Icy Toast)"
         type="info"
       />
-      <InputSelect
-        disabled={view == null}
-        defaultValue={id}
-        onSelect={(value) => setSearchParams({ id: value })}
-        options={SupportCharacterList}
-      />
+      <div key={id}>
+        <InputSelect
+          disabled={view == null}
+          defaultValue={SupportCharacterList.find(
+            (entry) => entry.value.toString() === id,
+          ) ?? id}
+          onSelect={(value) => setSearchParams({ id: value })}
+          options={SupportCharacterList}
+        />
+      </div>
       <InputDec
         type={DataType.U8}
         view={view}
@@ -50,6 +54,7 @@ export default function FE7FireEmblem7SupportcompatibilityEditorbyIcyToast() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="CharacterEditor"
         options={Characters}
         view={view}
         name="Support partner #1"
@@ -70,6 +75,7 @@ export default function FE7FireEmblem7SupportcompatibilityEditorbyIcyToast() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="CharacterEditor"
         options={Characters}
         view={view}
         name="Support partner #2"
@@ -90,6 +96,7 @@ export default function FE7FireEmblem7SupportcompatibilityEditorbyIcyToast() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="CharacterEditor"
         options={Characters}
         view={view}
         name="Support partner #3"
@@ -110,6 +117,7 @@ export default function FE7FireEmblem7SupportcompatibilityEditorbyIcyToast() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="CharacterEditor"
         options={Characters}
         view={view}
         name="Support partner #4"
@@ -130,6 +138,7 @@ export default function FE7FireEmblem7SupportcompatibilityEditorbyIcyToast() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="CharacterEditor"
         options={Characters}
         view={view}
         name="Support partner #5"
@@ -150,6 +159,7 @@ export default function FE7FireEmblem7SupportcompatibilityEditorbyIcyToast() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="CharacterEditor"
         options={Characters}
         view={view}
         name="Support partner #6"
@@ -170,6 +180,7 @@ export default function FE7FireEmblem7SupportcompatibilityEditorbyIcyToast() {
       <InputDropbox
         isHex
         type={DataType.U8}
+        reference="CharacterEditor"
         options={Characters}
         view={view}
         name="Support partner #7"

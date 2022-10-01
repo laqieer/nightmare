@@ -1,0 +1,11 @@
+AnimationPointerTableEditor: Animation List.txt
+BattleBGEditor: Battle tileset.txt
+BattlePaletteReference: Character Palettes.txt
+ChapterDataEditorFE7: Chapters.txt
+CharacterEditor: Character List.txt, Characters.txt
+ClassEditor: Class List.txt
+Eventtablereferences: Maps.txt, MEdata.txt, ObjectSets.txt, Palette1.txt, Setconfig.txt, TileAnim.txt, TileChange.txt
+ItemEditor: Animation Types.txt, FE7 Magic Weapons.txt, Item List.txt, Item List TU.txt
+MusicArrayEditor: Music.txt
+PortraitEditor: Portrait List.txt, Portraits.txt
+Standingmapspriteeditor: Map Sprites (Standing).txt

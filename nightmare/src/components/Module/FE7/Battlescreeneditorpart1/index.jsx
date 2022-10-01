@@ -34,12 +34,16 @@ export default function FE7Battlescreeneditorpart1() {
         message="Battle screen editor part 1 by Nintenlord"
         type="info"
       />
-      <InputSelect
-        disabled={view == null}
-        defaultValue={id}
-        onSelect={(value) => setSearchParams({ id: value })}
-        options={Coordinates}
-      />
+      <div key={id}>
+        <InputSelect
+          disabled={view == null}
+          defaultValue={Coordinates.find(
+            (entry) => entry.value.toString() === id,
+          ) ?? id}
+          onSelect={(value) => setSearchParams({ id: value })}
+          options={Coordinates}
+        />
+      </div>
       <InputDropbox
         isHex
         type={DataType.U8}

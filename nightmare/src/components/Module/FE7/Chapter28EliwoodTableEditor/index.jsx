@@ -34,12 +34,16 @@ export default function FE7Chapter28EliwoodTableEditor() {
         message="Chapter 28 Eliwood Table Editor by Fire Blazer/Keriku"
         type="info"
       />
-      <InputSelect
-        disabled={view == null}
-        defaultValue={id}
-        onSelect={(value) => setSearchParams({ id: value })}
-        options={FE7Chapter28EliwoodTableEditorEntries}
-      />
+      <div key={id}>
+        <InputSelect
+          disabled={view == null}
+          defaultValue={FE7Chapter28EliwoodTableEditorEntries.find(
+            (entry) => entry.value.toString() === id,
+          ) ?? id}
+          onSelect={(value) => setSearchParams({ id: value })}
+          options={FE7Chapter28EliwoodTableEditorEntries}
+        />
+      </div>
       <InputHex
         type={DataType.U32}
         view={view}
