@@ -83,7 +83,9 @@ export default function App() {
             textAlign: 'center',
           }}
         >
-          Nightmare 3 ©2022 Created by laqieer
+          Nightmare 3 ©2022 Created by
+          {' '}
+          <a href="https://laqieer.github.io/">laqieer</a>
         </Footer>
       </Layout>
     </Layout>
