@@ -1,7 +1,7 @@
 {
   "name": "@laqieer/nightmare-util",
   "version": "1.0.0",
-  "description": "",
+  "description": "Util to parse and convert Nightmare modules for Nightmare 3",
   "main": "converter.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
