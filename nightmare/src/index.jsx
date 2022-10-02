@@ -9,7 +9,7 @@ import reportWebVitals from './reportWebVitals';
 import loading from './components/Loading';
 import { routes } from './routes';
 
-const router = createBrowserRouter(routes);
+const router = createBrowserRouter(routes, { basename: '/nightmare' });
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
