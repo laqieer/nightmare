@@ -5,13 +5,13 @@ import {
   HomeOutlined, ArrowLeftOutlined, ArrowRightOutlined,
 } from '@ant-design/icons';
 import {
-  Button, Space, Upload, Row, Col, Switch,
+  Button, Space, Upload, Row, Col,
 } from 'antd';
 import PropTypes from 'prop-types';
 
 export default function Toolbar(props) {
   const {
-    filename, onFilenameChange, buffer, onBufferChange, theme, changeTheme,
+    filename, onFilenameChange, buffer, onBufferChange,
   } = props;
   const navigate = useNavigate();
 
@@ -99,12 +99,6 @@ export default function Toolbar(props) {
       </Col>
       <Col flex="none">
         <div style={{ padding: '0 16px' }}>
-          <Switch
-            checked={theme === 'dark'}
-            onChange={changeTheme}
-            checkedChildren="Dark"
-            unCheckedChildren="Light"
-          />
           <Button
             type="text"
             href="https://github.com/laqieer/nightmare"
@@ -121,12 +115,8 @@ Toolbar.propTypes = {
   onFilenameChange: PropTypes.func.isRequired,
   buffer: PropTypes.instanceOf(ArrayBuffer),
   onBufferChange: PropTypes.func.isRequired,
-  theme: PropTypes.string,
-  changeTheme: PropTypes.func,
 };
 
 Toolbar.defaultProps = {
   buffer: null,
-  theme: 'dark',
-  changeTheme: () => {},
 };
