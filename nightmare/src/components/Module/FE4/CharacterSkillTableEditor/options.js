@@ -1,0 +1,32 @@
+export const FE4CharacterSkillTableEditorEntries = [
+  { label: 'Entry 0', value: 0 },
+];
+
+export const SkillBinaryDefinition = [
+  { label: 'None', value: 0x000000 },
+  { label: '0x000001', value: 0x000001 },
+  { label: '0x000002', value: 0x000002 },
+  { label: '0x000004', value: 0x000004 },
+  { label: '0x000008', value: 0x000008 },
+  { label: '0x000010', value: 0x000010 },
+  { label: '0x000020', value: 0x000020 },
+  { label: '0x000040', value: 0x000040 },
+  { label: '0x000080', value: 0x000080 },
+  { label: '0x000100', value: 0x000100 },
+  { label: '0x000200', value: 0x000200 },
+  { label: '0x000400', value: 0x000400 },
+  { label: '0x000800', value: 0x000800 },
+  { label: '0x001000', value: 0x001000 },
+  { label: '0x002000', value: 0x002000 },
+  { label: '0x004000', value: 0x004000 },
+  { label: '0x008000', value: 0x008000 },
+  { label: '0x010000', value: 0x010000 },
+  { label: '0x020000', value: 0x020000 },
+  { label: '0x040000', value: 0x040000 },
+  { label: '0x080000', value: 0x080000 },
+  { label: '0x100000', value: 0x100000 },
+  { label: '0x200000', value: 0x200000 },
+  { label: '0x400000', value: 0x400000 },
+  { label: '0x800000', value: 0x800000 },
+  { label: 'For testing', value: 0xFFFFFF },
+];

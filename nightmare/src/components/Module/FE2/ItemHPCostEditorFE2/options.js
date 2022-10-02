@@ -1,0 +1,28 @@
+export const Magiclist = [
+  { label: 'Fire', value: 0 },
+  { label: 'Thunder', value: 1 },
+  { label: 'Rainarok', value: 2 },
+  { label: 'Angel', value: 3 },
+  { label: 'Excalibur', value: 4 },
+  { label: 'Arrow', value: 5 },
+  { label: 'Aura', value: 6 },
+  { label: 'Gaia (unused)', value: 7 },
+  { label: 'Dora', value: 8 },
+  { label: 'Slime', value: 9 },
+  { label: 'Death', value: 10 },
+  { label: 'Medusa', value: 11 },
+  { label: 'Recover', value: 12 },
+  { label: 'Reserve', value: 13 },
+  { label: 'Messaih', value: 14 },
+  { label: 'Eyebeam', value: 15 },
+  { label: 'Eyeball', value: 16 },
+  { label: 'Recover', value: 17 },
+  { label: 'Reblow', value: 18 },
+  { label: 'Resire', value: 19 },
+  { label: 'Warp', value: 20 },
+  { label: 'Reserve', value: 21 },
+  { label: 'Illusion', value: 22 },
+  { label: 'Dear', value: 23 },
+];
+
+export default Magiclist;

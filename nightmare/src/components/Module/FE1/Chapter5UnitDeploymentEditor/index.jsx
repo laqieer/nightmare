@@ -1,0 +1,126 @@
+import React from 'react';
+import { useOutletContext, useSearchParams } from 'react-router-dom';
+import { Space, Alert, BackTop } from 'antd';
+import { ToTopOutlined } from '@ant-design/icons';
+import {
+  FE1Chapter5UnitDeploymentEditorEntries,
+} from './options';
+import { DataType } from '../../../util';
+import InputSelect from '../../../Input/InputSelect';
+import InputDec from '../../../Input/InputDec';
+import InputHex from '../../../Input/InputHex';
+
+export default function FE1Chapter5UnitDeploymentEditor() {
+  const [buffer] = useOutletContext();
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const id = searchParams.get('id');
+  const address = 0x2081d;
+  const size = 21;
+  let view = null;
+
+  try {
+    view = new DataView(buffer, address + size * id, size);
+  } catch (error) {
+    view = null;
+  }
+
+  return (
+    <Space
+      direction="vertical"
+      align="center"
+      style={{ width: '100%' }}
+    >
+      <Alert
+        message="Chapter 5 Unit Deployment Editor by Darrman"
+        type="info"
+      />
+      <div key={id}>
+        <InputSelect
+          disabled={view == null}
+          defaultValue={FE1Chapter5UnitDeploymentEditorEntries.find(
+            (entry) => entry.value.toString() === id,
+          ) ?? id}
+          onSelect={(value) => setSearchParams({ id: value })}
+          options={FE1Chapter5UnitDeploymentEditorEntries}
+        />
+      </div>
+      <InputDec
+        type={DataType.U8}
+        view={view}
+        name="Units Allowed"
+        offset={0}
+      />
+      <InputHex
+        type={DataType.U16}
+        view={view}
+        name="Deployment Slot 1"
+        offset={1}
+      />
+      <InputHex
+        type={DataType.U16}
+        view={view}
+        name="Deployment Slot 2"
+        offset={3}
+      />
+      <InputHex
+        type={DataType.U16}
+        view={view}
+        name="Deployment Slot 3"
+        offset={5}
+      />
+      <InputHex
+        type={DataType.U16}
+        view={view}
+        name="Deployment Slot 4"
+        offset={7}
+      />
+      <InputHex
+        type={DataType.U16}
+        view={view}
+        name="Deployment Slot 5"
+        offset={9}
+      />
+      <InputHex
+        type={DataType.U16}
+        view={view}
+        name="Deployment Slot 6"
+        offset={11}
+      />
+      <InputHex
+        type={DataType.U16}
+        view={view}
+        name="Deployment Slot 7"
+        offset={13}
+      />
+      <InputHex
+        type={DataType.U16}
+        view={view}
+        name="Deployment Slot 8"
+        offset={15}
+      />
+      <InputHex
+        type={DataType.U16}
+        view={view}
+        name="Deployment Slot 9"
+        offset={17}
+      />
+      <InputHex
+        type={DataType.U16}
+        view={view}
+        name="Deployment Slot 10"
+        offset={19}
+      />
+      <InputHex
+        type={DataType.U16}
+        view={view}
+        name="Deployment Slot 11"
+        offset={21}
+      />
+
+      <BackTop>
+        <ToTopOutlined />
+      </BackTop>
+    </Space>
+  );
+}

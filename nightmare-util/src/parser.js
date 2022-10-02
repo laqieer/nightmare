@@ -6,10 +6,10 @@ exports.parse = file => {
     assert(file.toLowerCase().endsWith('.nmm'));
     let data = fs.readFileSync(file, 'UTF-8');
     let module = {};
-    if (data.startsWith('#0x')) module.isNightmare2 = true;
-    data = data.split(/\r?\n/).map(line => line.trim()).filter(line => line.length > 0 && !line.startsWith('#'));
     module.filename = path.basename(file);
-    module.version = data[0] * 1;
+    if (data.startsWith('#0x')) module.version = 'Nightmare2';
+    data = data.split(/\r?\n/).map(line => line.trim()).filter(line => line.length > 0 && !line.startsWith('#') && !line.startsWith('//'));
+    if (module.version != 'Nightmare2') module.version = data[0];
     module.description = data[1];
     module.address = data[2];
     module.entryNum = data[3] * 1;

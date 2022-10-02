@@ -1,0 +1,26 @@
+export const Classnames2 = [
+  { label: 'Cavalier', value: 0 },
+  { label: 'Knight', value: 1 },
+  { label: 'Pegasus Knight', value: 2 },
+  { label: 'Paladin', value: 3 },
+  { label: 'Dracoknight', value: 4 },
+  { label: 'Mercenary', value: 5 },
+  { label: 'Fighter', value: 6 },
+  { label: 'Pirate', value: 7 },
+  { label: 'Thief', value: 8 },
+  { label: 'Hero', value: 9 },
+  { label: 'Archer', value: 10 },
+  { label: 'Hunter', value: 11 },
+  { label: 'Ballistician', value: 12 },
+  { label: 'Horseman', value: 13 },
+  { label: 'Sniper', value: 14 },
+  { label: 'Commando', value: 15 },
+  { label: 'Mamkute', value: 16 },
+  { label: 'Mage', value: 17 },
+  { label: 'Priest', value: 18 },
+  { label: 'Bishop', value: 19 },
+  { label: 'Lord', value: 20 },
+  { label: 'General', value: 21 },
+];
+
+export default Classnames2;

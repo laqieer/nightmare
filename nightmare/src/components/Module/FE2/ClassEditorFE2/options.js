@@ -1,0 +1,27 @@
+export const Classeditorlist = [
+  { label: 'Knight', value: 0 },
+  { label: 'Armor', value: 1 },
+  { label: 'P Knight/Gargoyle/Balrog', value: 2 },
+  { label: 'Paladin', value: 3 },
+  { label: 'F Knight/D Zombie/White Dragon', value: 4 },
+  { label: 'Soldier', value: 5 },
+  { label: 'Gold Knight/Badess', value: 6 },
+  { label: 'Mercenary', value: 7 },
+  { label: 'Swordfighter', value: 8 },
+  { label: 'Demon Fighter/Kelbeth/Belreth', value: 9 },
+  { label: 'Priestess/Zombie/Mummy', value: 10 },
+  { label: 'Archer', value: 11 },
+  { label: 'Sniper', value: 12 },
+  { label: 'Villager/Thief', value: 13 },
+  { label: 'Mage (M)/Sorcerer', value: 14 },
+  { label: 'Mage (F)/Witch', value: 15 },
+  { label: 'Saint/Skeletin/Lich', value: 16 },
+  { label: 'Sister/Bigl', value: 17 },
+  { label: 'Sage/Exorcist', value: 18 },
+  { label: 'Bow Knight/Gold', value: 19 },
+  { label: 'Fighter/Dark God', value: 20 },
+  { label: 'Baron/Majin', value: 21 },
+  { label: 'Hero', value: 22 },
+];
+
+export default Classeditorlist;

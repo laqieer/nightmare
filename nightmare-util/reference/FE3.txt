@@ -1,0 +1,4 @@
+CharacterGrowthBaseEditor: FE3 Characters.txt
+ClassBasesEditor: FE3 Classes.txt
+ItemEditor: FE3 Items.txt, items.txt
+MapDataEditor: Chapters.txt

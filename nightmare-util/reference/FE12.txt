@@ -1,0 +1,3 @@
+CharacterEditor: Char_list.txt
+ClassEditorU: Class_list.txt
+ItemEditorU: Item_list.txt

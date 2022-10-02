@@ -1,0 +1,2 @@
+ClassEditor: Class names.txt, Class_list.txt
+ItemEditor: Item_list.txt

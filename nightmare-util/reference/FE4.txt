@@ -1,0 +1,2 @@
+ClassEditor: FE4 Classes.txt, FE4 Promotion Classes.txt
+ItemEditor: FE4 Weapon List.txt

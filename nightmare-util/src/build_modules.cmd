@@ -1,0 +1,1 @@
+FOR /L %%i IN (1,1,12) DO node .\converter.js "..\..\nightmare-module\Fire-Emblem-Nightmare-Modules\FE%%i Nightmare Modules" ..\..\nightmare\src\components\Module\FE%%i ..\reference\FE%%i.txt

@@ -1,0 +1,3 @@
+CharacterEditor: Character List.txt, FE5 Character List.txt
+ClassEditor: Class List.txt
+ItemEditor: FE5 Item Data.txt

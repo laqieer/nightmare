@@ -1,0 +1,31 @@
+export const FE4SkillDisplayEditor1StatScreenEntries = [
+  { label: 'Entry 0', value: 0 },
+];
+
+export const SkillIcons = [
+  { label: 'Wrath', value: 0x00 },
+  { label: 'Pursuit', value: 0x02 },
+  { label: 'Continue', value: 0x04 },
+  { label: 'Big Shield', value: 0x06 },
+  { label: 'Charisma', value: 0x08 },
+  { label: 'Grid', value: 0x0A },
+  { label: 'Awareness', value: 0x0C },
+  { label: 'Prayer', value: 0x0E },
+  { label: 'Critical', value: 0x20 },
+  { label: 'Ambush', value: 0x22 },
+  { label: 'Duel', value: 0x24 },
+  { label: 'Astra', value: 0x26 },
+  { label: 'Luna', value: 0x28 },
+  { label: 'Sol', value: 0x2A },
+  { label: 'Light Sword', value: 0x2C },
+  { label: 'Dark Sword', value: 0x2E },
+  { label: 'Life', value: 0x40 },
+  { label: 'Elite', value: 0x42 },
+  { label: 'Steal', value: 0x44 },
+  { label: 'Return', value: 0x46 },
+  { label: 'Bargain', value: 0x48 },
+  { label: 'Dance', value: 0x4A },
+  { label: 'Recover', value: 0x4C },
+  { label: 'Knight Re-move', value: 0x4E },
+  { label: 'Disable', value: 0xFFFF },
+];

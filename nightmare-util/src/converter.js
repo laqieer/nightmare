@@ -24,10 +24,12 @@ const loadReference = file => fs.readFileSync(file, 'UTF-8').split(/\r?\n/).filt
 const makeEntries = (dir, module) => {
     let result = `export const ${module.options} = [\n`;
     let startNum = 0;
-    if (module.entryList != 'NULL') {
-        const lines = fs.readFileSync(path.join(dir, module.entryList), 'UTF-8').split(/\r?\n/).map(line => line.trim()).filter(line => line.length > 0);
+    if (module.entryList.toUpperCase() != 'NULL') {
+        const lines = fs.readFileSync(path.join(dir, module.entryList), 'UTF-8').split(/\r?\n/).map(line => line.trim()).filter(line => line.length > 0 && !line.startsWith('//'));
         startNum = lines.length;
-        result += lines.map((line, index) => `  { label: '${line.replaceAll('\'', '\\\'')}', value: ${index} }`).join(',\n') + ',\n';
+        if (startNum > 0) {
+            result += lines.map((line, index) => `  { label: '${line.replaceAll('\'', '\\\'')}', value: ${index} }`).join(',\n') + ',\n';
+        }
     }
     if (startNum < module.entryNum) {
         result += [...Array(module.entryNum - startNum).keys()].map(index => `  { label: 'Entry ${index + startNum}', value: ${index + startNum} }`).join(',\n') + ',\n';
@@ -37,11 +39,13 @@ const makeEntries = (dir, module) => {
 }
 
 const makeDropbox = (dir, file) => {
-    let result = `export const ${nameFrom(file)} = [\n`;
+    let identifier = nameFrom(file);
+    if (identifier.match(/^[0-9]/) != null) identifier = 'List' + identifier;
+    let result = `export const ${identifier} = [\n`;
     const lines = fs.readFileSync(path.join(dir, file), 'UTF-8').split(/\r?\n/).map(line => line.trim()).filter(line => line.length > 0).slice(1);
     result += lines.map(line => {
         const words = line.split(' ');
-        const value = words[0];
+        const value = words[0].split(':')[0];
         const label = words.length > 1 ? words.slice(1).join(' ').replaceAll('\'', '\\\'') : value;
         return `  { label: '${label}', value: ${value} }`;
     }).join(',\n') + ',\n];\n'
@@ -81,8 +85,8 @@ try {
         if (dirent.isFile() && dirent.name.toLowerCase().endsWith('.nmm')) {
             (nmm => {
                 let module = parser.parse(nmm);
-                if (module.isNightmare2) {
-                    console.warn(`skipped Nightmare2 module: ${nmm}`);
+                if (module.version != '1') {
+                    console.warn(`skipped unsupported module version: ${module.version} ${nmm}`);
                     return;
                 }
                 module.name = nameFrom(module.description);
@@ -95,8 +99,9 @@ try {
                 module.dir = path.join(dstDir, module.name);
                 fs.mkdirSync(module.dir, { recursive: true });
                 module.name = model.game + module.name;
-                module.options = module.entryList == 'NULL' ? module.name + 'Entries' : nameFrom(module.entryList);
+                module.options = module.entryList.toUpperCase() == 'NULL' ? module.name + 'Entries' : nameFrom(module.entryList);
                 if (module.options == module.name) module.options += 'Entries';
+                if (module.options.match(/^[0-9]/) != null) module.options = 'List' + module.options;
                 let options = [makeEntries(path.dirname(nmm), module)];
                 module.optionLists = new Set();
                 module.inputs = module.handlers.map(handler => {
@@ -104,12 +109,16 @@ try {
                     if(handler.size == 3 && handler.type.startsWith('N')) {
                         handler.size = 4;
                     }
+                    let identifier = '';
                     switch (handler.type) {
                         case 'TEXT':
                             handler.inputType = `InputText\n        length={${handler.size}}`;
                             break;
                         case 'HEXA':
                             handler.inputType = `InputHexArray\n        length={${handler.size}}`;
+                            break;
+                        case 'NEHS':
+                            handler.inputType = `InputHex\n        type={DataType.S${handler.size * 8}}`;
                             break;
                         case 'NEHU':
                             handler.inputType = `InputHex\n        type={DataType.U${handler.size * 8}}`;
@@ -121,12 +130,17 @@ try {
                             handler.inputType = `InputDec\n        type={DataType.U${handler.size * 8}}`;
                             break;
                         case 'NDHU':
+                        case 'NDHA':
+                        case 'NDHI':
                         case 'NDDU':
-                            handler.inputType = `InputDropbox\n        ${handler.type == 'NDHU' ? 'isHex\n        ' : ''}type={DataType.U${handler.size * 8}}\n        ${handler.entryList in reference ? 'reference="' + reference[handler.entryList] + '"\n        ' : ''}options={${nameFrom(handler.entryList)}}`;
+                            identifier = nameFrom(handler.entryList);
+                            if (identifier.match(/^[0-9]/) != null) identifier = 'List' + identifier;
+                            handler.inputType = `InputDropbox\n        ${handler.type.startsWith('NDH') ? 'isHex\n        ' : ''}type={DataType.U${handler.size * 8}}\n        ${handler.entryList in reference ? 'reference="' + reference[handler.entryList] + '"\n        ' : ''}options={${identifier}}`;
                             module.optionLists.add(handler.entryList);
                             break;
                         default:
-                            break;
+                            console.warn(`skipped unsupported handler type: ${handler.type} in ${module.name} ${nmm}`)
+                            return '';
                     }
                     return fillTemplate('handler', handler);
                 }).join('');
@@ -134,8 +148,13 @@ try {
                     options = [...options, `export default ${module.options};\n`];
                 }
                 module.optionLists.forEach(file => options = [...options, makeDropbox(path.dirname(nmm), file)]);
-                module.optionLists = [module.options, ...module.optionLists].map((file, index) => nameFrom(file) + ((index < module.optionLists.size && (index + 1) % 4 == 0) ? ',\n ' : ',')).join(' ');
-                module.importInputs = ['InputSelect', ...new Set(module.inputs.match(/Input\w+/g))].map(input => `import ${input} from '../../../Input/${input}';`).join('\n');
+                module.optionLists = [module.options, ...module.optionLists].map((file, index) => {
+                    let identifier = nameFrom(file);
+                    if (identifier.match(/^[0-9]/) != null) identifier = 'List' + identifier;
+                    return identifier + ((index < module.optionLists.size && (index + 1) % 4 == 0) ? ',\n ' : ',');
+                }).join(' ');
+                module.imports = (module.inputs.includes('DataType') ? 'import { DataType } from \'../../../util\';\n' : '')
+                    + ['InputSelect', ...new Set(module.inputs.match(/Input\w+/g))].map(input => `import ${input} from '../../../Input/${input}';`).join('\n');
                 fs.writeFile(path.join(module.dir, 'index.jsx'), fillTemplate('module', module), err => { if (err) throw err });
                 fs.writeFile(path.join(module.dir, 'options.js'), options.join('\n'), err => { if (err) throw err });
             })(pathname);

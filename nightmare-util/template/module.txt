@@ -5,8 +5,7 @@ import { ToTopOutlined } from '@ant-design/icons';
 import {
   %{optionLists}%
 } from './options';
-import { DataType } from '../../../util';
-%{importInputs}%
+%{imports}%
 
 export default function %{name}%() {
   const [buffer] = useOutletContext();
