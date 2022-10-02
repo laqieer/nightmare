@@ -1,5 +1,5 @@
 {
-  "name": "nightmare-util",
+  "name": "@laqieer/nightmare-util",
   "version": "1.0.0",
   "description": "",
   "main": "converter.js",
@@ -25,5 +25,8 @@
   },
   "dependencies": {
     "@root/walk": "^1.1.0"
+  },
+  "publishConfig": {
+    "registry":"https://npm.pkg.github.com"
   }
 }
