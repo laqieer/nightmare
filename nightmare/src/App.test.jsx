@@ -20,6 +20,6 @@ test('renders footer', async () => {
       <App />
     </BrowserRouter>,
   );
-  const textElement = await screen.findByText(/Nightmare 3 ©2022 Created by laqieer/);
+  const textElement = await screen.findByText(/Nightmare 3 ©2022 Created by/);
   expect(textElement).toBeInTheDocument();
 });
