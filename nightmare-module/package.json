@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "@laqieer/nightmare-util": "^1.0.2"
+    "@laqieer/nightmare-util": "^1.0.4"
   },
   "scripts": {
     "build": "script\\build_modules.cmd"
