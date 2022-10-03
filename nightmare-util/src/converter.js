@@ -76,7 +76,7 @@ try {
         loadReference(process.argv[4]);
     }
     model.game = path.parse(dstDir).name;
-    loadTemplate('../template');
+    loadTemplate(path.join(path.dirname(process.argv[1]), '../template'));
     Walk.create({ sort: byNameWithoutDotFiles })(srcDir, (err, pathname, dirent) => {
         if (err) throw err;
         if (dirent.isDirectory() && dirent.name.startsWith('.')) {
