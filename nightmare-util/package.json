@@ -1,6 +1,6 @@
 {
   "name": "@laqieer/nightmare-util",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Util to parse and convert Nightmare modules for Nightmare 3",
   "main": "converter.js",
   "scripts": {
