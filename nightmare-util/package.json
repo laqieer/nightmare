@@ -1,8 +1,8 @@
 {
   "name": "@laqieer/nightmare-util",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Util to parse and convert Nightmare modules for Nightmare 3",
-  "main": "converter.js",
+  "main": "src/parser.js",
   "scripts": {
     "test": "echo \"Warning: no test specified\"",
     "lint": "eslint src --fix"
