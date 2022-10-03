@@ -3,7 +3,7 @@ import { useOutletContext, useSearchParams } from 'react-router-dom';
 import { Space, Alert, BackTop } from 'antd';
 import { ToTopOutlined } from '@ant-design/icons';
 import {
-  FE11Chapter1UnitEditorEntries, Characters, Classes, Enemy1,
+  FE11Chapter6UnitEditorEntries, Characters, Classes, Enemy1,
   Enemy2, Items, Droppable,
 } from './options';
 import { DataType } from '../../../util';
@@ -12,12 +12,12 @@ import InputDropbox from '../../../Input/InputDropbox';
 import InputDec from '../../../Input/InputDec';
 import InputHex from '../../../Input/InputHex';
 
-export default function FE11Chapter1UnitEditor() {
+export default function FE11Chapter6UnitEditor() {
   const [buffer] = useOutletContext();
   const [searchParams, setSearchParams] = useSearchParams();
 
   const id = searchParams.get('id');
-  const address = 0x74;
+  const address = 0x50;
   const size = 80;
   let view = null;
 
@@ -34,17 +34,17 @@ export default function FE11Chapter1UnitEditor() {
       style={{ width: '100%' }}
     >
       <Alert
-        message="Chapter 1 Unit Editor by Blazer"
+        message="Chapter 6 Unit Editor by Blazer/Mariode"
         type="info"
       />
       <div key={id}>
         <InputSelect
           disabled={view == null}
-          defaultValue={FE11Chapter1UnitEditorEntries.find(
+          defaultValue={FE11Chapter6UnitEditorEntries.find(
             (entry) => entry.value.toString() === id,
           ) ?? id}
           onSelect={(value) => setSearchParams({ id: value })}
-          options={FE11Chapter1UnitEditorEntries}
+          options={FE11Chapter6UnitEditorEntries}
         />
       </div>
       <InputDropbox

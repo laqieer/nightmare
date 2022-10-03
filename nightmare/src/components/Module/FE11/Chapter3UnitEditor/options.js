@@ -1,4 +1,4 @@
-export const FE11Chapter1UnitEditorEntries = [
+export const FE11Chapter3UnitEditorEntries = [
   { label: 'Entry 0', value: 0 },
   { label: 'Entry 1', value: 1 },
   { label: 'Entry 2', value: 2 },
@@ -22,6 +22,14 @@ export const FE11Chapter1UnitEditorEntries = [
   { label: 'Entry 20', value: 20 },
   { label: 'Entry 21', value: 21 },
   { label: 'Entry 22', value: 22 },
+  { label: 'Entry 23', value: 23 },
+  { label: 'Entry 24', value: 24 },
+  { label: 'Entry 25', value: 25 },
+  { label: 'Entry 26', value: 26 },
+  { label: 'Entry 27', value: 27 },
+  { label: 'Entry 28', value: 28 },
+  { label: 'Entry 29', value: 29 },
+  { label: 'Entry 30', value: 30 },
 ];
 
 export const Characters = [
