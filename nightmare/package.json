@@ -1,6 +1,7 @@
 {
   "name": "nightmare",
   "version": "0.1.0",
+  "description": "Nightmare 3 web pages",
   "homepage": "https://laqieer.github.io/nightmare",
   "private": true,
   "dependencies": {
