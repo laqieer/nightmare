@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "@laqieer/nightmare-util": "^1.0.2"
+  },
+  "scripts": {
+    "build": "script\\build_modules.cmd"
+  }
+}
