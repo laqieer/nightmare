@@ -7,11 +7,11 @@ on:
   push:
     branches: [ "main" ]
     paths:
-    - nightmare
+    - nightmare/**
   pull_request:
     branches: [ "main" ]
     paths:
-    - nightmare
+    - nightmare/**
 
 jobs:
   build:
