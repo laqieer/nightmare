@@ -3,6 +3,10 @@
   "version": "0.1.0",
   "description": "Nightmare 3 web pages",
   "homepage": "https://laqieer.github.io/nightmare",
+  "bugs": {
+    "url": "https://github.com/laqieer/nightmare/issues",
+    "email": "laqieer@126.com"
+  },
   "private": true,
   "dependencies": {
     "@ant-design/icons": "^4.7.0",
