@@ -40,7 +40,7 @@ Util to parse and convert Nightmare modules for Nightmare 3.
 ## Install
 
 1. Add NPM registry to `.npmrc`
-```
+```npmrc
 registry=https://registry.npmjs.org
 @laqieer:registry=https://npm.pkg.github.com
 ```
@@ -62,7 +62,7 @@ node node_modules\@laqieer\nightmare-util\src\converter.js "Fire-Emblem-Nightmar
 ```
 
 ### Parse Nightmare modules
-```
+```js
 const parser = require('@laqieer/nightmare-util');
 var result = parser.parse(module_file);
 ```
@@ -70,7 +70,7 @@ Example:
 ```
 node .\parse.js '.\Fire-Emblem-Nightmare-Modules\FE1 Nightmare Modules\FE1 Character Editors\fe1_char 01.nmm'
 ```
-```
+```js
 {
   filename: 'fe1_char 01.nmm',
   version: '1',
